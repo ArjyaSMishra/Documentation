@@ -1,0 +1,158 @@
+\documentclass[%	draftcls,	% Remove when document becomes final!
+				12pt,
+				a4paper,
+				twoside,
+				titlepage,
+				headsepline,
+				numbers=noenddot,
+				listof=totoc,
+				index=totoc,
+				bibliography=totoc]{scrartcl}
+
+
+\ifx\pdfoutput\undefined
+\pdffalse % we are not running pdflatex
+\else
+\pdfoutput=1 % we are running pdflatex
+\pdfcompresslevel=9     % compression level for text and image;
+\usepackage[juratotoc]{scrjura}
+\usepackage[pdftex,
+	bookmarks=true,
+	bookmarksopen=false,
+	bookmarksnumbered=true,
+	linktocpage,colorlinks=true,
+	backref,
+	pagebackref,
+	linkcolor=black,
+	citecolor=black,
+	urlcolor=black]{hyperref}
+\usepackage[pdftex]{graphicx}
+\usepackage{microtype}
+\fi
+
+\usepackage{amsfonts}
+\usepackage{algorithmic}
+\usepackage[english]{babel}
+\usepackage{url}
+\usepackage{color}
+\usepackage{tabularx}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{bbm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{ntheorem}
+\usepackage{microtype}
+\usepackage[htt]{hyphenat}
+\usepackage{fancyvrb}
+\usepackage{subfigure}
+\usepackage{mathptmx} 
+\usepackage[scaled=.90]{helvet} 
+\usepackage{courier}
+\usepackage[rightcaption]{sidecap}
+\usepackage{lscape}
+\usepackage{supertabular}
+\usepackage{everysel}
+
+\usepackage[footnote]{acronym}
+
+\usepackage[obeyDraft]{todonotes}
+\usepackage{xifthen}
+\usepackage{fancyhdr}
+
+\usepackage{color, colortbl}
+\usepackage{xcolor}
+\usepackage{pifont}
+
+\usepackage{longtable}
+\usepackage{enumitem}
+
+\usepackage{rotating}
+
+\usepackage{morefloats}
+
+\usepackage{listings}
+
+\usepackage{parskip}
+
+\RequirePackage{xspace}
+
+\setcounter{secnumdepth}{3}
+
+\newcommand{\p}[1]{\texttt{\small #1}}
+
+\theoremstyle{break}
+\newtheorem{ex}{Example}[section] 
+
+\definecolor{gray}{gray}{0.95}
+\definecolor{darkgreen}{RGB}{0,127,0}
+\definecolor{darkyellow}{RGB}{255,210,0}
+\setlength{\fboxrule}{2pt}
+
+\providecommand{\ext}[1]{}
+
+\pagestyle{fancy}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyhf{}
+\rhead{\fancyplain{}{}}
+\lhead{\fancyplain{}{\rightmark }} 
+\cfoot{\fancyplain{}{\thepage}}
+
+\newacro{evolutionary case study}[evolutionary case study]{\emph{Case Study which keeps on evolving with time}}
+\newacro{demo}[demo]{\emph{short for Demonstration}}
+\newacro{UML}[UML]{\emph{short for Unified Modeling Language}}
+\newacro{UI}[UI]{\emph{short for User Interface}}
+\newacro{Eclipse}[Eclipse]{\emph{Integrated Development Environment (IDE) for programming Java}}
+
+\begin{document}                
+
+	\begin{titlepage}
+	\thispagestyle{empty}
+	\begin{center}
+
+			\includegraphics[width=12cm]{figures/Logo_Uni_Paderborn}\\
+                      
+      		\vspace{3cm}
+			{\LARGE  \text{Master's Thesis Proposal}} \\
+			\vspace{0,3cm}
+			\text{on} \\
+			\vspace{0,3cm}
+			{\LARGE  \textbf{Design and Implementation of a Demonstrator\\ 
+					for Bidirectional Transformation (BX) Tools}} \\ 
+			\vspace{1cm}
+			\text{by} \\
+			\vspace{0,3cm}
+			\begin{tabular}{l l}
+				Student: & Arjya Shankar Mishra \\
+				Matriculation No.: & 6772832\\
+			\end{tabular}\\	
+			\vspace{3cm}
+			\begin{tabular}{l l}
+				Supervisor: & Jun. Prof. Dr. Anthony Anjorin \\ \\ \\
+			\end{tabular}\\ 
+			\vspace{3cm}	
+			\begin{tabular}{l l}
+				Paderborn, \today \\
+			\end{tabular}\\	
+					
+	\end{center}
+	\end{titlepage}
+	\clearpage
+
+  
+  	\pagenumbering{arabic}
+	\setcounter{page}{2}
+	
+	% ************************************************************
+	% *****                    Content                        *****
+	% ************************************************************
+  
+  	\input{introduction}
+  	\newpage
+  	\input{maincontent}
+  	\newpage
+  	\input{conclusion}
+  	
+	\clearpage
+
+\end{document}
