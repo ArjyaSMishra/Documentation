@@ -1,0 +1,221 @@
+\documentclass[%	draftcls,	% Remove when document becomes final!
+				12pt,
+				a4paper,
+				twoside,
+				titlepage,
+				headsepline,
+				numbers=noenddot,
+				listof=totoc,
+				index=totoc,
+				bibliography=totoc]{scrartcl}
+
+
+\ifx\pdfoutput\undefined
+\pdffalse % we are not running pdflatex
+\else
+\pdfoutput=1 % we are running pdflatex
+\pdfcompresslevel=9     % compression level for text and image;
+\usepackage[juratotoc]{scrjura}
+\usepackage[pdftex,
+	bookmarks=true,
+	bookmarksopen=false,
+	bookmarksnumbered=true,
+	linktocpage,colorlinks=true,
+	backref,
+	pagebackref,
+	linkcolor=black,
+	citecolor=black,
+	urlcolor=black]{hyperref}
+\usepackage[pdftex]{graphicx}
+\usepackage{microtype}
+\fi
+
+\usepackage{amsfonts}
+\usepackage{algorithmic}
+\usepackage[english]{babel}
+\usepackage{url}
+\usepackage{color}
+\usepackage{tabularx}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{bbm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{ntheorem}
+\usepackage{microtype}
+\usepackage[htt]{hyphenat}
+\usepackage{fancyvrb}
+\usepackage{subfigure}
+\usepackage{mathptmx} 
+\usepackage[scaled=.90]{helvet} 
+\usepackage{courier}
+\usepackage[rightcaption]{sidecap}
+\usepackage{lscape}
+\usepackage{supertabular}
+\usepackage{everysel}
+
+\usepackage[footnote]{acronym}
+
+\usepackage[obeyDraft]{todonotes}
+\usepackage{xifthen}
+\usepackage{fancyhdr}
+
+\usepackage{color, colortbl}
+\usepackage{xcolor}
+\usepackage{pifont}
+
+\usepackage{longtable}
+\usepackage{enumitem}
+
+\usepackage{rotating}
+
+\usepackage{morefloats}
+
+\usepackage{listings}
+
+\usepackage{parskip}
+
+\RequirePackage{xspace}
+
+\setcounter{secnumdepth}{3}
+
+\newcommand{\p}[1]{\texttt{\small #1}}
+
+\theoremstyle{break}
+\newtheorem{ex}{Example}[section] 
+
+\definecolor{gray}{gray}{0.95}
+\definecolor{darkgreen}{RGB}{0,127,0}
+\definecolor{darkyellow}{RGB}{255,210,0}
+\setlength{\fboxrule}{2pt}
+
+\providecommand{\ext}[1]{}
+
+\pagestyle{fancy}
+\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+\fancyhf{}
+\rhead{\fancyplain{}{}}
+\lhead{\fancyplain{}{\rightmark }} 
+\cfoot{\fancyplain{}{\thepage}}
+
+\newacro{evolutionary case study}[evolutionary case study]{\emph{Case Study which keeps on evolving with time}}
+\newacro{demo}[demo]{\emph{short for Demonstration}}
+\newacro{UML}[UML]{\emph{short for Unified Modeling Language}}
+\newacro{UI}[UI]{\emph{short for User Interface}}
+\newacro{Eclipse}[Eclipse]{\emph{Integrated Development Environment (IDE) for programming Java}}
+
+\begin{document}    
+	
+	\setcounter{page}{1}
+	\pagenumbering{Roman}
+	{
+		%then: create a bastard title
+		\thispagestyle{empty}
+		\begin{center}
+			{\vspace*{170pt}\Large\textbf{A Demonstrator Framework\\ 
+					for Consistency Management Approaches}}\\[30pt]
+			by\\[15pt]
+			{\large Arjya Shankar Mishra}
+		\end{center}
+		\clearpage
+	}            
+
+	\begin{titlepage}
+	\thispagestyle{empty}
+	\begin{center}
+
+			\includegraphics[width=12cm]{figures/Logo_Uni_Paderborn}\\
+                      
+      		\vspace{3cm}
+			{\LARGE  \textbf{A Demonstrator Framework\\ 
+					for Consistency Management Approaches}} \\ 
+			\vspace{0,7cm}
+			{\Large Master's Thesis }\\[6pt]
+			Submitted to the Fakultät f\"ur EIM, Institut f\"ur Informatik\\
+			in Partial Fulfillment of the Requirements for the\\
+			Degree of\\[6pt]
+			{\Large Master of Science}\\
+			\vspace{30pt}
+			\text{by} \\
+			{\large Arjya Shankar Mishra}\\	
+			\vspace{50pt}
+			Supervisor:\\
+			{\large Jun. Prof. Dr. Anthony Anjorin}\\
+			\vspace{60pt}
+			{Paderborn, \today}
+					
+	\end{center}
+	\end{titlepage}
+	\clearpage
+	
+	{
+		
+        {\LARGE \textbf{Declaration}}
+        \vspace{20pt}
+		
+		\noindent I hereby declare that I prepared this thesis entirely on my own and have not used outside sources
+		without declaration in the text. Any concepts or quotations applicable to these sources are
+		clearly attributed to them. This thesis has not been submitted in the same or substantially similar
+		version, not even in part, to any other authority for grading and has not been published elsewhere.\\[27pt]
+		
+		
+		\begin{center}
+			\begin{tabular}{l p{0.1\textwidth} r}
+				\cline{1-1} \cline{3-3}
+				\begin{minipage}[t]{0.4\textwidth}
+					\centering
+					City, Date
+				\end{minipage}
+				&
+				\begin{minipage}[t]{0.2\textwidth}
+				\end{minipage}
+				&
+				\begin{minipage}[t]{0.4\textwidth}
+					\centering
+					Signature
+				\end{minipage}
+			\end{tabular}
+		\end{center}
+	}
+	\clearpage
+
+  	\tableofcontents
+  	\clearpage
+  	
+  	\pagenumbering{arabic}
+	\setcounter{page}{1}
+	
+	% ************************************************************
+	% *****                    Content                        *****
+	% ************************************************************
+  
+  	\input{Introduction/Introduction}
+  	\newpage
+  	\input{RelatedWork/RelatedWork}
+  	\newpage
+  	\input{Research/Research}
+  	\newpage
+  	\input{HighLevel/HighLevel}
+  	\newpage
+  	\input{LowLevel/LowLevel}
+  	\newpage
+  	\input{Application/Application}
+  	\newpage
+  	\input{Evaluation/Evaluation}
+  	\newpage
+  	\input{Summary/Summary}
+    \clearpage
+    
+    \input{Appendix/Appendix}
+    \clearpage
+  	\listoffigures
+  	\clearpage
+  	\listoftables
+  	\clearpage
+  	
+  	\input{Appendix/References}
+  	
+  	
+	\clearpage
+
+\end{document}

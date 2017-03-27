@@ -1,0 +1,13 @@
+
+*.aux
+*.brf
+*.lof
+*.log
+*.lot
+*.out
+*.gz
+*.thm
+*.toc
+
+
+
