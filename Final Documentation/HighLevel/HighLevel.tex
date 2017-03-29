@@ -1,8 +1,9 @@
 \section{High-Level Concepts}\label{sec:highlevel}
-\subsection{Implementation Idea}\label{subsec:implementation}
+In this chapter, I am going to describe all high-level technical details realized during the implementation of the demonstrator. Section \ref{subsec:examples} describes all the examples that I have conceptualized before choosing the final one for the implementation. This is then followed by
+the description of the steps taken for selecting the bx-tool in Section \ref{subsec:bxtoolselection}. Afterwards, Section \ref{subsec:concretedesign} deals with the decisions taken for finalizing the apllication's architecture design.
+\subsection{Choosing an Example}\label{subsec:examples}
 Due to the existing pain points with the bx tools, as described in Section \ref{subsec:motivation} and to solve the problems as described in Section \ref{subsec:problem}, the main idea is to design and implement an interactive bx tool demonstrator.
-\subsubsection{Choosing an Example}\label{subsubsec:examples}
-We have discussed a few examples for implementation as follows:
+I have constructed a few examples for implementation as follows:
 \paragraph{Task Management} This prototype can be used for allocating tasks in a team. It contains two views e.g., supervisor's view and employee's view. A Supervisor can allocate tasks to their subordinates. An employee can view the tasks assigned to him. Then the task will go through a life cycle as the work progresses, i.e., Assigned, In Progress, Testing, Done. Supervisor's view shows aggregate information from multiple projects and multiple employees, but does not contain detailed information, e.g., tasks have fewer states than for assigned employees. Bx rules control how updates are handled and states are reflected in the different views of the project, e.g., the employee's view will be updated for each state change, whereas the supervisor's view is only updated when a task is completed and not for intermediate changes.
 
 \paragraph{Quiz} This prototype can be used for an online quiz game. It contains two views e.g., administrator's view and participant's view.
@@ -13,7 +14,7 @@ There will be a large set of questions related to different areas, e.g, history,
 \paragraph{Arranging a Kitchen}
 It contains two views e.g., low-level view (depicts a grid structure containing blocks) and high-level view (empty space which depicts UI for kitchen). High-level view has more functionalities such as creating/ deleting/ moving an kitchen item, etc. out of which only a few will be available in low-level view. User will create/ delete/ move a kitchen item, i.e., sink / table on the high-level view and if changes done on the high-level view are according to the rules defined in the bx tool then items will be reflected on the low-level view with same colored blocks and vice-versa. Basically the transformation will happen between a low-level language and a high-level language and bx rules control how updates are handled and states are reflected in the different views of the project.
 
-\subsection{BX Tool Selection}\label{subsec:bxtool}
+\subsection{BX Tool Selection}\label{subsec:bxtoolselection}
 
 \subsection{Concrete Design Decision and High-Level Architecture Information}\label{subsec:concretedesign}
 High-Level Architecture diagram of my prototype is given in Figure~\ref{fig:Architecture_Diagram}.
