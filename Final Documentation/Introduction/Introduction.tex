@@ -52,13 +52,34 @@ In this chapter, I am going to describe some commonly used terminologies with re
 
 As already mentioned, "bx is a technique to maintain consistency(synchronize) between two(or more) related models".
 
-\paragraph{Model}
-\paragraph{Delta}
-\paragraph{State}
-\paragraph{Model Space}
-\paragraph{BX}
-\paragraph{Consistency}
+\paragraph{Model}is an artefact or external representation of reality which reflects certain relevant aspects of a real system. It is denoted as "M".
+\begin{itemize}
+\item {Artefact, because it is something artificial, not real.}
+\item {External representation, beacuse it can be a drawing, a physical object or software generated on a computer.}
+\item {Certain relevant aspects, because it contains some properties related to the real system.}
+\end{itemize}
+\paragraph{State} denotes the condition of an artefact at any given point of time.
+\paragraph{Transformation} is the process in which an artefact undergo change from one state to another. It is denoted as "X". Refer Figure~\ref{fig:Transformation_Diagram}.
+\begin{figure}
+	\includegraphics[width=1\textwidth]{figures/Transformation}
+	\caption{Transformation}
+	\label{fig:Transformation_Diagram}
+\end{figure}
+\paragraph{Delta} is the change done to one or more properties of an artefact which causes the transformation (X). It is denoted as $\delta$.
+\paragraph{State Space} describes all the states of an artefact and all the deltas which lead from one state to another. Refer Figure~\ref{fig:StateSpace_Diagram}.
+\begin{figure}
+	\includegraphics[width=1\textwidth]{figures/State_Space}
+	\caption{State Space}
+	\label{fig:StateSpace_Diagram}
+\end{figure}
+\paragraph{Bidirectional Transformation} is a pair of transformation which takes place in both forward and backward direction. Source model ($M_{S}$) is transformed to target model ($M_{T}$) in forward transformation and vice-versa in backward transformation. It is denoted by "BX". Figure~\ref{fig:BX_Diagram} describes the concept in detail.
+\begin{figure}
+	\includegraphics[width=1\textwidth]{figures/BX}
+	\caption{Bidirectional Transformation}
+	\label{fig:BX_Diagram}
+\end{figure}
 
+ 
 
 
 
