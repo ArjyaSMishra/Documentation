@@ -32,18 +32,23 @@ An existing bx tool will be used as a part of the demonstrator to realize \texti
 \subsection{Structure}\label{subsec:structure}
 This document is structured as follows: 
 
-Chapter 1 (introduction) contains the introduction about the thesis topic and
-motivation behind the making of this thesis with a solution strategy.
+Chapter 1 (introduction) contains the introduction and motivation about the thesis with a solution strategy.
 
-Chapter 2 describes the related work that has been done on bx in last few years and the related problems.
+Chapter 2 discusses the related terminologies with respect to bidirectional transformation.
 
-Chapter 3 explains the research questions that I aimed at solving throughout my thesis, research method and implementation idea.
+Chapter 3 describes the related work that has been done on bx in last few years and the related problems.
 
-Chapter 4 describes the architecture(application framework) design in brief with related diagrams.
+Chapter 4 explains the research work that I have done throughout my thesis along with research questions that I aimed at solving with my work.
 
-Chapter 5 provides the layer-wise implementation details of the application along with an application overview.
+Chapter 5 describes all the high-level concepts of my implementation work in brief with related diagrams.
 
-Chapter 6 contains the feedback from user groups, evaluation results and learning goals(based on research questions).
+Chapter 6 provides the in-depth details of each implementation layer along with UML diagrams.
+
+Chapter 7 presents a walkthrough of the application from UI perspective.
+
+Chapter 8 contains the feedback from user groups, evaluation results and learning goals(based on research questions).
+
+Chapter 9 contains the feedback from user groups, evaluation results and learning goals(based on research questions).
 
 Last chapter summarizes all the work which was done as part of this thesis and draws useful conclusions followed by future work.
 
@@ -55,11 +60,11 @@ As already mentioned, "bx is a technique to maintain consistency(synchronize) be
 \paragraph{Model}is an artefact or external representation of reality which reflects certain relevant aspects of a real system. It is denoted as "M".
 \begin{itemize}
 \item {Artefact, because it is something artificial, not real.}
-\item {External representation, beacuse it can be a drawing, a physical object or software generated on a computer.}
+\item {External representation, because it can be a drawing, a physical object or software generated on a computer.}
 \item {Certain relevant aspects, because it contains some properties related to the real system.}
 \end{itemize}
 \paragraph{State} denotes the condition of an artefact at any given point of time.
-\paragraph{Transformation} is the process in which an artefact undergo change from one state to another. It is denoted as "X". Refer Figure~\ref{fig:Transformation_Diagram}.
+\paragraph{Transformation} is the process in which an artefact undergo a change from one state to another. It is denoted as "X". Refer Figure~\ref{fig:Transformation_Diagram}.
 \begin{figure}
 	\includegraphics[width=1\textwidth]{figures/Transformation}
 	\caption{Transformation}
@@ -72,12 +77,16 @@ As already mentioned, "bx is a technique to maintain consistency(synchronize) be
 	\caption{State Space}
 	\label{fig:StateSpace_Diagram}
 \end{figure}
-\paragraph{Bidirectional Transformation} is a pair of transformation which takes place in both forward and backward direction. Source model ($M_{S}$) is transformed to target model ($M_{T}$) in forward transformation and vice-versa in backward transformation. It is denoted by "BX". Figure~\ref{fig:BX_Diagram} describes the concept in detail.
+\paragraph{Consistency} In layman's term, consistent is a state which always involves 2 or more objects/artefacts but doesn't involve ambiguity between them. This is the most important part of the model transformation and the entire focus revolves around it. To be consistent with each other the models have to be inline with respect to their states. Changes in one model may or may not cause any change in other model but their states must not contain any contradiction. In model-transformation , the most important part is to 
+\paragraph{Unidirectional vs.Bidirectional Transformation}  Unidirectional is the simplest one out of all kinds of transformation. It always takes one type of input and produces same type of output \cite{wiki-transformation}. The concept of consistency is very simple as the input model is consistent with the output model, only.
+\newline Whereas, bidirectional transformationis a pair of transformation which takes place in both forward and backward direction. One model can be input sometimes and output at some other time. The concept of consistency is relatively complex as more than one model and the models must be kept consistent. Source model ($M_{S}$) is transformed to target model ($M_{T}$) in forward transformation and vice-versa in backward transformation. It is denoted by "BX". 
+\newline Figure~\ref{fig:BX_Diagram} describes the concept in detail.
 \begin{figure}
 	\includegraphics[width=1\textwidth]{figures/BX}
 	\caption{Bidirectional Transformation}
 	\label{fig:BX_Diagram}
 \end{figure}
+
 
  
 
