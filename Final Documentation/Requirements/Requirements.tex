@@ -1,40 +1,8 @@
 \section{Requirements}\label{sec:requirements}
-This chapter explains all the research work that I have done before or during the actual implementation. Section \ref{subsec:researchphases} describes the phases I went through during my thesis work and the research involved. Afterwards, Section \ref{subsec:objectives} deals with the actual research questions I am going to explore during my thesis. Then, Section \ref{subsec:learninggoals} and \ref{subsec:endresult} describes the learning goals for the user and what to expect from the thesis at the end respectively. 
+This chapter explains all the requirements needed to implement a successful demonstrator. Section \ref{subsec:functionalreq} describes all the functional requirements. Afterwards, Section \ref{subsec:nonfunctionalreq} deals with all the non-functional requirements. Then, Section \ref{subsec:choicesthreats} describes some of the choices that I made during research and  implementation work and its associated threats. 
 
-\subsection{Research Phases}\label{subsec:researchphases}
-My work is based on an \ac{evolutionary case study} which focuses on designing and implementing a successful bx tool demonstrator. My entire work cycle is described in the following paragraphs.
-\paragraph{Case Study}
-Initially, the case study was based on the existing work/research done on bx, existing tools available in the market, flexibility in usage, time and technical expertise required to use these bx tools, and the implementation of these tools in different areas. With the initial study and knowledge gathered, I have formulated a few research questions as described in Section \ref{subsec:objectives} in order to evaluate them in my thesis and improve the existing situation and the usefulness of a bx-tool based demonstrator. 
-\newline\newline Next step was to choose a bx-tool for my demonstrator. Based on the gathered information and taking account implementation related issues, I have finally chosen a bx-tool to be used as a part of the demonstrator to realize bx. Kindly refer Section \ref{subsec:bxtoolselection} for detailed explanation on bx-tool selection.
-\newline\newline Along with the research questions, I have also prepared some learning goals as described in Section \ref{subsec:learninggoals} which the user needs to learn/understand about bx and the bx-tool while playing with the demonstrator.
-\paragraph{Examples and Implementation}
-Initially, I have constructed a few examples which can be implemented covering the requirements and showing the usability of bx tools through demonstrator. Then, taking account the availabilities of resources and usability factor, I finally chose the best suitable example to implement and build the final prototype. Section \ref{subsec:examples} describes list of all the examples.
-\newline\newline Next step was to set up the entire application framework for implementing the demonstrator. First, I did some research by going through materials on software design patterns and web application architecture. Then, I prepared a few proof of concepts(POC) for checking the feasibilty of the architecture designs before finalising my application framework. Kindly refer Section \ref{subsec:concretedesign} for detailed explanation on finalizing the architecture design.
-\paragraph{Evaluation} To evaluate the demonstrator, I have conducted a few feedback sessions ....
-\newline\newline Based on the feedbacks from the users, .... Kindly refer Section \ref{sec:evaluation} for detailed explanation on evaluation and feedback.
-\paragraph{Choices and Threats} 
-The implementation process and the final prototype was driven by many choices and threats. For example, 
-\begin{itemize} 
-	\item {selection of the bx tool and the most suitable example to implement has impact on deciding the usefullness of the demonstrator.}
-	\item {seletion of the bx tool and the example to implement is more or less influenced by the ideas given by my supervisor.} 
-	\item {my decisions on designing the application's framework for implementation are impacted by the existing availability and usability issues of the finalized bx-tool.}
-	\item {During evaluation, I might not have got proper feedback from my friends \& colleagues due to my acquaintance and time constraints.}
-\end{itemize}
-
-\subsection{Objectives}\label{subsec:objectives}
-The goal of this thesis is to explore the fundamental and technical challenges involved in implementing a demonstrator for bx tools.
-\newline\newline This thesis aims at answering these main research questions:
-\\\textbf{\textit{RQ1}} -- What are the core requirements for implementing a successful bx demonstrator ?\\
-\\\textbf{\textit{RQ2}} -- What kind of interactivity and to what extent is it required in the bx demonstrator ?\\
-\\\textbf{\textit{RQ3}} -- Which goals can be particularly well addressed in a bx demonstrator and why ?\\
-\\\textbf{\textit{RQ4}} -- To what extent is such a bx demonstrator reusable?\\
-RQ4 can be split into the following sub-questions:
-\\\textbf{\textit{RQ4.1}} -- Is the implementation of the demonstrator bx tool-specific ?\\
-\\\textbf{\textit{RQ4.2}} -- Is the implementation of the demonstrator example-specific?\\
-\\\textbf{\textit{RQ4.3}} -- What part(s) of the demonstrator can be reused in implementing a different example ?
-\newline\newline All of my work is directly or indirectly related to the above research questions.
-
-\subsection{Learning Goals}\label{subsec:learninggoals}
+\subsection{Functional}\label{subsec:functionalreq}
+\paragraph{Learning Goals}
 Along with exploring the challenges as described in Section \ref{subsec:objectives}, I am also focussing on teaching some basic concepts to the user about bx in the process of trying/playing with the demonstrator.
 
 What am I trying to teach?
@@ -45,13 +13,23 @@ What am I trying to teach?
 	\item {Current limitation - you can only change one side.}
 	\item {Synchronisation is interactive (to handle non-determinism).}	
 \end{itemize}
-
-\subsection{End Result}\label{subsec:endresult}
-As my thesis is more focussed on the implementation of a demonstrator for consistency management based on a bx tool, following are the end results I am trying to achieve:
+\subsection{Non-Functional}\label{subsec:nonfunctionalreq}
+As my thesis is more focussed on the implementation of a demonstrator for consistency management based on a bx tool, following are some of the non-functional the end results I am trying to achieve:
 \begin{itemize} 
 	\item {Reduce the installation time of the bx tool by making the demonstrator available online. Hence, the user is just a click away to try the bx tool and needs nothing to install on his/her machine.} 
 	\item {Demonstartor should be interactive and fun to play with.}
-	\item {User should be able to learn/understand the concepts of bx as described in Section \ref{subsec:learninggoals}.}
+	\item {Demonstrator's example should not be too technical and rather be simple to attract more users. Also, user should be able to relate to the bx concepts through the example.}
+	\item {Demonstrator should be able to guide the user in the whole playing/learning process.}
+\end{itemize}
+\subsection{Technical}\label{subsec:technicalreq}
+
+\subsection{Choices and Threats}\label{subsec:choicesthreats}
+The implementation process and the final prototype was driven by many choices and threats. For example, 
+\begin{itemize} 
+	\item {selection of the bx tool and the most suitable example to implement has impact on deciding the usefullness of the demonstrator.}
+	\item {seletion of the bx tool and the example to implement is more or less influenced by the ideas given by my supervisor.} 
+	\item {my decisions on designing the application's framework for implementation are impacted by the existing availability and usability issues of the finalized bx-tool.}
+	\item {During evaluation, I might not have got proper feedback from my friends \& colleagues due to my acquaintance and time constraints.}
 \end{itemize}
 
 

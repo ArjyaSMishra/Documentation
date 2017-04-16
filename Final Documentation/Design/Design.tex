@@ -1,8 +1,9 @@
 \section{Design}\label{sec:design}
 In this chapter, I am going to describe all high-level technical details realized during the implementation of the demonstrator. Section \ref{subsec:examples} describes all the examples that I have conceptualized before choosing the final one for the implementation. This is then followed by
 the description of the steps taken for selecting the bx-tool in Section \ref{subsec:bxtoolselection}. Afterwards, Section \ref{subsec:concretedesign} deals with the decisions taken for finalizing the apllication's architecture design.
-\subsection{Choosing an Example}\label{subsec:examples}
+\subsection{Choosing an Example}\label{subsec:exampleforimplementation}
 Due to the existing pain points with the bx tools, as described in Section \ref{subsec:motivation} and to solve the problems as described in Section \ref{subsec:problem}, the main idea is to design and implement an interactive bx tool demonstrator.
+\subsubsection{Construction}\label{subsubsec:exampleconstruction}
 I have constructed a few examples for implementation as follows:
 \paragraph{Task Management} This prototype can be used for allocating tasks in a team. It contains two views e.g., supervisor's view and employee's view. A Supervisor can allocate tasks to their subordinates. An employee can view the tasks assigned to him. Then the task will go through a life cycle as the work progresses, i.e., Assigned, In Progress, Testing, Done. Supervisor's view shows aggregate information from multiple projects and multiple employees, but does not contain detailed information, e.g., tasks have fewer states than for assigned employees. Bx rules control how updates are handled and states are reflected in the different views of the project, e.g., the employee's view will be updated for each state change, whereas the supervisor's view is only updated when a task is completed and not for intermediate changes.
 
@@ -14,9 +15,15 @@ There will be a large set of questions related to different areas, e.g, history,
 \paragraph{Arranging a Kitchen}
 It contains two views e.g., low-level view (depicts a grid structure containing blocks) and high-level view (empty space which depicts UI for kitchen). High-level view has more functionalities such as creating/ deleting/ moving an kitchen item, etc. out of which only a few will be available in low-level view. User will create/ delete/ move a kitchen item, i.e., sink / table on the high-level view and if changes done on the high-level view are according to the rules defined in the bx tool then items will be reflected on the low-level view with same colored blocks and vice-versa. Basically the transformation will happen between a low-level language and a high-level language and bx rules control how updates are handled and states are reflected in the different views of the project.
 
+\paragraph{Robot in a Factory}
+
+\subsubsection{Selection}\label{subsubsec:exampleselection}
+
 \subsection{BX Tool Selection}\label{subsec:bxtoolselection}
 
-\subsection{Concrete Design Decision and High-Level Architecture Information}\label{subsec:concretedesign}
+\subsubsection{Benchmarx}\label{subsubsec:benchmarx}
+
+\subsection{Architecture Design Decision}\label{subsec:architecturedesign}
 High-Level Architecture diagram of my prototype is given in Figure~\ref{fig:Architecture_Diagram}.
 \begin{figure}
 	\includegraphics[width=1\textwidth]{figures/Highlevel_Arch}
@@ -27,6 +34,15 @@ High-Level Architecture diagram of my prototype is given in Figure~\ref{fig:Arch
 It contains the entire UI elements and its logic.
 \subsubsection{Controller}\label{subsubsec:controller}
 \subsubsection{Model}\label{subsubsec:model}
+
+\subsection{User Interface (UI)}\label{subsec:ui}
+\subsubsection{External Design}\label{subsubsec:uiextdesign}
+\subsubsection{Internal Design}\label{subsubsec:uiintdesign}
+
+\subsection{Models}\label{subsec:models}
+\subsubsection{UI Models}\label{subsubsec:uimodels}
+\subsubsection{Kitchen Layout}\label{subsubsec:kitchen}
+\subsubsection{Grid Layout}\label{subsubsec:grid}
 
 
 
