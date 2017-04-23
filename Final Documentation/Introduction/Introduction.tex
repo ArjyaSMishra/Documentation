@@ -1,9 +1,9 @@
 \section{Introduction}\label{sec:introduction}
 In the era of Information Technology, the usage of softwares and applications are growing day by day and have become an important part of our lives. This makes the software industry one of the largest industries on the world and many others companies are built around the development of softwares. With the growing usage of softwares, software development process has changed drastically and currently more solution oriented. Nowadays, the entire focus is making the software development process fast, less complex and more human-friendly. 
-\newline\newline One of the approach to reduce the complexity of software development is abstraction and separation of concerns \cite{modeltransform}. In recent times, software modeling has become an effective way for implementing this principle. In traditional approach, developers manually writes programs and checks the specifications realted to software models, which is often costly, incomplete, informal and carries a major risk of failure. On the contrary, model-driven software development (MDSD) approach improves the way softwares are built by moving the focus from programming language code and representing the essential aspects of software in the form of software models. It increases the reduces the development costs and increases the reusability and maintainability of software. The objective of MDSD \cite{modeltransform} is to increase productivity and reduce time-to-market by enabling development at a higher level of abstraction and by using concepts closer to the problem domain at hand, rather than the ones offered by programming languages. 
+\newline\newline One of the approach to reduce the complexity of software development is abstraction and separation of concerns \cite{modeltransform}. In recent times, software modeling has become an effective way for implementing this principle. In traditional approach, developers manually writes programs and checks the specifications realted to software models, which is often costly, incomplete, informal and carries a major risk of failure. On the contrary, model-driven software development (referred as \textbf{MDSD} from now on) approach improves the way softwares are built by moving the focus from programming language code and representing the essential aspects of software in the form of software models. It increases the reduces the development costs and increases the reusability and maintainability of software. The objective of MDSD \cite{modeltransform} is to increase productivity and reduce time-to-market by enabling development at a higher level of abstraction and by using concepts closer to the problem domain at hand, rather than the ones offered by programming languages. 
 \newline\newline The core idea of MDSD approach is based on models, modeling and model transformations. In this approach, developers depits the real world system under discussion in the form of models with certain level of abstraction. These models are used to form the problem domain and the relationships between them helps to form the solution domain. Models can be changed to represent different state/view of the system. But, it is necessary to change between different states of a system with equivalent level of abstarction by ensuring their overall consistency. This phenomenon is handled by model transformation. This certainly increases the developers productivity and the quality of the models.
 
-\textit{Bidirectional transformation} (denoted by "bx") is a technique used to synchronize two (or more) instance of different meta-models. Both models are related, but don't necessarily contain the same information. Changes in one model thus lead to changes in the other model \cite{bx-grace}. Bx makes sure that two models that can change over time have to be kept constantly consistent with each other.
+\textit{Bidirectional transformation} (denoted by "bx", referred as \textbf{bx} from now on) is a technique used to synchronize two (or more) instance of different meta-models. Both models are related, but don't necessarily contain the same information. Changes in one model thus lead to changes in the other model \cite{bx-grace}. Bx makes sure that two models that can change over time have to be kept constantly consistent with each other.
 \newline\newline\textit{Bidirectional transformation} is used to deal with scenarios like:
 \begin{itemize}
 	\item {change propagation to the user interface as a result of underlying data changes}	
@@ -42,7 +42,7 @@ My approach for providing a solution to the problems described in Section \ref{s
 
 \paragraph{Analysis}
 This stage is based on the research method called Case Study \cite{semethods}. In any research, there could be many cases and each case could focus on a number of different research questions, each of which leads to a different direction in developing solution strategies \cite{semethods}. Hence, this method aims at selecting cases that are most relevant to the research and research questions are pinned down to the exact problems in hand. 
-\newline\newline Initially, the case study was based on the existing work/research done on bx, existing tools available in the market, flexibility in usage, time and technical expertise required to use these bx tools, and the implementation of these tools in different areas. With the initial study and knowledge gathered, I have divided the problems into following relevant cases and associated research questions:\\\\
+\newline\newline Initially, the case study was based on the existing work/research done on bx, existing tools available in the market, flexibility in usage, time and technical expertise required to use these bx tools, and the implementation of these tools in different areas. With the initial study and knowledge gathered, I have divided the problems into following relevant cases and associated research questions (referred to as \textbf{RQ} from now on):\\\\
 \textbf{Case: Demonstrator}
 \begin{itemize}
 \item {\textbf{\textit{RQ1}} -- What are the core requirements for implementing a successful bx demonstrator ?}
@@ -107,7 +107,11 @@ As already mentioned, \textbf{"bx is a technique to maintain consistency(synchro
 \item {Certain relevant aspects, because it contains some properties related to the real system.}
 \end{itemize}
 A model depicts the structure and/or behavior of the system under discussion from a certain viewpoint and at a certain level of abstraction which helps in managing and understanding the complexities of a system \cite{uml} \cite{mdsd}.
-\newline\newline\textit{Example:} In my demonstrator, the example that I have implemented has two models, e.g. Kitchen and Grid which represents the reality "Kitchen". A relation between reality and model is shown in Table~\ref{tab:Model and Reality}.
+\newline\newline\textit{Example:} In my demonstrator, the example that I have implemented has two models e.g., Kitchen and Grid. Both the models represent the reality "Kitchen". A relation between reality and models is shown in Table~\ref{tab:Model Reality}.
+
+\paragraph{Modeling} is the process which allows a developer to specify, visualize and capture a variety of important characteristics of a system in corresponding models which helps in decision making in all the development stages \cite{uml}. Nowadays, Unified Modeling Language (UML) \cite{uml} is used to visualize models in an object-oriented fashion.
+\newline\newline\textit{Example:} In my demonstrator example, the process of identifying and constructing the "Grid Model" with the characteristics that is required for the task. A basic model of the "Grid Model" is shown in figure~\ref{fig:Modeling_Example}.
+
 \begin{table}
 	\centering	
 	\begin{tabular}{|p{3cm}|p{3cm}|p{9cm}|}
@@ -125,20 +129,17 @@ A model depicts the structure and/or behavior of the system under discussion fro
 		\hline
 		Kitchen & Grid Model & 
 		\begin{itemize}
-				\item Area of a kitchen as a block structure
-				\item 4 Walls of a kitchen
-				\item contains the objeccts of a kichen
-				\item Creating, Deletion of kitchen objects
+			\item Area of a kitchen as a block structure
+			\item 4 Walls of a kitchen
+			\item contains the objeccts of a kichen
+			\item Creating, Deletion of kitchen objects
 		\end{itemize}\\
 		\hline					
 		
 	\end{tabular}
-	\label{tab:Model and Reality}
+	\label{tab:Model Reality}
 	\caption{Model and Reality}
 \end{table}
-
-\paragraph{Modeling} is the process which allows a developer to specify, visualize and capture a variety of important characteristics of a system in corresponding models which helps in decision making in all the development stages \cite{uml}. Nowadays, Unified Modeling Language (UML) \cite{uml} is used to visualize models in an object-oriented fashion.
-\newline\newline\textit{Example:} In my demonstrator example, the process of identifying and constructing the "Grid Model" with the characteristics that is required for the task. A basic model of the "Grid Model" is shown in figure~\ref{fig:Modeling_Example}.
 
 \begin{figure}
 	\includegraphics[width=1\textwidth]{figures/Modeling_Example}
@@ -148,8 +149,16 @@ A model depicts the structure and/or behavior of the system under discussion fro
 
 \paragraph{State} denotes the condition of an artefact at any given point of time.
 
-\paragraph{Delta} is the change done to one or more properties of an artefact which causes the transformation. It is denoted as $\delta$.
+\paragraph{Delta} is the change done to one or more properties of an artefact. It denotes the relationships between models from the same model space \cite{benchmarx-reload}. 
+It is denoted as $\delta$: M $\longrightarrow$ M' where M' is an updated version of M. Refer Figure~\ref{fig:Delta_Propagation}.
+\begin{figure}
+	\includegraphics[width=1\textwidth]{figures/Delta}
+	\caption{Delta Propagation}
+	\label{fig:Delta_Propagation}
+\end{figure}
 \newline\newline\textit{Example:} In my demonstrator example, deltas related to the "Kitchen Model" are described in Table~\ref{tab:Examples of Delta}. 
+\\\\\textit{Structural Delta} denoted as "s-delta" is the collection of changes done to a model to update it, which is compatible with structure \cite{benchmarx-reload}. The way the changes are applied to the original model to result in a updated model (models of the same model space) don't necessarily have to be in the order in which they are performed. 
+\\\\\textit{Operational Delta} denoted as "o-delta" is the collection of operational specification changes done to a model to update it \cite{benchmarx-reload}. It is important that the changes are applied to the original model to result in a updated model (models of the same model space) have to be in the order in which they are performed. 
 \begin{table}
 	\centering	
 	\begin{tabular}{|p{5cm}|p{10cm}|}
@@ -170,25 +179,42 @@ A model depicts the structure and/or behavior of the system under discussion fro
 	\caption{Examples of Delta}
 \end{table}
 
-\paragraph{Transformation} is the process in which an artefact undergo a change from one state to another. 
-\newline\newline\textit{Example:} In my demonstrator example, creating a delta($\delta$) in the "Kitchen Model" will cause a transformation. Refer Figure~\ref{fig:Transformation_Diagram}.
+\paragraph{Correspondence Links} Relationships between models from different model spaces are called correspondence links, or just corrs \cite{benchmarx-reload}. A corr is a set of links 
+r(a; b) between elements (a in A, b in B), which are compatible with the models' structure and denoted by double bidirectional arrows, e.g., R: A $\Longleftrightarrow$ B. 
+\newline\newline\textit{Example:} In my demonstrator example, an example of a corr is r(group; itemSocket) where \textit{group}, \textit{itemSocket} are the elements of Grid and Kitchen Model respectively. Refer Figure~\ref{fig:Corr}.
+\begin{figure}
+	\includegraphics[width=1\textwidth]{figures/Corr}
+	\caption{Correspondence Links}
+	\label{fig:Corr}
+\end{figure}
 
+\paragraph{Transformation} is the process in which an artefact undergo a change from one model to another model (models from different model spaces) expressed in either same abstraction level or in different abstraction level. Refer Figure~\ref{fig:Transformation}.
 \begin{figure}
 	\includegraphics[width=1\textwidth]{figures/Transformation}
 	\caption{Transformation}
-	\label{fig:Transformation_Diagram}
+	\label{fig:Transformation}
+\end{figure}
+\\\\\textit{Forward Transformation} is the transformation from \textit{Source} model to \textit{Target} model.
+\\\\\textit{Backward Transformation} is the transformation from \textit{Target} model to \textit{Source} model.
+\newline\newline\textit{Example:} In my demonstrator example, "Grid Model" is the \textit{Source} model and "Kitchen Model" is the \textit{Target} model. Forward transformation will cause "Grid Model" to change into "Kitchen Model" and Backward transformation will cause "Kitchen Model" to change into "Grid Model". Refer Figure~\ref{fig:FWDBKDTransformation}.
+\begin{figure}
+	\includegraphics[width=1\textwidth]{figures/FWDBKDTransformation}
+	\caption{Forward and Backward Transformation}
+	\label{fig:FWDBKDTransformation}
 \end{figure}
 
-\paragraph{State Space} describes all the states of an artefact and all the deltas which lead from one state to another. Refer Figure~\ref{fig:StateSpace_Diagram}.
+\paragraph{State Space} describes all the states of an artefact and all the deltas which lead from one state to another.
 \begin{figure}
 	\includegraphics[width=1\textwidth]{figures/State_Space}
 	\caption{State Space}
 	\label{fig:StateSpace_Diagram}
 \end{figure}
+\newline\newline\textit{Example:} In my demonstrator example, all the states of Kitchen Model along with its deltas are shown in Figure~\ref{fig:StateSpace_Diagram}.
 
-\paragraph{Consistency} In layman's term, consistent is a state which always involves 2 or more objects/artefacts but doesn't involve ambiguity between them. This is the most important part of the model transformation and the entire focus revolves around it. To be consistent with each other the models have to be inline with respect to their states. Changes in one model may or may not cause any change in other model but their states must not contain any contradiction. 
+\paragraph{Consistency} In layman's term, consistent is a state which always involves 2 or more objects/artefacts but doesn't involve ambiguity between them. This is the most important part of the model transformation and the entire focus revolves around it. To be consistent with each other the models have to be inline with respect to their states. Changes in one model may or may not cause any change in other model (models from different model spaces) but their states must not contain any contradiction. It is checked on the set of all corrs related to both the models,
+R: A $\Longleftrightarrow$ B, i.e., the corr R is consistent, or R is inconsistent \cite{benchmarx-reload}.
 
-\paragraph{Unidirectional vs.Bidirectional Transformation}  Unidirectional is the simplest one out of all kinds of transformation. It always takes one type of input and produces same type of output \cite{wiki-transformation}. The concept of consistency is very simple as the input model is consistent with the output model, only.
+\paragraph{Unidirectional vs.Bidirectional Transformation}  Unidirectional is the simplest one out of all kinds of transformation. It always takes one type of input and produces same type of output. The concept of consistency is very simple as the input model is consistent with the output model, only.
 \newline Whereas, bidirectional transformationis a pair of transformation which takes place in both forward and backward direction. One model can be input sometimes and output at some other time. The concept of consistency is relatively complex as more than one model and the models must be kept consistent. Source model ($M_{S}$) is transformed to target model ($M_{T}$) in forward transformation and vice-versa in backward transformation. It is denoted by "BX". 
 \newline Figure~\ref{fig:BX_Diagram} describes the concept in detail.
 \begin{figure}
@@ -197,8 +223,13 @@ A model depicts the structure and/or behavior of the system under discussion fro
 	\label{fig:BX_Diagram}
 \end{figure}
 
-\paragraph{Bijective vs.Bidirectional Transformation}  
-
+\paragraph{Bijective Transformation}  In bijective transformation, every element of a model is paired with exactly one element of another model (models from different model spaces).
+Refer Figure~\ref{fig:Bijective}.
+\begin{figure}
+	\includegraphics[width=1\textwidth]{figures/Bijective}
+	\caption{Bijective Transformation}
+	\label{fig:Bijective}
+\end{figure}
 
  
 
