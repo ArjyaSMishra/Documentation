@@ -1,5 +1,6 @@
 \section{Design}\label{sec:design}
-In this chapter, I am going to describe all high-level technical details realized during the implementation of the demonstrator. Section \ref{subsec:examples} describes all the examples that I have conceptualized before choosing the final one for the implementation. This is then followed by the description of the steps taken for selecting the bx-tool in Section \ref{subsec:bxtoolselection}. Afterwards, Section \ref{subsec:architecturedesign} deals with the decisions taken for finalizing the apllication's architecture design.
+In this chapter, I am going to describe the design steps realized during the implementation of the demonstrator. Section \ref{subsec:exampleforimplementation} describes all the examples that I have conceptualized before choosing the final one for the implementation. This is then followed by the description of the steps taken for selecting the bx-tool in Section \ref{subsec:bxtoolselection}. Afterwards, Section \ref{subsec:architecturedesign} deals with the decisions taken for finalizing the apllication's architecture design. Then, Section \ref{subsec:framework} describes the applications' framework in detail along with its components.
+Section \ref{subsec:designchallenges} describes the challenges that I faced while designing the framework and its components. At last, Section \ref{subsec:walkthrough} gives a walkthrough of the user interface.
 \subsection{Choosing an Example}\label{subsec:exampleforimplementation}
 To solve the problems as described in Section \ref{subsec:problem}, the main idea is to design and implement an interactive bx tool demonstrator based on an intuitive example.
 \subsubsection{Construction}\label{subsubsec:exampleconstruction}
@@ -18,8 +19,8 @@ It contains two views e.g., low-level view (depicts a grid structure containing 
 It contains two views e.g., Family view and Person view. In Family view, it contains many families and each family consist of members. Whereas, Person view contains persons (the members of each family). We assume that the surnames are unique and allow us to differentiate between different families. Addition of a new person to the Person view will be reflected on the family view and vice-versa. Also, due to the uniqueness of the surnames, person created will be automatically assigned to the related family. Bx rules control how updates are handled and states are reflected in the different views.
 
 \subsubsection{Selection}\label{subsubsec:exampleselection}
-Selecting an example to implement through the demonstrator was not random, rather I have taken many factors into considerations before choosing the final one. It was a very important decision, as selection of the example and its implemenation will directly effect the research questions \textbf{\textit{RQ2}}, \textbf{\textit{RQ4.2}}, \textbf{\textit{RQ6}} described in Section \ref{subsec:approach} and requirements \textbf{\textit{NREQ2}}, \textbf{\textit{NREQ3}} described in Section \ref{subsec:functionalreq}.
-\newline\newline Hence by taking into account all these factors, I have finally chosen the \textbf{Arranging a Kitchen} example to be implemented by the demonstrator as a part of my research. Following were the driving factors for the selection of the example:
+Selecting an example to implement through the demonstrator was not random, rather I have taken many factors into considerations before choosing the final one. It was a very important decision, as selection of the example and its implemenation will directly effect the research questions \textit{RQ2}, \textit{RQ4.2}, \textit{RQ6} described in Section \ref{subsec:approach} and requirements \textit{NREQ2}, \textit{NREQ3} described in Section \ref{subsec:functionalreq}.
+\newline\newline Hence by taking into account all these factors, I have finally chosen the \textit{Arranging a Kitchen} example to be implemented by the demonstrator as a part of my research. Following were the driving factors for the selection of the example:
 \begin{itemize}
 	\item {Any user can relate to the example very well as everybody is familiar with a kitchen and its environment.}
 	\item {Example is very simple and no technical details are involved.}
@@ -44,8 +45,8 @@ To focus particularly on the above issues, bx-community had conducted a series o
 	\item {software tool support for bx was shown in terms of demos which includes tool like eMoflon, Echo etc.}
 \end{itemize}
 \subsubsection{Selection}\label{subsubsec:bxtoolselection}
-Again, it was a very important decision, as selection of the bx tool and the implemenation on the top of it will directly effect the research questions \textbf{\textit{RQ1}}, \textbf{\textit{RQ4.1}} described in Section \ref{subsec:approach} and requirements \textbf{\textit{NREQ1}} described in Section \ref{subsec:functionalreq}.
-\newline\newline The outcome of the seminars as discussed in previous section \ref{subsubsec:bxtooltheory} led me to concentrate and analyze the bx tools like eMoflon, Echo, BIGUL. Also, I came across the benchmark \cite{benchmarx} \cite{benchmarx-reload}, the first non-trivial benchmark where Anjorin et al. has provided a practical framework to compare and evaluate three bx tools. After analyzing these tools, benchmarks and taking into consideration the reserach questions and requiements, I have finally chosen \textbf{eMoflon} as the bx tool to handle the bx part of my demonstrator. Following were the driving factors for the selection of the bx tool:
+Again, it was a very important decision, as selection of the bx tool and the implemenation on the top of it will directly effect the research questions \textit{RQ1}, \textit{RQ4.1} described in Section \ref{subsec:approach} and requirements \textit{NREQ1} described in Section \ref{subsec:functionalreq}.
+\newline\newline The outcome of the seminars as discussed in previous section \ref{subsubsec:bxtooltheory} led me to concentrate and analyze the bx tools like eMoflon, Echo, BIGUL. Also, I came across the benchmark \cite{benchmarx} \cite{benchmarx-reload}, the first non-trivial benchmark where Anjorin et al. has provided a practical framework to compare and evaluate three bx tools. After analyzing these tools, benchmarks and taking into consideration the reserach questions and requiements, I have finally chosen \textit{eMoflon} as the bx tool to handle the bx part of my demonstrator. Following were the driving factors for the selection of the bx tool:
 \begin{itemize}
 	\item {sample implementation with framework to implement the eMoflon tool was already available.}
 	\item {my supervisor/prof. is a core member of the eMoflon community which gave me added advantage of knowing the tool inside out.}
@@ -60,9 +61,17 @@ A bx benchmark (referred to as \textbf{Benchmarx} from now on) is a bx example t
 \subsection{Architecture Design}\label{subsec:architecturedesign}
 Last step in the design process was application architecture design which is the most important part of my thesis and also the starting phase of the implementation of the prototype.
 \subsubsection{Design Decision}\label{subsubsec:architecturedesigndecision}
-
-\subsubsection{Framework}\label{subsubsec:framework}
-Figure~\ref{fig:Architecture_Diagram} shows a very high-level architecture diagram of my prototype. It consist of 3 layers e.g., View, Controller and Model. View is responsible for all the graphical user interface management and consist of technologies like HTML, CSS, JavaScript and Jquery. Controller is responsible for event handling and basically consist of the technology Servlet. Model is responsible for all the tasks related to business logic, business rules, data, meta-models, state of meta-models etc. and consist of java classes.
+I decided to build a web appliaction to address the requirements \textit{NREQ1}, \textit{TREQ1} and \textit{TREQ1} described in Section \ref{subsec:functionalreq}.
+\newline\newline Web application development has evolved drastically from single page design to very complex layering structures since the beginning of World Wide Web. Many design patterns \cite{designpattern} \cite{designpattern-notes} consisting of different technologies and programming languages were proposed, adopted and implemented in different time to address the demands of customers and users on web. With the rapid changes occuring on World Wide Web, technologies are becoming obsolete and losing its demand day by day. Nowadays, the main focus is on improving the user interaction and allow the developers to build powerful web applications rapidly.
+\newline\newline I have analyzed a few design patterns and commonly used architecture designs in todays world by working on a few Proof of Concepts (PoC). Main goal of my thesis is to design and implement a demonstrator based on a bx-tool as described in Section \ref{subsec:solution} and prior to this stage, I have already selected \textit{eMoflon} as my bx-tool in Section \ref{subsec:bxtoolselection}. So, The main idea was to check the feasibility of the architecture and the data flow within its components on the top of the interface provided by the \textit{Benchmarx} (proposed by Anjorin et al. \cite{benchmarx-reload}) to access the bx-tool. While working on the PoCs, I came across a few problems such as, maintainability and reusability of code, dependencies of components etc. To avoid these problems and to address the requirement \textit{TREQ3} described in Section \ref{subsec:functionalreq}, I finally chose Model-View-Controller (referred as \textbf{MVC} from now on) architecture for my application framework. Following were the driving factors for the selection of the MVC architecture \cite{designpattern-notes} \cite{designpattern-headfirst} :
+\begin{itemize}
+	\item {It differentiates the layers of a project in Model, View and Controller for the re-usability and easy maintainance of code.}
+	\item {It splits responsibilities into three main roles which allows the developers to work independently without interfering in each others work and for more efficient collaboration.}
+	\item {Due to the sepration of concern, same Model can have any no.of Views. Enhancements in Views and other support of new technologies for building the View can be implemented easily.}
+	\item {A person who is working on View does not need to know about the underlying Model code base and its architecture.}
+\end{itemize}
+\subsection{Framework}\label{subsec:framework}
+Figure~\ref{fig:Architecture_Diagram} shows a very high-level architecture diagram of my prototype. It consist of 3 components e.g., Model, View and Controller. View is responsible for all the graphical user interface management and consist of technologies like HTML, CSS, JavaScript and Jquery. Controller is responsible for event handling and basically consist of the technology Servlet. Model is responsible for all the tasks related to business logic, business rules, data, meta-models, state of meta-models etc. and consist of java classes.
 \begin{figure}
 	\includegraphics[width=1\textwidth]{figures/Highlevel_Arch}
 	\caption{High Level Architecture Diagram}
@@ -70,30 +79,85 @@ Figure~\ref{fig:Architecture_Diagram} shows a very high-level architecture diagr
 \end{figure}
 \clearpage
 \paragraph{Request-Response Cycle} 
-Figure~\ref{fig:Architecture_Diagram} shows a detailed architecture diagram with a complete request-response cycle.
+Figure~\ref{fig:Detail_Architecture_Diagram} shows a detailed architecture diagram with a complete request-response cycle described below:
+\begin{enumerate}
+	\item {User interacts with the application on a browser and user actions are sent to the Controller as requests.}
+	\item {After accepting the request, Controller decides on how to handle it and send it to the controller helper for further processing.}
+	\item {After processing the request, controller helper send it to the Model.}
+	\item {Model processes the request and generates the response, which is sent back to the controller through controller helper.}
+	\item {After receiving the response, Controller prepares the data and send it to the View.}
+	\item {View processes the data and finally the final response is generated and loaded on the browser.}
+\end{enumerate}
 \begin{figure}
 	\includegraphics[width=1\textwidth]{figures/Detail_Arch}
 	\caption{Detail Architecture Diagram}
 	\label{fig:Detail_Architecture_Diagram}
 \end{figure}
 
-\subsubsection{Controller}\label{subsubsec:controller}
-
+Below sub-sections describes the designing process of each component e.g., Model, View and Controller in detail.
 \subsubsection{Model}\label{subsubsec:model}
-\paragraph{UI Models}
+Model is mainly responsible for encapsulating the access of data and handling the business logic of the application \cite{designpattern-headfirst} \cite{mvc-arch}. It ensures the data abstraction and provides methods to access it, due to which the complexity of writing the code on developers' part is highly reduced \cite{mdd-webwithmvc}.
+\newline\newline In my case, Model is consist of java classes and the \textit{eMoflon} tool. The java classes consist of interfaces and its concrete implementation designed to access the bx-tool eMoflon on the top of the framework provided by the \textit{Benchmarx}. The tool contains all the meta-models, state of the meta-models and the associated transformation rules.
 \paragraph{Kitchen Layout}
 \paragraph{Grid Layout}
+\paragraph{Transformation Rules}
+\paragraph{UI Models}
+\paragraph{Deltas}
 
 \subsubsection{View}\label{subsubsec:view}
+The View handles the graphical user interface part of the application. Hence, it contains all the graphic elements and all other HTML elements of the application. View separates the design of the application from the logic of the application due to which the front end designer and the back end developer can work separately without thinking about the errors which could have showed up incase of an overlapping \cite{designpattern-headfirst} \cite{mvc-arch}. View controls how the data is being displayed,
+how the user interacts with it and provides ways for gathering the data from the users. 
+\newline\newline In my case, the technologies that I am using for View are HTML, CSS and JavaScript and JQuery.
 \paragraph{External Design}
+For the visualization of the example \textit{Arranging a Kitchen} as explained in Section \ref{subsec:exampleforimplementation}, first task was to design the low-level and high-level views along with its functionalities.
+\newline\newline Both the views represent a kitchen area and its certain behaviour. High-level view has more functionalities and flexibility in usage than the low-level view. As both the views are independent of each other and resonates a confined area in which certain task related to animation/graphics has to be performed, I chose \textit{Canvas} \cite{canvas} HTML element as a container for my views. \textit{Canvas} was the best fit for my views as it provides great support and application for creating animation and drawing graphics on web.
+\newline\newline For high-level view, I kept the \textit{Canvas} clean to represent an empty kitchen space where addition and manipulation of different objects such as, sink, table, fridge etc. can be done. Figure~\ref{fig:HighLevel_View} shows a sample of the high-level view (Kitchen View). To make the kitchen space more realistic, I have even added {\color{blue} water outlet} on western wall and {\color{red} electrical fittings} on northen wall so that the user can relate to it. For low-level view, I have filled the \textit{Canvas} with grids/blocks. The low-level view represents exact kitchen space as shown in high-level view but, divided into blocks. Also, the blocks restrict certain flexibility and functionality compared to high-level view. Figure~\ref{fig:LowLevel_View} shows a sample of the low-level view (Grid View).
+\begin{figure}
+	\includegraphics[width=1\textwidth]{figures/Highlevel_View}
+	\caption{High Level View}
+	\label{fig:HighLevel_View}
+\end{figure}
+\begin{figure}
+	\includegraphics[width=1\textwidth]{figures/Lowlevel_View}
+	\caption{Low Level View}
+	\label{fig:LowLevel_View}
+\end{figure}
+\newline\newline Next step was to handle the user interactions in the process of performing various task on both the views. In web development, javascript is the most used language for handling the user intearctions and programming the behaviour of web pages \cite{javascript}. Hence, I have analyzed a few canvas libraries available in market e.g., Fabric.js \cite{fabricjs}, Processing.js \cite{processingjs}, Pixi.js \cite{pixijs}  by working on a few Proof of Concepts (PoC). The main idea was to check the feasibility and support for interactivity to perform different user defined tasks on the \textit{Canvas}. Finally, I chose Fabric.js as my javascript library for handling the user interactions because of below factors \cite{fabricjs}:
+\begin{itemize}
+	\item {It is good at displaying large number of objects on canvas.}
+	\item {It handles object manipulation such as, moving, rotating, resizing for any kind of object.}
+	\item {It has a great support for rendering and displaying object of any kind.}
+\end{itemize}
+
 \paragraph{Internal Design}
+Second task in the process of visualization was defining the user actions with respect to both the views, capturing them, and displaying the views after transformation is done.
+\newline\newline In high-level view, user can perform addition, removal and movement of the kitchen objects as it is done in everyone's house. A new object can be added and an already existing object can be moved or removed within the empty space available in the high-level view with the different mouse events. To make the example more realistic, I have used similar images of the kitchen objects as shown in figure~\ref{fig:HighLevel_View}. Every object is tracked on the basis of its position in the view and every change i.e., addition, removal or movement of objects is captured by the high-level view and send it to the controller for further processing.
+\newline\newline As low-level view offers less functionalities than high-level view, user can perform only addition and removal of the kitchen objects. Low-level view represents the kitchen space divided into blocks. Hence, each kitchen object is represented in the form of block(s), combining any number of block(s) arranged in vertical or in horizontal direction filled with a unique color everytime a new object is added. For example, sink is represented by two horizontal blocks attached to one another and filled with {\color{blue} blue} color as shown in figure~\ref{fig:LowLevel_View}. As each object is identified with an unique color, user can generate different colors by multiple mouse clicks on the non-occupied blocks while adding a new object. For removal of an object, user can blur the color of an occupied block. Every object is tracked on the basis of the block's position that it is consist of along with its color and every change i.e., addition or removal is captured by the low-level view and send it to the controller for further processing.
+\newline\newline After the changes are done on either view, to see the effect on the other, user can click on the synchronization button and both the views will be updated.
+ 
+\subsubsection{Controller}\label{subsubsec:controller}
+The Controller is mainly responsible for event/action handling and basically manages the relationship between a View and a Model \cite{mdd-webwithmvc}. These actions are triggered while a user is interacting with the application on a web browser. It accepts the user requests, interacts with
+the Model, receives the response and generates the View.
+\newline\newline In my case, I am using a thin Controller which is a Servlet along with a Controller helper consist of java classes.
+\paragraph{Servlet}
+
+
+\paragraph{Controller Helper}
 
 \subsection{Challenges}\label{subsec:designchallenges}
-architecture design issues- dependencies of projects 
+During the entire designing process as explained in previous subsections, I came across a few challenges. This section describes them in detail.
 
-UI design - high level/low level views, deltas, low level view user interaction(color), user interaction
+\paragraph{Architecture Design}
+The first hurdle that I faced in the process of designing was with application framework design. The challenge was to correctly maintain the dependencies of projects without creating a circular dependency among each other.
 
-\subsection{Walkthrough}\label{subsec:walkthrough}
+\paragraph{UI Design}
+UI design was the second big challenge that I faced during the designing process.
+\newline\newline First problem was with the design, look, and feel of the high-level and low-level view. Both the views should represent the same workspace area but in different ways i.e, different action space, functionalities, and fexibility in interaction. So the challenge was to represent one workspace in two different views separated by functionalities and flexibility in use. Hence, I went through a few UI patterns \cite{designinterfaces} and scenarioo based design principles \cite{scenariobasedui} for knowing the basics. Finally, I and my supervisor after a few discussions chose an empty canvas as shown in figure~\ref{fig:HighLevel_View} to represent high-level view and a canvas filled with blocks as shown in figure~\ref{fig:LowLevel_View} to represent low-level view.
+\newline\newline Second problem was with conceptualizing the type and structure of delta (refer def.) and differentiating them in the high-level and low-level view. 
+\newline\newline Designing the user interactions with high-level view was relatively easy as user have to deal with the objects with actions such as, mouse movements and button clicks. But, the real challenge was to handle the user interactions in low-level view's block structure. In low-level view, only addition and removal of objects are allowed and objects will be shown by unique colors. 
+
+
+
 
 
 
