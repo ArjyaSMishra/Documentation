@@ -24,10 +24,10 @@ It contains two views e.g., Family view and Person view. In Family view, it cont
 Selecting an example to implement through the demonstrator was not random, rather I have taken many factors into considerations before choosing the final one. It was a very important decision, as selection of the example and its implemenation will directly effect the research questions \textit{RQ2}, \textit{RQ4.2}, \textit{RQ6} described in Section \ref{subsec:contribution} and requirements \textit{FREQ2}, \textit{FREQ3} described in Section \ref{subsec:functionalreq}.
 \newline\newline Hence by taking into account all these factors, I have finally chosen the \textit{Arranging a Kitchen} example to be implemented by the demonstrator as a part of my research. Following were the driving factors for the selection of the example:
 \begin{itemize}
-	\item {Any user can relate to the example very well as everybody is familiar with a kitchen and its environment.}
-	\item {Example is very simple and no technical details are involved.}
-	\item {Interactivity and rules won't be a overhead for the user, rather intuitive.}
-	\item {Associted scenarios are part of day to day life, so user will be able to relate to the learning concepts through the example.}
+	\item {any user can relate to the example very well as everybody is familiar with a kitchen and its environment.}
+	\item {example is very simple and no technical details are involved.}
+	\item {interactivity and rules won't be a overhead for the user, rather intuitive.}
+	\item {associted scenarios are part of day to day life, so user will be able to relate to the learning concepts through the example.}
 \end{itemize}
 
 \subsection{BX Tool Selection}\label{subsec:bxtoolselection}
@@ -58,19 +58,21 @@ Again, it was a very important decision, as selection of the bx tool and the imp
 \subsubsection{Benchmarx}\label{subsubsec:benchmarx}
 A bx benchmark (referred to as \textbf{Benchmarx} from now on) is a bx example that has a precise and executable definition of a binary consistency relation on source and target artefacts; an explicit definition of, or a generator for, input artefact elements; a set of precisely defined update scenarios for certain input artefact elements; and a set of executable metric definitions \cite{bx-theoryandappl}.
 \newline\newline Anjorin et al. \cite{benchmarx-reload} tried to solve the main problem with benchmarking bx tools by creating a common design space, in which different bx tools architecture can be accomodated irrespective of the fact that they can have different input data. 
+
 \paragraph{Design Space} 
 
 \subsection{Architecture Design}\label{subsec:architecturedesign}
 Last step in the design process was application architecture design which is the most important part of my thesis and also the starting phase of the implementation of the prototype.
+
 \subsubsection{Design Decision}\label{subsubsec:architecturedesigndecision}
 I decided to build a web appliaction to address the requirements \textit{FREQ1}, \textit{NREQ1} and \textit{NREQ2} described in Section \ref{subsec:functionalreq} and \ref{subsec:nonfunctionalreq}.
 \newline\newline Web application development has evolved drastically from single page design to very complex layering structures since the beginning of World Wide Web. Many design patterns \cite{designpattern} \cite{designpattern-notes} consisting of different technologies and programming languages were proposed, adopted and implemented in different time to address the demands of customers and users on web. With the rapid changes occuring on World Wide Web, technologies are becoming obsolete and losing its demand day by day. Nowadays, the main focus is on improving the user interaction and allow the developers to build powerful web applications rapidly.
 \newline\newline I have analyzed a few design patterns and commonly used architecture designs in todays world by working on a few Proof of Concepts (PoC). Main goal of my thesis is to design and implement a demonstrator based on a bx-tool as described in Section \ref{subsec:contribution} and prior to this stage, I have already selected \textit{eMoflon} as my bx-tool in Section \ref{subsec:bxtoolselection}. So, The main idea was to check the feasibility of the architecture and the data flow within its components on the top of the interface provided by the \textit{Benchmarx} (proposed by Anjorin et al. \cite{benchmarx-reload}) to access the bx-tool. While working on the PoCs, I came across a few problems such as, maintainability and reusability of code, dependencies of components etc. To avoid these problems and to address the requirement \textit{NREQ3} described in Section \ref{subsec:functionalreq}, I finally chose Model-View-Controller (referred as \textbf{MVC} from now on) architecture for my application framework. Following were the driving factors for the selection of the MVC architecture \cite{designpattern-notes} \cite{designpattern-headfirst} :
 \begin{itemize}
-	\item {It differentiates the layers of a project in Model, View and Controller for the re-usability and easy maintainance of code.}
-	\item {It splits responsibilities into three main roles which allows the developers to work independently without interfering in each others work and for more efficient collaboration.}
-	\item {Due to the sepration of concern, same Model can have any no.of Views. Enhancements in Views and other support of new technologies for building the View can be implemented easily.}
-	\item {A person who is working on View does not need to know about the underlying Model code base and its architecture.}
+	\item {it differentiates the layers of a project in Model, View and Controller for the re-usability and easy maintainance of code.}
+	\item {it splits responsibilities into three main roles which allows the developers to work independently without interfering in each others work and for more efficient collaboration.}
+	\item {due to the sepration of concern, same Model can have any no.of Views. Enhancements in Views and other support of new technologies for building the View can be implemented easily.}
+	\item {a person who is working on View does not need to know about the underlying Model code base and its architecture.}
 \end{itemize}
 
 \subsection{Framework}\label{subsec:framework}
@@ -105,7 +107,6 @@ Model is mainly responsible for encapsulating the access of data and handling th
 \newline\newline In my case, Model is consist of java classes and the \textit{eMoflon} tool. The java classes consist of interfaces and its concrete implementation designed to access the bx-tool eMoflon on the top of the framework provided by the \textit{Benchmarx}. The tool contains all the meta-models, state of the meta-models and the associated transformation rules.
 \paragraph{Kitchen Layout}
 \paragraph{Grid Layout}
-\paragraph{Transformation Rules}
 \paragraph{UI Models}
 \paragraph{Deltas}
 
@@ -152,12 +153,37 @@ After the changes are done on either view, to see the effect on the other, user 
 The Controller is mainly responsible for event/action handling and basically manages the relationship between a View and a Model \cite{mdd-webwithmvc}. These actions are triggered while a user is interacting with the application on a web browser. It accepts the user requests, interacts with
 the Model, receives the response and generates the View.
 
-In my case, I am using a thin Controller which is a Servlet along with a Controller helper consist of java classes.
+In my case, I am using a thin Controller which is a Servlet along with a Controller helper consist of a java class.
 
-\paragraph{Servlet}
+\paragraph{Servlet \& Controller Helper}
+Servlet is a technology which provides a component-based, platform-independent method for building web-based applications \cite{servlet}. Servlet is built on java platform to extend the capabilities of a web-server which makes it robust and scalable. It resides inside a web-server to generate dynamic content.
 
+Servlet is capable of handling all kinds of client-server protocol but popularly and mostly used with the HTTP, the HyperText Transfer Protocol. A web container is essentially required to run a servlet. A web container is a component of the web server that interacts with the servlets and manages the lifecycle of servlets. In my case, I am using \textit{Apache Tomcat} as my web container. 
 
-\paragraph{Controller Helper}
+\begin{figure}
+	\includegraphics[width=1\textwidth]{figures/Server_Servlet}
+	\caption{Servlet Lifecycle}
+	\label{fig:Server_Servlet}
+\end{figure}
+
+Figure~\ref{fig:Server_Servlet} describes the complete lifecycle of a servlet w.r.t. a web server and a web container. The lifecycle steps are described as follows \cite{servlet}:
+\begin{enumerate}
+	\item {Web server receives the \texttt{HTTP request} from the client interacting through a browser.}
+	\item {After accepting the request, web server forward the request to the web container i.e., tomcat.}
+	\item {Web container sends the request to the \texttt{Servlet class}.}
+	\item {If an instance of the servlet does not exist, the web container}\\\\
+	loads the servlet class, then creates an instance of the servlet class and initializes the servlet instance by calling the \texttt{init} method.
+	\item {After that, web container invokes the \texttt{service} methods (normally HTTP methods i.e., \texttt{get} , \texttt{post} , \texttt{put} , \texttt{delete}) of the servlet class by passing the request and response objects and the actual processing of the request is done and response is generated.}
+	\item {Web container sends the response to the web server. Afterwards, web server creates the HTTP response and send it back to the client.}
+\end{enumerate}
+
+In my application, controller i.e., servlet is strongly coupled with a controller helper i.e., java class. Figure~\ref{fig:Controller_Workflow} describes the workflow of the Controller in my project. After invoking the service method of the servlet class, if an instance of the controller helper class does not exist, the servlet creates an instance of it and calls the appropiate method by passing the \texttt{UI Model} object. Inside the method of the controller helper, the conversion of the \texttt{UI Model} to the \texttt{eMoflon specific model} happens and data is sent to the \texttt{Model} for further processing. Controller helper receives the response from the Model and conversion of the \texttt{eMoflon specific model} to the \texttt{UI Model} happens before sending the data to the servlet. 
+
+\begin{figure}
+	\includegraphics[width=1\textwidth]{figures/Controller_Workflow}
+	\caption{Workflow within the Controller}
+	\label{fig:Controller_Workflow}
+\end{figure}
 
 \subsection{Challenges}\label{subsec:designchallenges}
 During the entire designing process as explained in previous subsections, I came across a few challenges. This section describes them in detail.
@@ -170,7 +196,7 @@ UI design was the second big challenge that I faced during the designing process
 
 First problem was with the design, look, and feel of the high-level and low-level view. As per the requirement, both the views should represent the same workspace area but in different ways i.e, different action space, functionalities, and fexibility in interaction. So the challenge was to represent one workspace in two different views separated by functionalities and flexibility in use. Hence, I went through a few UI patterns \cite{designinterfaces} and scenarios based design principles \cite{scenariobasedui} for knowing the basics. Finally, I and my supervisor after a few discussions chose an empty canvas as shown in figure~\ref{fig:HighLevel_View} to represent high-level view and a canvas filled with blocks as shown in figure~\ref{fig:LowLevel_View} to represent low-level view.
 
-Second problem was with conceptualizing the structure of \textit{delta} (refer def.) by differentiating the functionalities e.g., changes done by user in the high-level and low-level view. So the challenge was to capturing different changes done in both the views but bundling them into one structure as the \textit{eMoflon} tool requires one input for all the changes done for transformation process. As mentionaed earlier, high-level and low-level view are different from each other based on their functionalities. For example, in high-level view three types of changes are allowed i.e., creation of a new item, deletion of an item, and movement of an item. Whereas, in low-level view two types of changes are allowed i.e., creation of a new group and deletion of a group. Hence, the structure of changes in both the views will be different as well. For separation of concerns, I decided to maintain five different variables for five different kinds of changes i.e., \textit{createdItem}, \textit{deletedItem}, \textit{movedItem}, \textit{createdGroup}, and \textit{deletedGroup} but, bundled them into one single class \textit{Change}. Also, a user can perform a series of changes even of the same type i.e., creating more than one item, deleting more than one item, creating more than one group etc., so I decided to keep every variable as a \textit{List} item. Fig shows the class diagram of the \textit{Change} class.
+Second problem was with conceptualizing the structure of \textit{delta} (refer Definition 3) by differentiating the functionalities e.g., changes done by user in the high-level and low-level view. So the challenge was to capturing different changes done in both the views but bundling them into one structure as the \textit{eMoflon} tool requires one input for all the changes done for transformation process. As mentionaed earlier, high-level and low-level view are different from each other based on their functionalities. For example, in high-level view three types of changes are allowed i.e., creation of a new item, deletion of an item, and movement of an item. Whereas, in low-level view two types of changes are allowed i.e., creation of a new group and deletion of a group. Hence, the structure of changes in both the views will be different as well. For separation of concerns, I decided to maintain five different variables for five different kinds of changes i.e., \texttt{createdItem}, \texttt{deletedItem}, \texttt{movedItem}, \texttt{createdGroup}, and \texttt{deletedGroup} but, bundled them into one single class \texttt{Change}. Also, a user can perform a series of changes even of the same type i.e., creating more than one item, deleting more than one item, creating more than one group etc., so I decided to keep every variable as a \texttt{List} item. Fig shows the class diagram of the \texttt{Change} class.
 
 
 

@@ -15,18 +15,22 @@ The bx community (\url{http://bx-community.wikidot.com/}) has been doing researc
 
 \subsection{Problem Statement}\label{subsec:probstmt}
 \textit{Bidirectional transformation} is an emerging concept. In the past, many efforts have been made by conducting international workshops, seminars and through experiments conducted by developers / bx community to identify its potential. Also, in addition to the development of bx tools and bx language, benchmarks are being created for bx tools for systematic comparison \cite{benchmark-BX}.
-\newline\newline  Although a significant amount of work has been done on bx but a general awareness and understanding for basic concepts, the involved challenges, and reasonable expectations is not really given. Hence, there exist conceptual and practical challenges with building software systems using bx-tools and as a result bx tools and their applicability is still not widely known and used \cite{bx-theoryandappl}.
-\newline\newline From experience with working with master students (future software developers in industry), we have identified a set of bx learning goals that can be targeted to improve the situation.
-Achieving these learning goals is, however, challenging as current possibilities (virtual machines, handbooks, etc) are either tool specific or ineffective because installation process to get the tool running is a time consuming process and sometimes requires technical expertise in a specific area/tool/programming language. In this fast paced world, people don't really want to spend much time in a process if it involves complexity and time consuming. Even after you get the tool running, it doesn't help in understanding the bx concepts and its corresponding technological space in use because of lack of proper explanations.
+
+Although a significant amount of work has been done on bx but a general awareness and understanding for basic concepts, the involved challenges, and reasonable expectations is not really given. Hence, there exist conceptual and practical challenges with building software systems using bx-tools and as a result bx tools and their applicability is still not widely known and used \cite{bx-theoryandappl}.
+
+From experience with working with master students (future software developers in industry), we have identified a set of bx learning goals that can be targeted to improve the situation.
+Achieving these learning goals is, however, challenging as current possibilities (virtual machines, handbooks, etc) are either tool specific or ineffective because installation process to get the tool running is a time consuming process and sometimes requires technical expertise in a specific area/tool/programming language. In this fast paced world, people don't really want to spend much time in a process if it is time consuming and involves complexity. Even after you get the tool running, it doesn't help in understanding the bx concepts and its corresponding technological space in use because of lack of proper explanations.
 
 \subsection{Contribution}\label{subsec:contribution}
 To solve the problems as described in Section \ref{subsec:probstmt}, in this thesis, my goals are as follows:
 \begin{itemize} 
 \item {Design and implement an interactive demonstrator.} 
-\item {Spreading the basic concepts of bx to a wide audience and making them accessible and understandable.}
+\item {Spread the basic concepts of bx to a wide audience and making them accessible and understandable.}
 \end{itemize}
+
 An existing bx tool will be used as a part of the demonstrator to realize \textit{bidirectional transformation}. The final prototype will be interactive and easily accessible to users to help them understand the potential, power and limitations of bx.
-\newline\newline My approach for providing a solution to the problems described in Section \ref{subsec:probstmt}  consists of various stages which focuses on designing and implementing a successful bx tool demonstrator as shown in figure~\ref{fig:Approach_Overview}. 
+
+My approach for providing a solution to the problems described in Section \ref{subsec:probstmt}  consists of various stages which focuses on designing and implementing a successful bx tool demonstrator as shown in figure~\ref{fig:Approach_Overview}. 
 
 \begin{figure}
 	\includegraphics[width=1\textwidth]{figures/Approach_Overview}
@@ -36,7 +40,8 @@ An existing bx tool will be used as a part of the demonstrator to realize \texti
 
 \paragraph{Analysis}
 This stage is based on the research method called Case Study \cite{semethods}. In any research, there could be many cases and each case could focus on a number of different research questions, each of which leads to a different direction in developing solution strategies \cite{semethods}. Hence, this method aims at selecting cases that are most relevant to the research and research questions are pinned down to the exact problems in hand. 
-\newline\newline Initially, the case study was based on the existing work/research done on bx, existing tools available in the market, flexibility in usage, time and technical expertise required to use these bx tools, and the implementation of these tools in different areas. With the initial study and knowledge gathered, I had formulated the following associated research questions (referred to as \textbf{RQ} from now on):
+
+Initially, the case study was based on the existing work/research done on bx, existing tools available in the market, flexibility in usage, time and technical expertise required to use these bx tools, and the implementation of these tools in different areas. With the initial study and knowledge gathered, I had formulated the following associated research questions (referred to as \textbf{RQ} from now on):
 \begin{itemize}
 \item {\textbf{\textit{RQ1}} -- What are the core requirements for implementing a successful bx demonstrator ?}
 \item {\textbf{\textit{RQ2}} -- What kind of interactivity and to what extent is it required in the bx demonstrator ?}
@@ -57,13 +62,12 @@ This stage is consist of all the steps related to designing and implementing the
 \newline\newline Next step was to set up the entire application framework for implementing the demonstrator. First, I did some research by going through materials on software design patterns and web application architecture. Then, I prepared a few proof of concepts(POC) for checking the feasibilty of the architecture designs before finalising my application framework. Section \ref{subsec:architecturedesign} explains the process in detail.
 
 \paragraph{Evaluation} 
-This stage is based on the research method called Controlled Experiments \cite{semethods}. This experiment is based on one or more hypothesis, which guide all steps of the experimental design, deciding which variables to include and how to measure them. So, it is an investigation of one or more hypothesis where one or more independent variables are manipulated to measure their effect on one or more
-dependent variables. Learning goals were prepared along with the scenarios to explain them and questions were asked on these concepts to different groups of participants. Finally, data is collected and analyzed to measure the outcome. Section \ref{sec:evaluation} explains the process in detail.
+This stage is based on the research method called Controlled Experiments \cite{semethods}. This experiment is based on one or more hypothesis, which guide all steps of the experimental design, deciding which variables to include and how to measure them. So, it is an investigation of one or more hypothesis where one or more independent variables are manipulated to measure their effect on one or more dependent variables. Learning goals were prepared along with the scenarios to explain them and questions were asked on these concepts to different groups of participants. Finally, data is collected and analyzed to measure the outcome. Section \ref{sec:evaluation} explains the process in detail.
 
 \subsection{Structure of Thesis}\label{subsec:structure}
 This document is structured as follows: 
 
-Chapter 1 (introduction) contains the introduction and motivation about the thesis with a solution strategy. Chapter 2 discusses the related terminologies with respect to bidirectional transformation. Chapter 3 describes the requirements for implementing a successful bx demonstrator. Chapter 4 explains the related work that has been done on bx in last few years and the related problems. Chapter 5 describes all the high-level concepts of my implementation work in brief with related diagrams. Chapter 6 provides the in-depth details of each implementation layer along with UML diagrams. Chapter 7 presents a walkthrough of the application from UI perspective. Chapter 8 contains the feedback from user groups, evaluation results and learning goals(based on research questions). Last chapter summarizes all the work which was done as part of this thesis and draws useful conclusions followed by future work.
+Chapter 1 (introduction) contains the introduction and motivation about the thesis with a solution strategy. Chapter 2 discusses the related terminologies with respect to bidirectional transformation. Chapter 3 describes the requirements for implementing a successful bx demonstrator. Chapter 4 explains the related work that has been done on bx in last few years and their related problems. Chapter 5 describes all the design decisions and its associated challenges during the implementation work. Chapter 6 provides in-depth explaination of the implementation details done in each layer along with UML diagrams. Chapter 7 contains the learning goals(based on research questions), feedback from user groups, and evaluation results . Last chapter summarizes all the work which was done as part of this thesis and draws useful conclusions followed by future work.
 
 \section{Foundation}\label{sec:foundation}
 This chapter provides an overview of my running example in Section \ref{subsec:runningexample} followed by definitions of some commonly used terminologies with respect to bx in Section \ref{subsec:definitions}. This chapter will lay the foundation for understanding the basics for the reader and will help him/her in apprehending the concepts explained in further chapters.
@@ -90,10 +94,13 @@ This example is a simplified kitchen planner. Figure~\ref{fig:Running_Example_GU
 \newline\newline Model transformation and synchronization is discussed with this scenario throughout this thesis. 
 
 \subsection{BX Basics}\label{subsec:definitions}
-\paragraph{Definition 1} (\textit{Model and Meta-Model})\\
-A model depicts the structure and/or behavior of a real system under discussion from a certain point of view and at a certain level of abstraction which helps in managing and understanding the complexities of a system \cite{uml} \cite{mdsd}. It is denoted as "M". Model cretion helps in keeping a clear focus on selected concepts and rules relevant for a particular concern and omitting irrelevant details.
-\newline\newline A meta-model 
-\newline\newline \textit{Example:} In my demonstrator, the example that I have implemented has two models i.e., \textit{Kitchen} and \textit{Grid}. Both the models represent the reality "Kitchen". A relation between reality and models is shown in Table~\ref{tab:Model_Reality}. Whereas, figure~\ref{fig:Abstract_KitchenModel} shows an abstract view of the \textit{Kitchen} model and figure~\ref{fig:Concrete_KitchenModel} depicts a concrete example of \textit{Kitchen} model.
+
+\begin{defn}\label{defModel} (Model and Meta-Model) \end{defn} 
+A model depicts the structure and/or behavior of a real system under discussion from a certain point of view and at a certain level of abstraction which helps in managing and understanding the complexities of a system \cite{uml} \cite{mdsd}. It is denoted as "M". Model creation helps in keeping a clear focus on selected concepts and rules relevant for a particular concern and omitting irrelevant details.
+
+The set of concepts and rules used for forming models, is specified by a metamodel. Hence, a metamodel can be defined as a model's model \cite{mdsd}. 
+
+\textit{Example:} In my demonstrator, the example that I have implemented has two models i.e., \textit{Kitchen} and \textit{Grid}. Both the models represent the reality "Kitchen". A relation between reality and models is shown in Table~\ref{tab:Model_Reality}. Whereas, figure~\ref{fig:Abstract_KitchenModel} shows an abstract view of the \textit{Kitchen} model and figure~\ref{fig:Concrete_KitchenModel} depicts a concrete example of \textit{Kitchen} model.\\
 
 \begin{table}
 	\centering	
@@ -136,11 +143,12 @@ A model depicts the structure and/or behavior of a real system under discussion 
 	\label{fig:Concrete_KitchenModel}
 \end{figure}
 
-\paragraph{Definition 2} (\textit{Modeling})\\
+\begin{defn}\label{defModeling} (Modeling) \end{defn}
 Modeling is the process which allows a developer to specify, visualize and capture a variety of important characteristics of a system in corresponding models which helps in decision making during development stages \cite{uml}. Nowadays, Unified Modeling Language (UML) \cite{uml} is used to visualize models in an object-oriented fashion.
-\newline\newline\textit{Example:} In my demonstrator example, the process of identifying and constructing the "Kitchen Model" with the characteristics that is required for the task is an example of modeling. \textit{Kitchen} model contains three classes i.e., \textit{Kitchen}, \textit{Item Socket} and \textit{Item}. \textit{Kitchen} class contains \textit{itemSockets} and a \textit{Item Socket} class contains an \textit{item}. Figure~\ref{fig:Abstract_KitchenModel} shows an abstract view of the \textit{Kitchen} model 
 
-\paragraph{Definition 3} (\textit{Delta})\\ 
+\textit{Example:} In my demonstrator example, the process of identifying and constructing the "Kitchen Model" with the characteristics that is required for the task is an example of modeling. \textit{Kitchen} model contains three classes i.e., \textit{Kitchen}, \textit{Item Socket} and \textit{Item}. \textit{Kitchen} class contains \textit{itemSockets} and a \textit{Item Socket} class contains an \textit{item}. Figure~\ref{fig:Abstract_KitchenModel} shows an abstract view of the \textit{Kitchen} model.\\ 
+
+\begin{defn}\label{defDelta} (Delta) \end{defn}
 Delta is the change done to one or more properties of an artefact. It denotes the relationships between models from the same model space \cite{benchmarx-reload}. It is denoted $\delta$: M $\longrightarrow$ M' where M' is an updated version of M.
 
 \begin{table}
@@ -160,7 +168,7 @@ Delta is the change done to one or more properties of an artefact. It denotes th
 		
 	\end{tabular}
 	\label{tab:Examples_of_Delta}
-	\caption{Examples of Delta}
+	\caption{Examples of Delta in Kitchen Model}
 \end{table}
 
 \begin{figure}
@@ -174,34 +182,36 @@ Delta is the change done to one or more properties of an artefact. It denotes th
 	\label{fig:DeltaPropagation_Concrete}
 \end{figure}
 
-\textit{Example:} In my demonstrator example, deltas related to the "Kitchen Model" are described in Table~\ref{tab:Examples_of_Delta}. Whereas, figure~\ref{fig:DeltaPropagation_Abstract} shows an abstract view of delta propagation and figure~\ref{fig:DeltaPropagation_Concrete} depicts a concrete example of delta propagation, where creation of a new item e.g., sink causes the updation from Kitchen to Kitchen'.
+\textit{Example:} In my demonstrator example, deltas related to the "Kitchen Model" are described in Table~\ref{tab:Examples_of_Delta}. Whereas, figure~\ref{fig:DeltaPropagation_Abstract} shows an abstract view of delta propagation and figure~\ref{fig:DeltaPropagation_Concrete} depicts a concrete example of delta propagation, where creation of a new item e.g., sink causes the updation from Kitchen to Kitchen'.\\
 
-\paragraph{Definition 3.1} (\textit{Structural Delta})\\ 
-Structural Delta denoted as "s-delta" is the collection of changes done to a model to update it, which is compatible with structure \cite{benchmarx-reload}. The way the changes are applied to the original model to result in a updated model (models of the same model space) don't necessarily have to be in the order in which they are performed. 
+\begin{defn}\label{defStructuralDelta } (Structural Delta) \end{defn}
+Structural Delta denoted as "s-delta" is the collection of changes done to a model to update it, which is compatible with structure \cite{benchmarx-reload}. The way the changes are applied to the original model to result in a updated model (models of the same model space) don't necessarily have to be in the order in which they are performed.\\
 
-\paragraph{Definition 3.2} (\textit{Operational Delta})\\  
-Operational Delta denoted as "o-delta" is the collection of operational specification changes done to a model to update it \cite{benchmarx-reload}. It is important that the changes are applied to the original model to result in a updated model (models of the same model space) have to be in the order in which they are performed. 
+\begin{defn}\label{defOperationalDelta } (Operational Delta) \end{defn}
+Operational Delta denoted as "o-delta" is the collection of operational specification changes done to a model to update it \cite{benchmarx-reload}. It is important that the changes are applied to the original model to result in a updated model (models of the same model space) have to be in the order in which they are performed.\\ 
 
-\paragraph{Definition 4} (\textit{Model Space})\\
+\begin{defn}\label{defModelSpace } (Model Space) \end{defn}
 Model Space describes all the states of an artefact and all the deltas which lead from one state to another.
 \begin{figure}
 	\includegraphics[width=1\textwidth]{figures/Model_Space}
 	\caption{Model Space}
 	\label{fig:Model_Space}
 \end{figure}
-\newline\newline\textit{Example:} In my demonstrator example, an concrete example of a model space is shown in figure~\ref{fig:Model_Space} with all the states i.e., Kitchen1, Kitchen2, Kitchen3, Kitchen4 along with its deltas i.e., $\delta$1, $\delta$2, $\delta$3 of the \textit{Kitchen} Model.
 
-\paragraph{Definition 5} (\textit{Correspondence Links})\\
+\textit{Example:} In my demonstrator example, an concrete example of a model space is shown in figure~\ref{fig:Model_Space} with all the states i.e., Kitchen1, Kitchen2, Kitchen3, Kitchen4 along with its deltas i.e., $\delta$1, $\delta$2, $\delta$3 of the \textit{Kitchen} Model.\\
+
+\begin{defn}\label{defCorrespondenceLinks } (Correspondence Links) \end{defn}
 Relationships between models from different model spaces are called correspondence links, or just corrs \cite{benchmarx-reload}. A corr is a set of links  r(a; b) between elements (a in A, b in B), which are compatible with the models' structure and denoted by double bidirectional arrows, e.g., R: A $\Longleftrightarrow$ B. 
-\newline\newline\textit{Example:} In my demonstrator example, an example of a corr is r(group; itemSocket) where \textit{group}, \textit{itemSocket} are the elements of \textit{Grid} and \textit{Kitchen} model respectively. Figure~\ref{fig:Correspondence_Links} shows a concrete example of the corr.
+
+\textit{Example:} In my demonstrator example, an example of a corr is r(group; itemSocket) where \textit{group}, \textit{itemSocket} are the elements of \textit{Grid} and \textit{Kitchen} model respectively. Figure~\ref{fig:Correspondence_Links} shows a concrete example of the corr.\\
 \begin{figure}
 	\includegraphics[width=1\textwidth]{figures/Corr}
 	\caption{Correspondence Links}
 	\label{fig:Correspondence_Links}
 \end{figure}
 
-\paragraph{Definition 6} (\textit{Transformation})\\
-Transformation is the process in which takes one or more source models as input and produce one or more target models as output (models from different model spaces) expressed in either same abstraction level or in different abstraction level following a set of transformation rules \cite{modeltransform}. 
+\begin{defn}\label{defTransformation } (Transformation) \end{defn}
+Transformation is the process in which takes one or more source models as input and produce one or more target models as output (models from different model spaces) expressed in either same abstraction level or in different abstraction level following a set of transformation rules \cite{modeltransform}.\\
 
 \begin{figure}
 	\includegraphics[width=1\textwidth]{figures/Transformation_Abstract}
@@ -209,12 +219,13 @@ Transformation is the process in which takes one or more source models as input 
 	\label{fig:Transformation_Abstract}
 \end{figure}
 
-\paragraph{Definition 6.1} (\textit{Forward Transformation})\\
-Forward Transformation is the transformation from the \textit{Source} model to the \textit{Target} model.
+\begin{defn}\label{deffwdTransformation } (Forward Transformation) \end{defn} 
+Forward Transformation is the transformation from the \textit{Source} model to the \textit{Target} model.\\
 
-\paragraph{Definition 6.2} (\textit{Backward Transformation})\\ 
-Backward Transformation is the transformation from the \textit{Target} model to the \textit{Source} model.
-\newline\newline\textit{Example:} In my demonstrator example, "Grid Model" is the \textit{Source} model and "Kitchen Model" is the \textit{Target} model. Forward transformation will cause "Grid Model" to transform into "Kitchen Model" and Backward transformation will cause "Kitchen Model" to transform into "Grid Model". Figure~\ref{fig:Transformation_Abstract} shows an abstract example of the transformation process and figure~\ref{fig:Transformation_Concrete} depicts a concrete example of the transformation process describing both forward and backward transformation.
+\begin{defn}\label{defbkdTransformation } (Backward Transformation) \end{defn} 
+Backward Transformation is the transformation from the \textit{Target} model to the \textit{Source} model.\\
+
+\textit{Example:} In my demonstrator example, "Grid Model" is the \textit{Source} model and "Kitchen Model" is the \textit{Target} model. Forward transformation will cause "Grid Model" to transform into "Kitchen Model" and Backward transformation will cause "Kitchen Model" to transform into "Grid Model". Figure~\ref{fig:Transformation_Abstract} shows an abstract example of the transformation process and figure~\ref{fig:Transformation_Concrete} depicts a concrete example of the transformation process describing both forward and backward transformation.\\
 
 \begin{figure}
 	\includegraphics[width=1\textwidth]{figures/Transformation_Concrete}
@@ -222,23 +233,22 @@ Backward Transformation is the transformation from the \textit{Target} model to 
 	\label{fig:Transformation_Concrete}
 \end{figure}
 
-\paragraph{Definition 7} (\textit{Consistency})\\ 
+\begin{defn}\label{defConsistency } (Consistency) \end{defn} 
 Changes in one model may or may not cause any change in other model (models from different model spaces) but their states must not contain any contradiction. It is checked on the set of all corrs related to both the models, R: A $\Longleftrightarrow$ B, i.e., the corr R is consistent, or R is inconsistent \cite{benchmarx-reload}.
-\newline\newline In layman's term, consistent is a state which always involves 2 or more objects/artefacts but doesn't involve ambiguity between them. This is the most important part of the model transformation and the entire focus revolves around it. To be consistent with each other the models have to be inline with respect to their states. 
-\newline\newline\textit{Example:} In my demonstrator example, an example of a corr is r(group; itemSocket) where \textit{group}, \textit{itemSocket} are the elements of \textit{Grid} and \textit{Kitchen} Model respectively. Figure~\ref{fig:Running_Example_GUI} and Figure~\ref{fig:Running_Example_GUI_consistency} shows that changes in \textit{Kitchen} model i.e., movement of sink should be propagated to the \textit{Grid} model in order to ensure consistency.
 
-\paragraph{Definition 8} (\textit{Unidirectional vs.Bidirectional Transformation})\\ 
+In layman's term, consistent is a state which always involves 2 or more objects/artefacts but doesn't involve ambiguity between them. This is the most important part of the model transformation and the entire focus revolves around it. To be consistent with each other the models have to be inline with respect to their states. 
+
+\textit{Example:} In my demonstrator example, an example of a corr is r(group; itemSocket) where \textit{group}, \textit{itemSocket} are the elements of \textit{Grid} and \textit{Kitchen} Model respectively. Figure~\ref{fig:Running_Example_GUI} and Figure~\ref{fig:Running_Example_GUI_consistency} shows that changes in \textit{Kitchen} model i.e., movement of sink should be propagated to the \textit{Grid} model in order to ensure consistency.\\
+
+\begin{defn}\label{defunivsbi} (Unidirectional vs.Bidirectional Transformation) \end{defn}
 Unidirectional is the simplest one out of all kinds of transformation. It always takes one type of input and produces same type of output. The concept of consistency is very simple as the input model is consistent with the output model, only.
-\newline Whereas, bidirectional transformationis a pair of transformation which takes place in both forward and backward direction. One model can be input sometimes and output at some other time. The concept of consistency is relatively complex as more than one model and the models must be kept consistent. Source model ($M_{S}$) is transformed to target model ($M_{T}$) in forward transformation and vice-versa in backward transformation. It is denoted by "BX". 
-\newline\newline\textit{Example:} In my demonstrator example, figure~\ref{fig:BX_Diagram} shows an abstract example of the "BX" and figure~\ref{fig:Transformation_Concrete} depicts a concrete example of the "BX" process.
+
+Whereas, bidirectional transformation is a pair of transformation which takes place in both forward and backward direction. One model can be input sometimes and output at some other time. The concept of consistency is relatively complex as more than one model and the models must be kept consistent \cite{understanding-bx}. Source model ($M_{S}$) is transformed to target model ($M_{T}$) in forward transformation and vice-versa in backward transformation. It is denoted by "BX". 
+
+\textit{Example:} In my demonstrator example, figure~\ref{fig:BX_Diagram} shows an abstract example of the "BX" and figure~\ref{fig:Transformation_Concrete} depicts a concrete example of the "BX" process where a \textit{Grid} model and a \textit{Kitchen} model is described as source and target respectively in the process of forward and backward transformation.
 
 \begin{figure}
 	\includegraphics[width=1\textwidth]{figures/BX}
 	\caption{Bidirectional Transformation}
 	\label{fig:BX_Diagram}
 \end{figure}
-
- 
-
-
-
