@@ -1,5 +1,5 @@
 \section{Design}\label{sec:design}
-In this chapter, I am going to describe the design steps realized during the implementation of the demonstrator. Section \ref{subsec:exampleforimplementation} describes all the examples that I have conceptualized before choosing the final one for the implementation. This is then followed by the description of the steps taken for selecting the bx-tool in Section \ref{subsec:bxtoolselection}. Afterwards, Section \ref{subsec:architecturedesign} deals with the decisions taken for finalizing the apllication's architecture design. Then, Section \ref{subsec:framework} describes the applications' framework in detail along with its components. At last, Section \ref{subsec:designchallenges} describes the challenges that I faced while designing the framework and its components.
+In this chapter, I am going to describe the design steps realized during the implementation of the demonstrator. Section \ref{subsec:exampleforimplementation} describes all the examples that I have conceptualized before choosing the final one for the implementation. This is then followed by the description of the steps taken for selecting the bx-tool in Section \ref{subsec:bxtoolselection}. Afterwards, Section \ref{subsec:architecturedesign} deals with the decisions taken for finalizing the apllication's architecture design. Then, Section \ref{subsec:design_layers} describes the applications' framework in detail along with its components. At last, Section \ref{subsec:designchallenges} describes the challenges that I faced while designing the entire framework and its components.
 
 \subsection{Choosing an Example}\label{subsec:exampleforimplementation}
 To solve the problems as described in Section \ref{subsec:probstmt}, the main idea is to design and implement an interactive bx tool demonstrator based on an intuitive example.
@@ -75,7 +75,7 @@ I decided to build a web appliaction to address the requirements \textit{FREQ1},
 	\item {a person who is working on View does not need to know about the underlying Model code base and its architecture.}
 \end{itemize}
 
-\subsection{Framework}\label{subsec:framework}
+\subsection{Architecture Layers}\label{subsec:design_layers}
 Figure~\ref{fig:Architecture_Diagram} shows a very high-level architecture diagram of my prototype. It consist of 3 components e.g., Model, View and Controller. View is responsible for all the graphical user interface management and consist of technologies like HTML, CSS, JavaScript and Jquery. Controller is responsible for event handling and basically consist of the technology Servlet. Model is responsible for all the tasks related to business logic, business rules, data, meta-models, state of meta-models etc. and consist of java classes.
 
 \begin{figure}
@@ -95,22 +95,57 @@ Figure~\ref{fig:Detail_Architecture_Diagram} shows a detailed architecture diagr
 	\item {View processes the data and finally the final response is generated and loaded on the browser.}
 \end{enumerate}
 
-\begin{figure}
+\begin{sidewaysfigure}
 	\includegraphics[width=1\textwidth]{figures/Detail_Arch}
 	\caption{Detail Architecture Diagram}
 	\label{fig:Detail_Architecture_Diagram}
-\end{figure}
+\end{sidewaysfigure}
 
 Below sub-sections describes the designing process of each component e.g., Model, View and Controller in detail.
-\subsubsection{Model}\label{subsubsec:model}
+\subsubsection{Model}\label{subsubsec:design_model}
 Model is mainly responsible for encapsulating the access of data and handling the business logic of the application \cite{designpattern-headfirst} \cite{mvc-arch}. It ensures the data abstraction and provides methods to access it, due to which the complexity of writing the code on developers' part is highly reduced \cite{mdd-webwithmvc}.
 \newline\newline In my case, Model is consist of java classes and the \textit{eMoflon} tool. The java classes consist of interfaces and its concrete implementation designed to access the bx-tool eMoflon on the top of the framework provided by the \textit{Benchmarx}. The tool contains all the meta-models, state of the meta-models and the associated transformation rules.
-\paragraph{Kitchen Layout}
-\paragraph{Grid Layout}
-\paragraph{UI Models}
-\paragraph{Deltas}
 
-\subsubsection{View}\label{subsubsec:view}
+\paragraph{eMoflon specific Models}
+For implementing the example \textit{Arranging a Kitchen} through \textit{eMoflon} tool, first task was to create related models inside the tool. The bx tool will keep these models, create and manage instances of these models by applying associted transformation rules as per the requirement. As the example has two different views, it requires two different model in the tool as well i.e., \texttt{KitchenLanguage} to represent high-level view and \texttt{GridLanguage} to represent low-level.
+
+\begin{figure}
+	\includegraphics[width=1\textwidth]{figures/ClassDia_KitchenLanguage}
+	\caption{KitchenLanguage Class Diagram}
+	\label{fig:ClassDia_KitchenLanguage}
+\end{figure}
+
+Figure~\ref{fig:ClassDia_KitchenLanguage} describes the structure of the \texttt{KitchenLanguage} model in a class diagram from an object-oriented point of view. It contains three classes i.e., \texttt{Kitchen}, \texttt{ItemSocket}, and \texttt{Item}. \texttt{Kitchen} class has the attributes \textit{xSize} and \textit{ySize} to describe its size and contains zero or more itemsockets. \texttt{ItemSocket} class has the attribute \textit{id} and contains exactly one item. \texttt{Item} class has the attributes \textit{xIndex} and \textit{yIndex} to describe its position. \texttt{Sink}, \texttt{Table}, and \texttt{Fridge} are different types of items.
+
+\begin{figure}
+	\includegraphics[width=1\textwidth]{figures/ClassDia_GridLanguage}
+	\caption{GridLanguage Class Diagram }
+	\label{fig:ClassDia_GridLanguage}
+\end{figure}
+
+Figure~\ref{fig:ClassDia_GridLanguage} describes the structure of the \texttt{GridLanguage} model in a class diagram from an object-oriented point of view. It contains three classes i.e., \texttt{Grid}, \texttt{Group}, and \texttt{Block}. \texttt{Grid} class has the attribute \textit{blockSize} to describe the size of each blocks contained inside it, contains zero or more itemsockets, and zero or more blocks. Each \texttt{Group} class occupies one or more blocks. \texttt{Block} class has the attributes \textit{xIndex} and \textit{yIndex} to describe its position and is being occupied by one group.
+
+\begin{sidewaysfigure}
+	\includegraphics[width=1\textwidth]{figures/ClassDia_UI-Models}
+	\caption{Structure and Relationship between UI Models}
+	\label{fig:ClassDia_UI-Models}
+\end{sidewaysfigure}
+
+\paragraph{UI related Models}
+Now, the second step in modeling was to create models for user interface to handle and visualize the bx tool specific models. Thus, UI models are necessary to deal with the user actions and act a connecting bridge between the user actions and the bx tool specific models. While user interacts with the demonstartor, actions i.e., changes performed by the user in the UI will be captured in the form of the UI models and will be sent to the controller helper. Conversion between the UI models and bx tool specific models happens inside the controller helper before sending the request to the bx tool 
+and after receiving the response from the bx tool. View always receives the response in the form of UI models and visualize them.
+
+Figure~\ref{fig:ClassDia_UI-Models} describes the structure and relationship between the models related to user interface in a class diagram. UI models consist of classes like \texttt{Canvas}, \texttt{Layout}, \texttt{Workspace}, \texttt{UIModels}, \texttt{UIGroup}, \texttt{Element}, \texttt{Rectangle}, and \texttt{Change}. \texttt{Canvas} is the parent class for \texttt{Layout} and \texttt{Workspace}. It has attributes \textit{height} and \textit{width} to describe its size representing both the views. \texttt{Workspace} represents the high-level view in the user interface and contains zero or more objects (elements) and an objectTypeList. It represents the eMoflon specific model \texttt{KitchenLanguage} on the UI side. \texttt{Layout} represents the low-level view in the user interface and contains zero or more blocks and groups. It represents the eMoflon specific model \texttt{gridLanguage} on the UI side.  \texttt{UIGroup} has attribute \textit{fillColor} to uniquely identified as a new group on UI and contains zero or more blocks. It represents the eMoflon specific model \texttt{Group} on the UI side. \texttt{Rectangle} has attributes \textit{id}, \textit{xIndex}, \textit{yIndex}, and \textit{fillColor} to deal with the UI related actions. It represents the eMoflon specific model \texttt{Block} on the UI side. \texttt{Element} has attributes \textit{id}, \textit{type}, \textit{xPos}, \textit{yPos}, and \textit{fillColor}. It represents the eMoflon specific model \texttt{Item} on the UI side. \texttt{UIModels} is the class which carries all the information related to UI. After receiving the response from the bx tool, it is converted into \texttt{UIModels} and send it to view for visualization. It has a attribute userChoices to deal with the user options and contains a layout, a workspace, and a set of failedDeltas wrapped inside a \texttt{Change} class.
+
+\begin{figure}
+	\includegraphics[width=0.5\textwidth]{figures/ClassDia_Change}
+	\caption{Class Diagram for Change}
+	\label{fig:ClassDia_Change}
+\end{figure}
+
+Actions performed by the user on both the views are tracked by the \texttt{Change} class. High-level view (Kitchen) allows three actions i.e., creation of a new item, deletion of an item and movement of an item. Whereas, low-level view (Grid) allows two actions i.e., creation of a new group and deletion of a group. Hence, \texttt{Change} class track all of these five actions separately. Figure~\ref{fig:ClassDia_Change} shows the class diagram of the \texttt{Change} class. It contains itemCreated, itemDeleted and ItemMoved as a list of \texttt{Element}s to capture creation, deletion and movement of an item respectively in high-level view. It also contains groupCreated and groupDeleted as a list of \texttt{UIGroup}s to capture creation and deletion of a group respectively in low-level view.
+
+\subsubsection{View}\label{subsubsec:design_view}
 The View handles the graphical user interface part of the application. Hence, it contains all the graphic elements and all other HTML elements of the application. View separates the design of the application from the logic of the application due to which the front end designer and the back end developer can work separately without thinking about the errors which could have showed up incase of an overlapping \cite{designpattern-headfirst} \cite{mvc-arch}. View controls how the data is being displayed, how the user interacts with it and provides ways for gathering the data from the users. 
 
 In my case, the technologies that I am using for View are HTML, CSS and JavaScript and JQuery.
@@ -149,7 +184,7 @@ As low-level view offers less functionalities than high-level view, user can per
 
 After the changes are done on either view, to see the effect on the other, user can click on the synchronization button and both the views will be updated.
  
-\subsubsection{Controller}\label{subsubsec:controller}
+\subsubsection{Controller}\label{subsubsec:design_controller}
 The Controller is mainly responsible for event/action handling and basically manages the relationship between a View and a Model \cite{mdd-webwithmvc}. These actions are triggered while a user is interacting with the application on a web browser. It accepts the user requests, interacts with
 the Model, receives the response and generates the View.
 
@@ -177,7 +212,7 @@ Figure~\ref{fig:Server_Servlet} describes the complete lifecycle of a servlet w.
 	\item {Web container sends the response to the web server. Afterwards, web server creates the HTTP response and send it back to the client.}
 \end{enumerate}
 
-In my application, controller i.e., servlet is strongly coupled with a controller helper i.e., java class. Figure~\ref{fig:Controller_Workflow} describes the workflow of the Controller in my project. After invoking the service method of the servlet class, if an instance of the controller helper class does not exist, the servlet creates an instance of it and calls the appropiate method by passing the \texttt{UI Model} object. Inside the method of the controller helper, the conversion of the \texttt{UI Model} to the \texttt{eMoflon specific model} happens and data is sent to the \texttt{Model} for further processing. Controller helper receives the response from the Model and conversion of the \texttt{eMoflon specific model} to the \texttt{UI Model} happens before sending the data to the servlet. 
+In my application, controller i.e., servlet is strongly coupled with a controller helper i.e., java class. Figure~\ref{fig:Controller_Workflow} describes the workflow of the Controller in my project. After invoking the service method of the servlet class, if an instance of the controller helper class does not exist, the servlet creates an instance of it and calls the appropiate method by passing the \texttt{UI Model} object. Inside the method of the controller helper, the conversion of the \texttt{UI Model} to the eMoflon specific models happens and data is sent to the \texttt{Model} for further processing. After processing, controller helper receives the response from the \texttt{Model} and conversion of the eMoflon specific models to the \texttt{UI Model} happens before sending the data to the servlet. 
 
 \begin{figure}
 	\includegraphics[width=1\textwidth]{figures/Controller_Workflow}
@@ -186,24 +221,15 @@ In my application, controller i.e., servlet is strongly coupled with a controlle
 \end{figure}
 
 \subsection{Challenges}\label{subsec:designchallenges}
-During the entire designing process as explained in previous subsections, I came across a few challenges. This section describes them in detail.
+During the entire designing process as explained in previous sections of this chapter, I came across a few challenges. This section describes them in detail.
 
-\paragraph{Architecture Design}
-The first hurdle that I faced in the process of designing was with application framework design. The challenge was to correctly maintain the dependencies of projects without creating a circular dependency among each other.
+\paragraph{Architecture Design -- \textit{Avoiding circular dependency between projects}}
+The first hurdle that I faced in the designing process was with application framework design. The challenge was correctly maintain the dependencies of projects without creating a circular dependency and strong coupling among each other. To overcome this challenge, basic concepts on design patterns and MVC architecture helped me in building the web architecture and maintaining the dependencies among the components in a correct way. 
 
-\paragraph{UI Design}
+\paragraph{UI Design -- \textit{Represent one workspace in two different views}}
 UI design was the second big challenge that I faced during the designing process.
 
 First problem was with the design, look, and feel of the high-level and low-level view. As per the requirement, both the views should represent the same workspace area but in different ways i.e, different action space, functionalities, and fexibility in interaction. So the challenge was to represent one workspace in two different views separated by functionalities and flexibility in use. Hence, I went through a few UI patterns \cite{designinterfaces} and scenarios based design principles \cite{scenariobasedui} for knowing the basics. Finally, I and my supervisor after a few discussions chose an empty canvas as shown in figure~\ref{fig:HighLevel_View} to represent high-level view and a canvas filled with blocks as shown in figure~\ref{fig:LowLevel_View} to represent low-level view.
 
-Second problem was with conceptualizing the structure of \textit{delta} (refer Definition 3) by differentiating the functionalities e.g., changes done by user in the high-level and low-level view. So the challenge was to capturing different changes done in both the views but bundling them into one structure as the \textit{eMoflon} tool requires one input for all the changes done for transformation process. As mentionaed earlier, high-level and low-level view are different from each other based on their functionalities. For example, in high-level view three types of changes are allowed i.e., creation of a new item, deletion of an item, and movement of an item. Whereas, in low-level view two types of changes are allowed i.e., creation of a new group and deletion of a group. Hence, the structure of changes in both the views will be different as well. For separation of concerns, I decided to maintain five different variables for five different kinds of changes i.e., \texttt{createdItem}, \texttt{deletedItem}, \texttt{movedItem}, \texttt{createdGroup}, and \texttt{deletedGroup} but, bundled them into one single class \texttt{Change}. Also, a user can perform a series of changes even of the same type i.e., creating more than one item, deleting more than one item, creating more than one group etc., so I decided to keep every variable as a \texttt{List} item. Fig shows the class diagram of the \texttt{Change} class.
-
-
-
-
-
-
-
-
-
-
+\paragraph{UI Design -- \textit{Capturing different changes(delta) done in the views}}
+Second problem was with conceptualizing the structure of \textit{delta} (refer Definition 3) by differentiating the functionalities e.g., changes done by user in the high-level and low-level view. So the challenge was to capturing different changes done in both the views but bundling them into one structure as the \textit{eMoflon} tool requires one input for all the changes done for transformation process. As mentionaed earlier, high-level and low-level view are different from each other based on their functionalities. For example, in high-level view three types of changes are allowed i.e., creation of a new item, deletion of an item, and movement of an item. Whereas, in low-level view two types of changes are allowed i.e., creation of a new group and deletion of a group. Hence, the structure of changes in both the views will be different as well. For separation of concerns, I decided to maintain five different variables for five different kinds of changes i.e., \texttt{createdItem}, \texttt{deletedItem}, \texttt{movedItem}, \texttt{createdGroup}, and \texttt{deletedGroup} but, bundled them into one single class \texttt{Change}. Also, a user can perform a series of changes even of the same type i.e., creating more than one item, deleting more than one item, creating more than one group etc., so I decided to keep every variable as a \texttt{List} item. Fig~\ref{fig:ClassDia_Change} shows the class diagram of the \texttt{Change} class and section \ref{subsubsec:design_model} explains the structure in deatil.
