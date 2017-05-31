@@ -1,5 +1,5 @@
 \section{Design}\label{sec:design}
-In this chapter, I am going to describe the design steps realized during the implementation of the demonstrator. Section \ref{subsec:exampleforimplementation} describes all the examples that I have conceptualized before choosing the final one for the implementation. This is then followed by the description of the steps taken for selecting the bx-tool in Section \ref{subsec:bxtoolselection}. Afterwards, Section \ref{subsec:architecturedesign} deals with the decisions taken for finalizing the apllication's architecture design. Then, Section \ref{subsec:design_layers} describes the applications' framework in detail along with its components. At last, Section \ref{subsec:designchallenges} describes the challenges that I faced while designing the entire framework and its components.
+In this chapter, I am going to describe the design steps realized during the implementation of the demonstrator. Section \ref{subsec:exampleforimplementation} describes all the examples that I have conceptualized before choosing the final one for the implementation. This is then followed by the description of the steps taken for selecting the bx-tool in Section \ref{subsec:bxtoolselection}. Afterwards, Section \ref{subsec:architecturedesign} deals with the decisions taken for finalizing the apllication's architecture design. Then, Section \ref{subsec:design_layers} describes the applications' framework in detail along with its components. Afterwards, Section \ref{subsec:designchallenges} describes the challenges that I faced while designing the entire framework and its components. At last, Section \ref{subsec:choicesthreats} describes some of the choices that I made during the design phase and its associated threats. 
 
 \subsection{Choosing an Example}\label{subsec:exampleforimplementation}
 To solve the problems as described in Section \ref{subsec:probstmt}, the main idea is to design and implement an interactive bx tool demonstrator based on an intuitive example.
@@ -64,7 +64,6 @@ A bx benchmark (referred to as \textbf{Benchmarx} from now on) is a bx example t
 \subsection{Architecture Design}\label{subsec:architecturedesign}
 Last step in the design process was application architecture design which is the most important part of my thesis and also the starting phase of the implementation of the prototype.
 
-\subsubsection{Design Decision}\label{subsubsec:architecturedesigndecision}
 I decided to build a web appliaction to address the requirements \textit{FREQ1}, \textit{NREQ1} and \textit{NREQ2} described in Section \ref{subsec:functionalreq} and \ref{subsec:nonfunctionalreq}.
 \newline\newline Web application development has evolved drastically from single page design to very complex layering structures since the beginning of World Wide Web. Many design patterns \cite{designpattern} \cite{designpattern-notes} consisting of different technologies and programming languages were proposed, adopted and implemented in different time to address the demands of customers and users on web. With the rapid changes occuring on World Wide Web, technologies are becoming obsolete and losing its demand day by day. Nowadays, the main focus is on improving the user interaction and allow the developers to build powerful web applications rapidly.
 \newline\newline I have analyzed a few design patterns and commonly used architecture designs in todays world by working on a few Proof of Concepts (PoC). Main goal of my thesis is to design and implement a demonstrator based on a bx-tool as described in Section \ref{subsec:contribution} and prior to this stage, I have already selected \textit{eMoflon} as my bx-tool in Section \ref{subsec:bxtoolselection}. So, The main idea was to check the feasibility of the architecture and the data flow within its components on the top of the interface provided by the \textit{Benchmarx} (proposed by Anjorin et al. \cite{benchmarx-reload}) to access the bx-tool. While working on the PoCs, I came across a few problems such as, maintainability and reusability of code, dependencies of components etc. To avoid these problems and to address the requirement \textit{NREQ3} described in Section \ref{subsec:functionalreq}, I finally chose Model-View-Controller (referred as \textbf{MVC} from now on) architecture for my application framework. Following were the driving factors for the selection of the MVC architecture \cite{designpattern-notes} \cite{designpattern-headfirst} :
@@ -75,14 +74,14 @@ I decided to build a web appliaction to address the requirements \textit{FREQ1},
 	\item {a person who is working on View does not need to know about the underlying Model code base and its architecture.}
 \end{itemize}
 
-\subsection{Architecture Layers}\label{subsec:design_layers}
-Figure~\ref{fig:Architecture_Diagram} shows a very high-level architecture diagram of my prototype. It consist of 3 components e.g., Model, View and Controller. View is responsible for all the graphical user interface management and consist of technologies like HTML, CSS, JavaScript and Jquery. Controller is responsible for event handling and basically consist of the technology Servlet. Model is responsible for all the tasks related to business logic, business rules, data, meta-models, state of meta-models etc. and consist of java classes.
-
 \begin{figure}
 	\includegraphics[width=1\textwidth]{figures/Highlevel_Arch}
 	\caption{High Level Architecture Diagram}
 	\label{fig:Architecture_Diagram}
 \end{figure}
+
+\subsection{Architecture Layers}\label{subsec:design_layers}
+Figure~\ref{fig:Architecture_Diagram} shows a very high-level architecture diagram of my prototype. It consist of 3 components e.g., Model, View and Controller. View is responsible for all the graphical user interface management and consist of technologies like HTML, CSS, JavaScript and Jquery. Controller is responsible for event handling and basically consist of the technology Servlet. Model is responsible for all the tasks related to business logic, business rules, data, meta-models, state of meta-models etc. and consist of java classes.
 
 \paragraph{Request-Response Cycle} 
 Figure~\ref{fig:Detail_Architecture_Diagram} shows a detailed architecture diagram with a complete request-response cycle described below:
@@ -102,6 +101,7 @@ Figure~\ref{fig:Detail_Architecture_Diagram} shows a detailed architecture diagr
 \end{sidewaysfigure}
 
 Below sub-sections describes the designing process of each component e.g., Model, View and Controller in detail.
+
 \subsubsection{Model}\label{subsubsec:design_model}
 Model is mainly responsible for encapsulating the access of data and handling the business logic of the application \cite{designpattern-headfirst} \cite{mvc-arch}. It ensures the data abstraction and provides methods to access it, due to which the complexity of writing the code on developers' part is highly reduced \cite{mdd-webwithmvc}.
 \newline\newline In my case, Model is consist of java classes and the \textit{eMoflon} tool. The java classes consist of interfaces and its concrete implementation designed to access the bx-tool eMoflon on the top of the framework provided by the \textit{Benchmarx}. The tool contains all the meta-models, state of the meta-models and the associated transformation rules.
@@ -233,3 +233,12 @@ First problem was with the design, look, and feel of the high-level and low-leve
 
 \paragraph{UI Design -- \textit{Capturing different changes(delta) done in the views}}
 Second problem was with conceptualizing the structure of \textit{delta} (refer Definition 3) by differentiating the functionalities e.g., changes done by user in the high-level and low-level view. So the challenge was to capturing different changes done in both the views but bundling them into one structure as the \textit{eMoflon} tool requires one input for all the changes done for transformation process. As mentionaed earlier, high-level and low-level view are different from each other based on their functionalities. For example, in high-level view three types of changes are allowed i.e., creation of a new item, deletion of an item, and movement of an item. Whereas, in low-level view two types of changes are allowed i.e., creation of a new group and deletion of a group. Hence, the structure of changes in both the views will be different as well. For separation of concerns, I decided to maintain five different variables for five different kinds of changes i.e., \texttt{createdItem}, \texttt{deletedItem}, \texttt{movedItem}, \texttt{createdGroup}, and \texttt{deletedGroup} but, bundled them into one single class \texttt{Change}. Also, a user can perform a series of changes even of the same type i.e., creating more than one item, deleting more than one item, creating more than one group etc., so I decided to keep every variable as a \texttt{List} item. Fig~\ref{fig:ClassDia_Change} shows the class diagram of the \texttt{Change} class and section \ref{subsubsec:design_model} explains the structure in deatil.
+
+\subsection{Choices and Threats}\label{subsec:design_choicesthreats}
+The implementation process and the final prototype was driven by many choices and threats. For example, 
+\begin{itemize} 
+	\item {selection of the bx tool and the most suitable example to implement has impact on deciding the usefullness of the demonstrator.}
+	\item {seletion of the bx tool and the example to implement is more or less influenced by the ideas given by my supervisor.} 
+	\item {my decisions on designing the application's framework for implementation are impacted by the existing availability and usability issues of the finalized bx-tool.}
+	\item {During evaluation, I might not have got proper feedback from my friends \& colleagues due to my acquaintance and time constraints.}
+\end{itemize}
