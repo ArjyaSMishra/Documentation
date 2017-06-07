@@ -1,11 +1,11 @@
 \section{Introduction and Motivation}\label{sec:introduction}
 In the era of Information Technology, the usage of software and its applications is continuously increasing and has become an important part of our lives. This makes the software industry one of the largest industries in the world and many companies are built around the development of software. With the growing usage of software, the software development process has changed drastically and has become more solution-oriented. Nowadays, the entire focus is on making the software development process fast, less complex, and more human-friendly. 
 
-One of the approaches to reducing the complexity of software development is abstraction and separation of concerns~\cite{modeltransform}. In recent times, (software) modeling has become an effective way of implementing this principle. In a traditional approach, developers manually write programs and check the specifications, which is often costly, incomplete, informal, and carries a major risk of failure. In contrast, model-driven software development (referred to as \textbf{MDSD} from now on) improves the way software is built by moving the focus from code to representing the essential aspects of software in the form of software models. It reduces development costs and increases the reusability and maintainability of software. The objective of MDSD~\cite{modeltransform} is to increase productivity and reduce time-to-market by enabling development at a higher level of abstraction and by using concepts closer to the problem domain, rather than what is directly offered by programming languages.
+One of the approaches for reducing the complexity of software development is abstraction and separation of concerns~\cite{modeltransform}. In recent times, (software) modeling has become an effective way of implementing this principle. In a traditional approach, developers manually write programs and check the specifications, which is often costly, incomplete, informal, and carries a major risk of failure. In contrast, model-driven software development (referred to as \textbf{MDSD} from now on) improves the way software is built by moving the focus from code to representing the essential aspects of software in the form of software models~\cite{modeltransform}. It reduces development costs and increases the reusability and maintainability of software. The objective of MDSD~\cite{modeltransform} is to increase productivity and reduce time-to-market by enabling development at a higher level of abstraction and by using concepts closer to the problem domain, rather than what is directly offered by programming languages.
  
-The core idea of the MDSD approach is based on models, modeling and model transformations. In this approach, developers represent real world systems as models at a suitable level of abstraction. Different models can be used to represent different views of a system.  Although these views are separate and result in models that can be independently manipulated by different developers, there are still numerous relations between models that must be taken into account to ensure that the entire system, described by the state of all models, is consistent. This can be handled by model transformation to increase the developers' productivity and quality of the models.
+The core idea of the MDSD approach is based on models, modeling and model transformations. In this approach, developers represent real world systems as models at a suitable level of abstraction. Different models can be used to represent different views of a system.  Although these views are separate and result in models that can be independently manipulated by different developers, there are still numerous relations between models that must be taken into account to ensure that the entire system, described by the state of all models, is consistent. This can be handled by model transformation to increase the developers' productivity and quality of the models~\cite{mdsd}.
 
-\textit{Bidirectional transformation} (referred to as \textbf{bx} from now on) is a technique used to synchronize two (or more) models. Such models are related, but don't necessarily contain the same information. Changes in one model can thus lead to changes in other models \cite{bx-grace}.
+\textit{Bidirectional transformation} (referred to as \textbf{bx} from now on) is a technique used to synchronize two (or more) models. Such models are related, but do not necessarily contain the same information. Changes in one model can thus lead to changes in other models \cite{bx-grace}.
 \newline\newline\textit{Bidirectional transformation} is used to deal with scenarios like~\cite{bx-theoryandappl}:\\
 
 \begin{itemize}
@@ -26,12 +26,12 @@ From experience with working with master students (future software developers) a
 
 To keep a focus on the above described problem statements and to relate to the work done directly or indirectly during my entire thesis, I have formulated the following associated research questions (referred to as \textbf{RQ} from now on):
 
-\begin{itemize}
-	\item {\textbf{\textit{RQ1}} -- What are the core requirements for implementing a successful bx demonstrator ?}
-	\item {\textbf{\textit{RQ2}} -- Which goals can be particularly well addressed in a bx demonstrator and why ?}
-	\item {\textbf{\textit{RQ3}} -- Is it possible to teach the concepts of bx through a demonstrator ?}
-	\item {\textbf{\textit{RQ4}} -- Does an interactive GUI helps an user to increase his/her understanding of bx concepts ?}
-\end{itemize}
+\begin{description}
+	\item [RQ 1 :] What are the core requirements for implementing a successful bx demonstrator ?
+	\item [RQ 2 :] Which goals can be particularly well addressed in a bx demonstrator and why ?
+	\item [RQ 3 :] Is it possible to teach the concepts of bx through a demonstrator ?
+	\item [RQ 4 :] Does an interactive GUI helps an user to increase his/her understanding related to bx concepts ?
+\end{description}
 
 \subsection{Contribution}\label{subsec:contribution}
 To solve the problems as described in Section \ref{subsec:probstmt}, in this thesis, my goals are as follows:
@@ -42,7 +42,13 @@ To solve the problems as described in Section \ref{subsec:probstmt}, in this the
 
 An existing bx tool will be used as a part of the demonstrator to realize \textit{bidirectional transformation}. The final prototype will be interactive and easily accessible to users to help them understand the potential, power and limitations of bx.
 
-My contribution towards providing a solution to the problems described in Section \ref{subsec:probstmt}  can be categorised into three parts as shown in Figure~\ref{fig:Contribution}. 
+Besides giving an overview of previous work and comparing their advantages and disadvantages with my demonstrator, Figure~\ref{fig:Contribution} shows my contributions towards providing a solution to the problems described in Section \ref{subsec:probstmt}. It can be categorised into three parts: 
+
+\begin{enumerate} 
+	\item {Analysis and design of the application framework for the demonstrator} 
+	\item {Concrete implementation of the demonstrator}
+	\item {Evaluation of the demonstrator}
+\end{enumerate}
 
 \begin{figure}
 	\includegraphics[width=1\textwidth]{figures/Contribution}
@@ -50,21 +56,17 @@ My contribution towards providing a solution to the problems described in Sectio
 	\label{fig:Contribution}
 \end{figure}
 
-\paragraph{Contribution 1: Analysis and Design}
-First, I analyzed the already existing work on bx and find out the related problems. Detail explanation of all my findings are described in Section \ref{sec:relatedwork}. Then by considering the problems in hand, I have designed a working, fully functional application framework based on MVC pattern for implemenating a bx tool demonstartor along with a interactive user interface. Section \ref{sec:design_model} explains the design process in detail. This framework can be used to implement a demonstrator encapsulating a bx tool with a concrete example.
+After analyzing the existing work on bx and their related problems (detail explanation described in Section \ref{sec:relatedwork}), to solve the problems in hand, designing an application framework for the implementation of an interactive demonstrator is needed. I have designed a working, fully functional application framework based on MVC pattern for implemenating a bx tool demonstartor along with a interactive user interface for the accomplishment of point (1). This framework can be used to implement a demonstrator encapsulating a bx tool with a concrete example.
 
-\paragraph{Contribution 2: Concrete Implementation}
-Secondly, I have implemented a fully functional demonstrator based on the application framework designed earlier. This demonstrator is based on a bx tool i.e., eMoflon 
-\newline\newline First, I have constructed a few examples which can be implemented covering the requirements and showing the usability of bx tools through demonstrator. Then, taking account the availabilities of resources and usability factor, I finally chose the best suitable example to implement and build the final prototype. Section \ref{subsec:exampleforimplementation} describes list of all the examples.
-\newline\newline Second step was to choose a bx-tool for my demonstrator. Based on the gathered information and taking account implementation related issues, I have chosen a bx-tool to be used as a part of the demonstrator to realize bx. Section \ref{subsec:bxtoolselection} explains the process in detail.
-\newline\newline Next step was to set up the entire application framework for implementing the demonstrator. First, I did some research by going through materials on software design patterns and web application architecture. Then, I prepared a few proof of concepts(POC) for checking the feasibilty of the architecture designs before finalising my application framework. Section \ref{subsec:architecturedesign} explains the process in detail.
+Along with this achievement, concrete implementation of a demonstrator can be done to check the validity of the application framework. I have implemented a fully functional online demonstrator based on the application framework designed earlier for the accomplishment of point (2). This demonstrator is based on a bx tool i.e., eMoflon and a concrete example leveraging the functionalities of the bx tool and explaning some basic bx concepts. 
 
-\paragraph{Contribution 3: Evaluation} 
-This stage is based on the research method called Controlled Experiments \cite{semethods}. This experiment is based on one or more hypothesis, which guide all steps of the experimental design, deciding which variables to include and how to measure them. So, it is an investigation of one or more hypothesis where one or more independent variables are manipulated to measure their effect on one or more dependent variables. Learning goals were prepared along with the scenarios to explain them and questions were asked on these concepts to different groups of participants. Finally, data is collected and analyzed to measure the outcome. Section \ref{sec:evaluation} explains the process in detail.
+After the implementation, evaluation of the demonstrator to check the effectiveness and its impact on the mass audience is needed. I have evaluated the demonstrator based on the research method called controlled experiments \cite{semethods} for the accomplishment of point (3). This experiment is based on one or more hypothesis, which guide all steps of the experimental design, deciding which variables i.e., dependent and independent variables to include and how to measure them. A well designed experiment is performed with different groups of participants, data is collected and analyzed to measure the outcome.
+
+All of my contributions help to achieve the goal of this thesis i.e., a demonstrator for spreading the knowledge about bx concepts.
 
 \subsection{Structure of Thesis}\label{subsec:structure}
 
-Chapter 1 (introduction) contains the introduction and motivation about the thesis with a solution strategy. Chapter 2 discusses the related terminologies with respect to bidirectional transformation. Chapter 3 describes the requirements for implementing a successful bx demonstrator. Chapter 4 explains the related work that has been done on bx in last few years and their related problems. Chapter 5 describes all the design decisions and its associated challenges during the implementation work. Chapter 6 provides in-depth explaination of the implementation details done in each layer along with UML diagrams. Chapter 7 contains the learning goals (based on research questions), feedback from user groups, and evaluation results. Last chapter summarizes all the work which was done as part of this thesis and draws conclusions followed by future work.
+Chapter 1 (introduction) contains the introduction and motivation about the thesis with a solution strategy. Chapter 2 discusses the related terminologies with respect to bidirectional transformation. Chapter 3 describes the requirements for implementing a successful bx demonstrator. Chapter 4 explains the related work that has been done on bx in last few years and their related problems. Chapter 5 describes all the high-level design details and decisions done for each layer along with UML diagrams during the implementation work. Chapter 6 contains the learning goals (based on research questions), evaluation methodology, and evaluation results. Last chapter summarizes all the work which was done as part of this thesis and draws conclusions followed by future work.
 
 \clearpage
 \section{Foundation}\label{sec:foundation}
@@ -132,7 +134,7 @@ A metamodel describes a set of models, i.e., defines a modelling language.
 
 \textit{Example:} In my demonstrator, the example that I have two meta-models i.e., \textit{Kitchen} and \textit{Grid}. Both the models represent the reality "Kitchen". A relation between reality and models is shown in Table~\ref{tab:Model_Reality}. 
 
-Figure~\ref{fig:Kitchen_MetaModel} depicts the \textit{Kitchen} meta-model as a class diagram from an object oriented point of view.
+Figure~\ref{fig:Kitchen_MetaModel} depicts the \textit{Kitchen} meta-model as a class diagram from an object oriented point of view showing the related classes and the relationship between them.
 
 Figure~\ref{fig:Kitchen_AbstractConcrete} illustrates an abstract and concrete view of the \textit{Kitchen} model. Left-side figure shows an abstract syntax i.e., an instance of the kitchen. Whereas, right-side figure describes a concrete syntax of the kitchen as visualized in the user interface.\\
 
@@ -181,10 +183,10 @@ A delta is the change applied to one or more properties of an artefact. It denot
 \end{figure}
 
 \begin{defn}\label{defModelSpace } (Model Space)\\
-A Model Space describes all the states of an artefact (models) and all the deltas which lead from one model to another.
+A Model Space describes all the states of an artefact (models of the same type) and all the deltas which lead from one model to another.
 \end{defn}
 
-\textit{Example:} In my demonstrator example, a concrete example of a subset of a model space is shown in Figure~\ref{fig:Model_Space} with the states i.e., Kitchen1, Kitchen2, Kitchen3, Kitchen4 along with deltas i.e., $\delta$1, $\delta$2, $\delta$3 of the \textit{Kitchen} Model.\\\\
+\textit{Example:} In my demonstrator example, a concrete example of a subset of a model space is shown in Figure~\ref{fig:Model_Space}. GS contains the states i.e., Grid1, Grid2, Grid3 along with deltas i.e., $\delta$1, $\delta$2 of the \textit{Grid} Model. Whereas, KS contains the states i.e., Kitchen1, Kitchen2, Kitchen3 along with deltas i.e., $\delta$3, $\delta$4 of the \textit{Kitchen} Model.
 
 \begin{figure}
 	\includegraphics[width=1\textwidth]{figures/Model_Space}
@@ -193,10 +195,11 @@ A Model Space describes all the states of an artefact (models) and all the delta
 \end{figure}
 
 \begin{defn}\label{defCorrespondenceLinks } (Correspondence Links)\\
-Relationships between models from different model spaces are called correspondence links, or just corrs \cite{benchmarx-reload}. A corr is a set of links  r(a; b) between elements (a in A, b in B), which are compatible with the models' structure and denoted by double bidirectional arrows, e.g., R: A $\Longleftrightarrow$ B. 
+Relationships between models from different model spaces are called correspondence links, or just corrs \cite{benchmarx-reload}. Corrs are used to relate two model spaces. A corr is a set of links c(a; b) between models (a in A, b in B), where  a, b are models in model spaces A and B respectively.
 \end{defn}
 
-\textit{Example:} In my demonstrator example, an example of a corr is r(group; itemSocket) where \textit{group}, \textit{itemSocket} are the elements of \textit{Grid} and \textit{Kitchen} model respectively. Figure~\ref{fig:Correspondence_Links} shows a concrete example of the corr.\\
+\textit{Example:} In my demonstrator example, an example of a corr c(Grid2; Kitchen2) is shown in Figure~\ref{fig:Model_Space}. A concrete example of the corr is given in  Figure~\ref{fig:Correspondence_Links}.
+
 \begin{figure}
 	\includegraphics[width=1\textwidth]{figures/Corr}
 	\caption{Correspondence Links}
@@ -204,12 +207,11 @@ Relationships between models from different model spaces are called corresponden
 \end{figure}
 
 \begin{defn}\label{defConsistency } (Consistency)\\
-Changes in one model may or may not cause any change in other model (models from different model spaces) but their states must not contain any contradiction. It is checked on the set of all corrs related to both the models, R: A $\Longleftrightarrow$ B, i.e., the corr R is consistent, or R is inconsistent \cite{benchmarx-reload}.
+Changes in one model may or may not cause any change in other correspondence model (model from different model space) but their states must not contain any contradiction. Consistency in model transformation is measured on the correctness and completeness of the operations performed \cite{modelsynchro-tgg}. For example, consistency between two models is ensured when a change in one model causes correct  restoration of all the association/corrs between the models (correctness) and all valid inputs are propagated (completeness).
 \end{defn} 
 
-In layman's term, consistent is a state which always involves 2 or more objects/artefacts but doesn't involve ambiguity between them. This is the most important part of the model transformation and the entire focus revolves around it. To be consistent with each other the models have to be inline with respect to their states. 
-
-\textit{Example:} In my demonstrator example, an example of a corr is r(group; itemSocket) where \textit{group}, \textit{itemSocket} are the elements of \textit{Grid} and \textit{Kitchen} Model respectively. Figure~\ref{fig:Running_Example_GUI} and Figure~\ref{fig:Running_Example_GUI_consistency} shows that changes in \textit{Kitchen} model i.e., movement of sink should be propagated to the \textit{Grid} model in order to ensure consistency.\\
+\textit{Example:} In my demonstrator example, a \textit{Kitchen} model is consistent with a \textit{Grid} model when a mapping between \textit{itemSocket} and \textit{group} can be established such that itemSocket containing an item is paired with a group containing block(s). 
+Figure~\ref{fig:Running_Example_GUI} and Figure~\ref{fig:Running_Example_GUI_consistency} describe a concrete example of consistency preservation where, changes in \textit{Kitchen} (kitchen model) i.e., movement of sink should ensure the movement of corresponding group with two horizontal blocks in \textit{Layout} (grid model) in order to ensure consistency.
 
 \begin{defn}\label{deffwdbkdtrans} (Forward and Backward Transformation)\\
 Model transformation is defined as a process for propagating the changes (deltas) from one model of one domain to a corresponding model in another domain using forward and/or backward transformation operations. After a transformation operation, consistency of source and target model is always ensured as model transformation ensures that for each consistent source model there exist a consistent target model~\cite{modelsynchro-tgg}.
@@ -218,19 +220,17 @@ In forward transformation, only the changes that occur in the source model is pr
 
 In backward transformation, only the changes that occur in the target model is propagated to the source model ensuring the consistency between source and target model.
 
-Given two models, bidirectional transformation is a pair of transformation which takes place in both forward and backward direction ensuring the consistency relation between them~\cite{understanding-bx}.
-
+Given two models, bidirectional transformation is a pair of transformation which takes place in both forward and backward direction maintaining the consistency relation between them~\cite{understanding-bx}.
 \end{defn}
-
-\textit{Example:} In my demonstrator example, figure~\ref{fig:BX_Diagram} shows an abstract example of the "BX" and figure~\ref{fig:Transformation_Concrete} depicts a concrete example of the "BX" process where a \textit{Grid} model and a \textit{Kitchen} model is described as source and target respectively in the process of forward and backward transformation.
-
-\textit{Example:} In my demonstrator example, "Grid Model" is the \textit{Source} model and "Kitchen Model" is the \textit{Target} model. Forward transformation will cause "Grid Model" to transform into "Kitchen Model" and Backward transformation will cause "Kitchen Model" to transform into "Grid Model". Figure~\ref{fig:Transformation_Abstract} shows an abstract example of the transformation process and figure~\ref{fig:Transformation_Concrete} depicts a concrete example of the transformation process describing both forward and backward transformation.\\
 
 \begin{figure}
 	\includegraphics[width=1\textwidth]{figures/BX}
 	\caption{Bidirectional Transformation}
 	\label{fig:BX_Diagram}
 \end{figure}
+
+\textit{Example:} In my demonstrator example, "Grid" is the \textit{Source} model and "Kitchen" is the \textit{Target} model. Forward transformation will cause "Grid Model" to transform into "Kitchen Model" and Backward transformation will cause "Kitchen Model" to transform into "Grid Model".
+Figure~\ref{fig:BX_Diagram} shows an abstract example of the "BX" describing both forward and backward transformation. Whereas, Figure~\ref{fig:Transformation_Concrete} depicts a concrete example of the "BX" process where \textit{Layout} and \textit{Kitchen} is described as source and target respectively in the process of forward and backward transformation.
 
 \begin{figure}
 	\includegraphics[width=1\textwidth]{figures/Transformation_Concrete}
