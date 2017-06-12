@@ -1,26 +1,26 @@
 \section{Requirements}\label{sec:requirements}
-This chapter explains all the requirements needed to implement a successful demonstrator. Section \ref{subsec:functionalreq} describes all the functional requirements. Afterwards, Section \ref{subsec:nonfunctionalreq} specifies all the non-functional requirements. 
+This chapter explains all the requirements needed to implement a successful demonstrator. Section \ref{subsec:functionalreq} describes all the functional requirements. Afterward, Section \ref{subsec:nonfunctionalreq} specifies all the non-functional requirements. 
 
 \subsection{Functional}\label{subsec:functionalreq}
-Functional requirements define the behavioural attributes of a system \cite{funcandnonfuncreq} or in simple terms what a system should do.
+Functional requirements define the behavioral attributes of a system \cite{funcandnonfuncreq} or in simple terms what a system should do.
 
-As my thesis is more focussed on the implementation of a demonstrator for consistency management based on a bx tool, following are some of the functional end results (referred to as \textbf{FR} from now on) I have implemented in the demonstrator:
+As my thesis is more focused on the implementation of a demonstrator for consistency management based on a bx tool, following are some of the functional end results (referred to as \textbf{FR} from now on) I have implemented in the demonstrator:
 
 \textbf{\textit{FR1}}: User should be able to manipulate models' instances
 
-Being a demonstrator for bx tool, a user must go through the entire process by himself/herself in order to try and learn bx concepts out of the demonstrator. During the process, user should be able to play with the models' data i.e., Kitchen and Grid and manipulate them with the set of actions e.g., creation, deletion etc. defined separately in both the views i.e., Kitchen and Layout.
+Being a demonstrator for bx tool, a user must go through the entire process by himself/herself in order to try and learn bx concepts out of the demonstrator. During the process, the user should be able to play with the models' data i.e., Kitchen and Grid and manipulate them with the set of actions e.g., creation, deletion etc. defined separately in both the views i.e., Kitchen and Layout.
 
-\textbf{\textit{FR2}}: User should be able to trigger the synchonization process
+\textbf{\textit{FR2}}: User should be able to trigger the synchronization process
 
 Rather being automatic, the synchronization process should be triggered by the user during the process of trying and learning bx concepts out of the demonstrator. After manipulating the models' data, the user should decide when to initiate the synchonization process and visualize the views with updated models.
 
-\textbf{\textit{FR3}}: User can make changes only in one view before synchonization
+\textbf{\textit{FR3}}: User can make changes only in one view before synchronization
 
-During the process of manipulation of models' data before the initiating the synchonization process, a user can make changes only in one view i.e., Kitchen or Layout but not in both. Synchonization process will be initiated only if one of the views contains changes otherwise, changes will be discarded and the user has to start the process once again from the previous consistent state.
+During the process of manipulation of models' data before the initiating the synchronization process, a user can make changes only in one view i.e., Kitchen or Layout but not in both. The synchronization process will be initiated only if one of the views contains changes otherwise, changes will be discarded and the user has to start the process once again from the previous consistent state.
 
 \textbf{\textit{FR4}}: User can reset the models' states at any time
 
-A user can reset the models' states and the views at anytime during the process and start from the beginning.
+A user can reset the models' states and the views at any time during the process and start from the beginning.
 
 \subsection{Non-Functional}\label{subsec:nonfunctionalreq}
 Non-functional requirements cover all the remaining requirements which are not covered by the functional requirements. Hence it describes all the quality attributes of a system \cite{funcandnonfuncreq}.
@@ -29,41 +29,40 @@ Following are some of the non-functional end results (referred to as \textbf{NR}
 
 \textbf{\textit{NR1}}: Reduce the installation time of the bx tool
 
-The demonstrator should not take much time to install and should be up and running very fast. By making the demonstrator available online, user needs nothing to install on his/her machine. User have to enter the url on the browser and hence just a click away from trying the demonstrator based on a bx tool.
+The demonstrator should not take much time to install and should be up and running very fast. By making the demonstrator available online, the user needs nothing to install on his/her machine. The user has to enter the url in the browser and hence just a click away from trying the demonstrator based on a bx tool.
 
-\textbf{\textit{NR2}}: Demonstartor should be fun to play with.
+\textbf{\textit{NR2}}: Demonstrator should be fun to play with.
 
 The demonstrator should be able to attract more users by exploiting the features of the GUI and colors. It should be interactive and fun to play with during the entire process so that the user sticks to it.
 
 \textbf{\textit{NR3}}: Demonstrator's example should be simple
 
-The user is going to try/use the demonstrator based on an example. This example should rather be less complex and less technical to understand to create interest and convince more target audience. Also, user should be able to relate to the bx concepts through the example.
+The user is going to try/use the demonstrator based on an example. This example should rather be less complex and less technical to understand to create interest and convince more target audience. Also, the user should be able to relate to the bx concepts through the example.
 
 \textbf{\textit{NR4}}: Demonstrator should be able to guide the user
 
-During the entire time while the user is using the demonstrator, it should be able to provide clear instructions/guidelines on what the user can do and try with it. User should not feel like what to do with the demonstrator after a few minutes. Demonstrator should guide the user with the all the aspects that is intended to be taught/learned with it.
+During the entire time, while the user is using the demonstrator, it should be able to provide clear instructions/guidelines on what the user can do and try with it. The user should not feel like what to do with the demonstrator after a few minutes. Demonstrator should guide the user through all the aspects that are intended to be taught/learned with it.
 
 \textbf{\textit{NR5}}: Demonstrator should be informative
 
-Rather being just a online playing tool, the user should learn certain concepts of bx by using the demonstrator. User should be able to relate to the concepts taught by the demonstrator with its scenarios.
+Rather being just an online playing tool, the user should learn certain concepts of bx by using the demonstrator. The user should be able to relate to the concepts taught by the demonstrator with its scenarios.
 
 \textbf{\textit{NR6}}: Public access
 
-The demonstrator should be accessible world-wide to all. Being a demonstrator for a bx tool, it's accessibility shouldn't be restricted for a few groups. rather, it should be accessible to all whoever wants to use the tool.
+The demonstrator should be accessible worldwide to all. Being a demonstrator for a bx tool, it's accessibility shouldn't be restricted to a few groups. rather, it should be accessible to all whoever wants to use the tool.
 
 \textbf{\textit{NR7}}: Robust \& Platform independent
 
-Application architecture should be easily maintainable and extendable. With changing requirements and needs, application architecture should be able to accomodate new changes and future enhancements. 
-Also, application should be platform independent i.e., it should run on any operating system and all kinds of browser. Different environment on user's machine should not affect the application.
+Application architecture should be easily maintainable and extendable. With changing requirements and needs, application architecture should be able to accommodate new changes and future enhancements. Also, the application should be platform independent i.e., it should run on any operating system and all kinds of browser. Different environment on user's machine should not affect the application.
 
 \textbf{\textit{NR8}}: Non-Occupancy of Users' machine space
 
-Application should occupy very less or no space on users' machine during installation or while running the example. 
+The application should occupy very less or no space on users' machine during installation or while running the example. 
  
 \textbf{\textit{NR9}}: Easily deployable project
 
 Application's deployment process to get the example running should not be complex. Rather, it should involve simple steps so that it can be carried out by anyone in no time.
 
-\textbf{\textit{NR10}}: Products, technologies and tools
+\textbf{\textit{NR10}}: Products, Technologies, and tools
 
-Updated version of the products, technologies and tools should be used as per the requirements during the implementation work so that future enhancements can be carried out easily.
+Updated version of the products, technologies, and tools should be used as per the requirements during the implementation work so that future enhancements can be carried out easily.

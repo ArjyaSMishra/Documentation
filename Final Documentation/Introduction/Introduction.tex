@@ -5,13 +5,13 @@ One of the approaches for reducing the complexity of software development is abs
  
 The core idea of the MDSD approach is based on models, modeling and model transformations. In this approach, developers represent real world systems as models at a suitable level of abstraction. Different models can be used to represent different views of a system.  Although these views are separate and result in models that can be independently manipulated by different developers, there are still numerous relations between models that must be taken into account to ensure that the entire system, described by the state of all models, is consistent. This can be handled by model transformation to increase the developers' productivity and quality of the models~\cite{mdsd}.
 
-\textit{Bidirectional transformation} (referred to as \textbf{bx} from now on) is a technique used to synchronize two (or more) models. Such models are related, but do not necessarily contain the same information. Changes in one model can thus lead to changes in other models \cite{bx-grace}.
+\textit{Bidirectional transformation} (referred to as \textbf{bx} from now on) is a technique used to synchronize two (or more) models. Such models are related but do not necessarily contain the same information. Changes in one model can thus lead to changes in other models \cite{bx-grace}.
 \newline\newline\textit{Bidirectional transformation} is used to deal with scenarios like~\cite{bx-theoryandappl}:\\
 
 \begin{itemize}
 	\item {change propagation to the user interface as a result of underlying data changes}	
 	\item {synchronization of business/software models}
-	\item {refreshable data-cache incase of database changes}
+	\item {refreshable data-cache in case of database changes}
 	\item {consistency management between two artifacts by avoiding data loss}
 \end{itemize}
 
@@ -20,17 +20,17 @@ The bx community (\url{http://bx-community.wikidot.com/}) has been doing researc
 \subsection{Problem Statement}\label{subsec:probstmt}
 \textit{Bidirectional transformation} is an emerging concept. In the past, many efforts have been made by conducting international workshops, seminars and through experiments conducted by developers / bx community to identify its potential. Also, in addition to the development of bx tools and bx language, benchmarks are being created for bx tools for systematic comparison~\cite{benchmark-BX}.
 
-Although a significant amount of work has been done on bx, a general awareness and understanding for basic concepts, the involved challenges, and reasonable expectations is not really given. Hence, there exist conceptual and practical challenges with building software systems using bx-tools and as a result bx tools and their applicability is still not widely known and used~\cite{bx-theoryandappl}.
+Although a significant amount of work has been done on bx, a general awareness and understanding for basic concepts, the involved challenges, and reasonable expectations are not really given. Hence, there exist conceptual and practical challenges with building software systems using bx-tools and as a result, bx tools and their applicability is still not widely known and used~\cite{bx-theoryandappl}.
 
-From experience with working with master students (future software developers) and bx researchers, we have identified that imparting knowledge about certain core bx concepts can improve the situation. However, the problem is that it is relatively hard and challenging to do this as current possibilities (virtual machines, handbooks, etc) are either tool specific or ineffective because installation process to get the tool running is a time consuming process and sometimes requires technical expertise in a specific area/tool/programming language. Even after you get the tool running, it doesn't necessarily help in understanding bx concepts because of lack of proper explanations. Just examples are not interactive enough, anything tool-specific gets into too much detail of the respective tool, etc.  So a platform on which one can easily prepare high-quality, easily understandable, and engaging learning material for spreading the bx concepts is missing.
+From experience with working with master students (future software developers) and bx researchers, we have identified that imparting knowledge about certain core bx concepts can improve the situation. However, the problem is that it is relatively hard and challenging to do this as current possibilities (virtual machines, handbooks, etc) are either tool specific or ineffective because installation process to get the tool running is a time-consuming process and sometimes requires technical expertise in a specific area/tool/programming language. Even after you get the tool running, it doesn't necessarily help in understanding bx concepts because of lack of proper explanations. Just examples are not interactive enough, anything tool-specific gets into too much detail of the respective tool, etc.  So a platform on which one can easily prepare high-quality, easily understandable, and engaging learning material for spreading the bx concepts is missing.
 
 To keep a focus on the above described problem statements and to relate to the work done directly or indirectly during my entire thesis, I have formulated the following associated research questions (referred to as \textbf{RQ} from now on):
 
 \begin{description}
-	\item [RQ 1 :] What are the core requirements for implementing a successful bx demonstrator ?
-	\item [RQ 2 :] Which goals can be particularly well addressed in a bx demonstrator and why ?
-	\item [RQ 3 :] Is it possible to teach the concepts of bx through a demonstrator ?
-	\item [RQ 4 :] Does an interactive GUI helps an user to increase his/her understanding related to bx concepts ?
+	\item [RQ 1:] What are the core requirements for implementing a successful bx demonstrator?
+	\item [RQ 2:] Which goals can be particularly well addressed in a bx demonstrator and why?
+	\item [RQ 3:] Is it possible to teach the concepts of bx through a demonstrator?
+	\item [RQ 4:] Does an interactive GUI helps a user to increase his/her understanding related to bx concepts?
 \end{description}
 
 \subsection{Contribution}\label{subsec:contribution}
@@ -40,9 +40,9 @@ To solve the problems as described in Section \ref{subsec:probstmt}, in this the
 \item {Spread the basic concepts of bx to a wide audience and making them accessible and understandable.}
 \end{itemize}
 
-An existing bx tool will be used as a part of the demonstrator to realize \textit{bidirectional transformation}. The final prototype will be interactive and easily accessible to users to help them understand the potential, power and limitations of bx.
+An existing bx tool will be used as a part of the demonstrator to realize \textit{bidirectional transformation}. The final prototype will be interactive and easily accessible to users to help them understand the potential, power, and limitations of bx.
 
-Besides giving an overview of previous work and comparing their advantages and disadvantages with my demonstrator, Figure~\ref{fig:Contribution} shows my contributions towards providing a solution to the problems described in Section \ref{subsec:probstmt}. It can be categorised into three parts: 
+Besides giving an overview of previous work and comparing their advantages and disadvantages with my demonstrator, Figure~\ref{fig:Contribution} shows my contributions towards providing a solution to the problems described in Section \ref{subsec:probstmt}. It can be categorized into three parts: 
 
 \begin{enumerate} 
 	\item {Analysis and design of the application framework for the demonstrator} 
@@ -56,23 +56,23 @@ Besides giving an overview of previous work and comparing their advantages and d
 	\label{fig:Contribution}
 \end{figure}
 
-After analyzing the existing work on bx and their related problems (detail explanation described in Section \ref{sec:relatedwork}), to solve the problems in hand, designing an application framework for the implementation of an interactive demonstrator is needed. I have designed a working, fully functional application framework based on MVC pattern for implemenating a bx tool demonstartor along with a interactive user interface for the accomplishment of point (1). This framework can be used to implement a demonstrator encapsulating a bx tool with a concrete example.
+After analyzing the existing work on bx and their related problems (detail explanation described in Section \ref{sec:relatedwork}), to solve the problems in hand, designing an application framework for the implementation of an interactive demonstrator is needed. I have designed a working, fully functional application framework based on MVC pattern for implementing a bx tool demonstrator along with an interactive user interface for the accomplishment of point (1). This framework can be used to implement a demonstrator encapsulating a bx tool with a concrete example.
 
-Along with this achievement, concrete implementation of a demonstrator can be done to check the validity of the application framework. I have implemented a fully functional online demonstrator based on the application framework designed earlier for the accomplishment of point (2). This demonstrator is based on a bx tool i.e., eMoflon and a concrete example leveraging the functionalities of the bx tool and explaning some basic bx concepts. 
+Along with this achievement, a concrete implementation of a demonstrator can be done to check the validity of the application framework. I have implemented a fully functional online demonstrator based on the application framework designed earlier for the accomplishment of point (2). This demonstrator is based on a bx tool i.e., eMoflon and a concrete example leveraging the functionalities of the bx tool and explaining some basic bx concepts. 
 
-After the implementation, evaluation of the demonstrator to check the effectiveness and its impact on the mass audience is needed. I have evaluated the demonstrator based on the research method called controlled experiments \cite{semethods} for the accomplishment of point (3). This experiment is based on one or more hypothesis, which guide all steps of the experimental design, deciding which variables i.e., dependent and independent variables to include and how to measure them. A well designed experiment is performed with different groups of participants, data is collected and analyzed to measure the outcome.
+After the implementation, evaluation of the demonstrator to check the effectiveness and its impact on the mass audience is needed. I have evaluated the demonstrator based on the research method called controlled experiments \cite{semethods} for the accomplishment of point (3). This experiment is based on one or more hypothesis, which guides all steps of the experimental design, deciding which variables i.e., dependent and independent variables to include and how to measure them. A well-designed experiment is performed with different groups of participants, data is collected and analyzed to measure the outcome.
 
 All of my contributions help to achieve the goal of this thesis i.e., a demonstrator for spreading the knowledge about bx concepts.
 
 \subsection{Structure of Thesis}\label{subsec:structure}
 
-Chapter 1 (introduction) contains the introduction and motivation about the thesis with a solution strategy. Chapter 2 discusses the related terminologies with respect to bidirectional transformation. Chapter 3 describes the requirements for implementing a successful bx demonstrator. Chapter 4 explains the related work that has been done on bx in last few years and their related problems. Chapter 5 describes all the high-level design details and decisions done for each layer along with UML diagrams during the implementation work. Chapter 6 contains the learning goals (based on research questions), evaluation methodology, and evaluation results. Last chapter summarizes all the work which was done as part of this thesis and draws conclusions followed by future work.
+Chapter 1 (Introduction) contains the introduction and motivation about the thesis with a solution strategy. Chapter 2 discusses the related terminologies with respect to bidirectional transformation. Chapter 3 describes the requirements for implementing a successful bx demonstrator. Chapter 4 explains the related work that has been done on bx in last few years and their related problems. Chapter 5 describes all the high-level design details and decisions done for each layer along with UML diagrams during the implementation work. Chapter 6 contains the learning goals (based on research questions), evaluation methodology, and evaluation results. The last chapter summarizes all the work which was done as part of this thesis and draws conclusions followed by future work.
 
 \clearpage
 \section{Foundation}\label{sec:foundation}
 This chapter provides an overview of my running example in Section \ref{subsec:runningexample} followed by definitions of some commonly used terminologies with respect to bx in Section \ref{subsec:definitions}. This chapter will lay the foundation for understanding the basics for the reader and will help him/her in apprehending the concepts explained in further chapters.
 
-In this thesis, bidirectional transformation will be discussed by referring to a \textit{Kitchen Model} and a \textit{Grid Model} of a software system. Both models describe the structure and behaviour of the real system "kitchen" but from different perspectives.
+In this thesis, bidirectional transformation will be discussed by referring to a \textit{Kitchen Model} and a \textit{Grid Model} of a software system. Both models describe the structure and behavior of the real system "kitchen" but from different perspectives.
 
 \subsection{Running Example}\label{subsec:runningexample}
 This example is a simplified kitchen planner. Figure~\ref{fig:Running_Example_GUI} describes the relation between the \textit{Kitchen Model} denoted by \textit{Kitchen} (right-hand side canvas) and the \textit{Grid Model} denoted by \textit{Layout} (left-hand side canvas). 
@@ -89,9 +89,9 @@ This example is a simplified kitchen planner. Figure~\ref{fig:Running_Example_GU
 	\label{fig:Running_Example_GUI_consistency}
 \end{figure}
 
-\textit{Kitchen} contains items e.g., sink, fridge, table etc. You can create, delete or move these items in the kitchen, and press "Sync" to propagate your changes to the layout. The \textit{Layout} consist of groups with certain number of blocks. This shows how much space the objects occupy as coloured groups of blocks organised in a grid. Here, the \textit{Kitchen} corresponds to the \textit{Layout} and a single \textit{Item} corresponds to a \textit{Group}. This is described by Figure~\ref{fig:Running_Example_GUI} where an item e.g., \textit{sink} created in the \textit{Kitchen} corresponds to a group in the \textit{Layout}.
+\textit{Kitchen} contains items e.g., sink, fridge, table etc. You can create, delete or move these items in the kitchen, and press "Sync" to propagate your changes to the layout. The \textit{Layout} consists of groups of a certain number of blocks. This shows how much space the objects occupy as colored groups of blocks organized in a grid. Here, the \textit{Kitchen} corresponds to the \textit{Layout} and a single \textit{Item} corresponds to a \textit{Group}. This is described in Figure~\ref{fig:Running_Example_GUI} where an item e.g., \textit{sink} created in the \textit{Kitchen} corresponds to a group in the \textit{Layout}.
 
-Both artifacts are created and evolve together during the lifecycle of the application representing a kitchen workspace. Thus, changes in one domain should be propagated to the other domain in order to ensure consistency between these related artifacts. This is shown by Figure~\ref{fig:Running_Example_GUI_consistency}.
+Both artifacts are created and evolve together during the lifecycle of the application representing a kitchen workspace. Thus, changes in one domain should be propagated to the other domain in order to ensure consistency between these related artifacts. This is shown in Figure~\ref{fig:Running_Example_GUI_consistency}.
 
 Model transformation and synchronization is discussed with this scenario throughout this thesis. 
 
@@ -100,7 +100,7 @@ Model transformation and synchronization is discussed with this scenario through
 \begin{defn}\label{defModel} (Model and Meta-Model)\\
 A model depicts the structure and/or behavior of a real system under discussion from a certain point of view and at a certain level of abstraction which helps in managing and understanding the complexities of a system \cite{uml} \cite{mdsd}. Model creation helps in keeping a clear focus on selected concepts and rules relevant for a particular concern and omitting irrelevant details.
 
-A metamodel describes a set of models, i.e., defines a modelling language. 
+A metamodel describes a set of models, i.e., defines a modeling language. 
 \end{defn} 
 
 \begin{table}
@@ -136,7 +136,7 @@ A metamodel describes a set of models, i.e., defines a modelling language.
 
 Figure~\ref{fig:Kitchen_MetaModel} depicts the \textit{Kitchen} meta-model as a class diagram from an object oriented point of view showing the related classes and the relationship between them.
 
-Figure~\ref{fig:Kitchen_AbstractConcrete} illustrates an abstract and concrete view of the \textit{Kitchen} model. Left-side figure shows an abstract syntax i.e., an instance of the kitchen. Whereas, right-side figure describes a concrete syntax of the kitchen as visualized in the user interface.\\
+Figure~\ref{fig:Kitchen_AbstractConcrete} illustrates an abstract and concrete view of the \textit{Kitchen} model. The left-side figure shows an abstract syntax i.e., an instance of the kitchen. Whereas, right-side figure describes a concrete syntax of the kitchen as visualized in the user interface.\\
 
 \begin{figure}
 	\includegraphics[width=0.7\textwidth]{figures/Kitchen_MetaModel}
@@ -151,10 +151,10 @@ Figure~\ref{fig:Kitchen_AbstractConcrete} illustrates an abstract and concrete v
 \end{figure}
 
 \begin{defn}\label{defDelta} (Delta)\\
-A delta is the change applied to one or more properties of an artefact. It denotes the relationships between models from the same model space \cite{benchmarx-reload}. It is denoted $\delta$: M $\longrightarrow$ M' where M' is an updated version of M.
+A delta is a change applied to one or more properties of an artefact. It denotes the relationships between models from the same model space \cite{benchmarx-reload}. It is denoted $\delta$: M $\longrightarrow$ M' where M' is an updated version of M.
 \end{defn}
 
-\textit{Example:} In my demonstrator example, deltas related to the "Kitchen Model" are described in Table~\ref{tab:Examples_of_Delta}. Whereas, Figure~\ref{fig:Delta_Propagation} shows a concrete example of delta propagation, where creation of a new item e.g., sink causes the change from Kitchen to Kitchen'.\\
+\textit{Example:} In my demonstrator example, deltas related to the "Kitchen Model" are described in Table~\ref{tab:Examples_of_Delta}. Whereas, Figure~\ref{fig:Delta_Propagation} shows a concrete example of delta propagation, where the creation of a new item e.g., sink causes the change from Kitchen to Kitchen'.\\
 
 \begin{table}
 	\centering	
@@ -207,11 +207,11 @@ Relationships between models from different model spaces are called corresponden
 \end{figure}
 
 \begin{defn}\label{defConsistency } (Consistency)\\
-Changes in one model may or may not cause any change in other correspondence model (model from different model space) but their states must not contain any contradiction. Consistency in model transformation is measured on the correctness and completeness of the operations performed \cite{modelsynchro-tgg}. For example, consistency between two models is ensured when a change in one model causes correct  restoration of all the association/corrs between the models (correctness) and all valid inputs are propagated (completeness).
+Changes in one model may or may not cause any change in another correspondence model (model from different model space) but their states must not contain any contradiction. Consistency in model transformation is measured on the correctness and completeness of the operations performed \cite{modelsynchro-tgg}. For example, consistency between two models is ensured when a change in one model causes correct  restoration of all the association/corrs between the models (correctness) and all valid inputs are propagated (completeness).
 \end{defn} 
 
 \textit{Example:} In my demonstrator example, a \textit{Kitchen} model is consistent with a \textit{Grid} model when a mapping between \textit{itemSocket} and \textit{group} can be established such that itemSocket containing an item is paired with a group containing block(s). 
-Figure~\ref{fig:Running_Example_GUI} and Figure~\ref{fig:Running_Example_GUI_consistency} describe a concrete example of consistency preservation where, changes in \textit{Kitchen} (kitchen model) i.e., movement of sink should ensure the movement of corresponding group with two horizontal blocks in \textit{Layout} (grid model) in order to ensure consistency.
+Figure~\ref{fig:Running_Example_GUI} and Figure~\ref{fig:Running_Example_GUI_consistency} describe a concrete example of consistency preservation where, changes in \textit{Kitchen} (Kitchen model) i.e., movement of the sink should ensure the movement of the corresponding group with two horizontal blocks in \textit{Layout} (Grid model) in order to ensure consistency.
 
 \begin{defn}\label{deffwdbkdtrans} (Forward and Backward Transformation)\\
 Model transformation is defined as a process for propagating the changes (deltas) from one model of one domain to a corresponding model in another domain using forward and/or backward transformation operations. After a transformation operation, consistency of source and target model is always ensured as model transformation ensures that for each consistent source model there exist a consistent target model~\cite{modelsynchro-tgg}.
@@ -220,7 +220,7 @@ In forward transformation, only the changes that occur in the source model is pr
 
 In backward transformation, only the changes that occur in the target model is propagated to the source model ensuring the consistency between source and target model.
 
-Given two models, bidirectional transformation is a pair of transformation which takes place in both forward and backward direction maintaining the consistency relation between them~\cite{understanding-bx}.
+Given two models, the bidirectional transformation is a pair of transformation which takes place in both forward and backward direction maintaining the consistency relation between them~\cite{understanding-bx}.
 \end{defn}
 
 \begin{figure}
@@ -230,7 +230,7 @@ Given two models, bidirectional transformation is a pair of transformation which
 \end{figure}
 
 \textit{Example:} In my demonstrator example, "Grid" is the \textit{Source} model and "Kitchen" is the \textit{Target} model. Forward transformation will cause "Grid Model" to transform into "Kitchen Model" and Backward transformation will cause "Kitchen Model" to transform into "Grid Model".
-Figure~\ref{fig:BX_Diagram} shows an abstract example of the "BX" describing both forward and backward transformation. Whereas, Figure~\ref{fig:Transformation_Concrete} depicts a concrete example of the "BX" process where \textit{Layout} and \textit{Kitchen} is described as source and target respectively in the process of forward and backward transformation.
+Figure~\ref{fig:BX_Diagram} shows an abstract example of the "BX" describing both forward and backward transformation. Whereas, Figure~\ref{fig:Transformation_Concrete} depicts a concrete example of the "BX" process where \textit{Layout} and \textit{Kitchen} are described as source and target respectively in the process of forward and backward transformation.
 
 \begin{figure}
 	\includegraphics[width=1\textwidth]{figures/Transformation_Concrete}

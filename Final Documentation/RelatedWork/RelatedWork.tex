@@ -4,19 +4,19 @@ This chapter sums up all the related work that has been done on bx. Section \ref
 Model transformation is a central part of Model-Driven Software Development \cite{bx-grace} \cite{bx-dagstuhl}. Bx community has been constantly doing research and development work in many fields to help people understand and increase awareness about bx. Nowadays, researchers from different areas are actively investigating the use of bx to solve a variety of problems. A lot of work has been done in terms of building usable tools and languages for bx. These tools can be used in various fields, for achieving \textit{bidirectional transformation}. To understand these tools, several handbooks, tutorials and examples have been created so that users and developers can understand the core concepts. Following sections will describe these concepts in detail.
 
 \subsection{Existing Demonstrator}\label{subsec:existingdemo}
-First, I analyzed an existing demonstrator available along with the test cases of a domain-specific language, BiYacc \cite{biyacc} which is based on BiGUL \cite{bigul}. BiYacc designed to keep the parsers and printers needed by the language designers unified, in a single program, and consistent throughout the evolution of a language. Based on bidirectional transformations theory, BiYacc constructs the pairs of parsers and reflective printers and gurantees that they are consistent.
+First, I analyzed an existing demonstrator available along with the test cases of a domain-specific language, BiYacc \cite{biyacc} which is based on BiGUL \cite{bigul}. BiYacc designed to keep the parsers and printers needed by the language designers unified, in a single program, and consistent throughout the evolution of a language. Based on bidirectional transformations theory, BiYacc constructs the pairs of parsers and reflective printers and guarantees that they are consistent.
 
 \begin{figure}
 	\includegraphics[width=1\textwidth]{figures/Biyacc}
-	\caption{Web GUI for Demonstartor: Biyacc}
+	\caption{Web GUI for Demonstrator: Biyacc}
 	\label{fig:WebGUI_Biyacc}
 \end{figure}
 
-Figure~\ref{fig:WebGUI_Biyacc} shows the web interface of the demonstartor. It contains two views i.e, source and view. Depending upon the user selection, "souce" contains an arithmetic expression or a program with some comments. After the forward transformation is done, "view" is loaded with the parsed version (machine readable format) of the sources' text.\\  
+Figure~\ref{fig:WebGUI_Biyacc} shows the web interface of the demonstrator. It contains two views i.e, source and view. Depending on the user selection, "source" contains an arithmetic expression or a program with some comments. After the forward transformation is done, "view" is loaded with the parsed version (machine readable format) of the sources' text.\\  
 Being an online demonstrator, a user can try it out instantly and check how it works. It doesn't require any installation or technical expertise to get the example running.
 
 \subsection{Virtual Machines}\label{subsec:virtualmachines}
-Secondly, I have analyzed a web-based virtual machine, e.g., SHARE~\cite{share}. Basically, this is a web portal used for creating and sharing executable research papers and acts as a demonstrator to provide access to tools, softwares, operating systems, etc., which are otherwise a headache to install \cite{share}. Also, I have analyzed VM Virtual Box~\cite{virtualbox}, an open source virtualization product used for creating and sharing enterprise, academic, and personal work. 
+Secondly, I have analyzed a web-based virtual machine, e.g., SHARE~\cite{share}. Basically, this is a web portal used for creating and sharing executable research papers and acts as a demonstrator to provide access to tools, software, operating systems, etc., which are otherwise a headache to install \cite{share}. Also, I have analyzed VM Virtual Box~\cite{virtualbox}, an open source virtualization product used for creating and sharing enterprise, academic, and personal work. 
 
 These virtual machines provide the environment that the user requires to execute his/her tool or program. Hence, it reduces the overhead of a user for maintaining and organizing all software framework related stuff and simplify access for end-users. To access the shared material, virtual machine either have to accessed online or deployed on users' machine.
 
@@ -54,26 +54,26 @@ The existing demonstrator is based on a rather technical example that might not 
 \paragraph{Virtual Machines}
 For security reasons, web-based virtual machine, e.g., SHARE is not like other web portals where a user need to simply sign-up and can host/create/access data, rather it includes a series of request-grant cycle for getting access to an environment and hosting/managing data. Also, some actions require special authorization and take time to complete the whole process.
 
-User needs at least 3 Gigabyte or more space on his/her local system for configuring the virtual machine i.e., VM Virtual Box depending on the requirement of the environment, which sometimes creates an overhead.
+The user needs at least 3 Gigabyte or more space on his/her local system for configuring the virtual machine i.e., VM Virtual Box depending on the requirement of the environment, which sometimes creates an overhead.
 
 \paragraph{Handbooks \& Tutorials}
 As described in handbooks and tutorials, Installation requires technical expertise and time consuming as the user typically has to setup and install the tool.
 
-Required knowledge is too tool/area specific and it can be challenging if the user is not familiar with the technological space, e.g., User must possess knowledge about Java and Eclipse framework or a Java programmer might find the tool chain for Haskell unfamiliar.
+Required knowledge is too tool/area specific and it can be challenging if the user is not familiar with the technological space, e.g., the user must possess knowledge about Java and Eclipse framework or a Java programmer might find the tool chain for Haskell unfamiliar.
 
-Steps to get the example running needed technical expertise, e.g., In some cases, domain specific knowledge includes mathematics and specific coding language. What is showcased and discussed is tied to a specific technological space and might not be easily transferable to other bx approaches and also, not very helpful to understand what bx is before deciding which bx tool to use.
+Steps to get the example running needed technical expertise, e.g., In some cases, domain-specific knowledge includes mathematics and specific coding language. What is showcased and discussed is tied to a specific technological space and might not be easily transferable to other bx approaches and also, not very helpful to understand what bx is before deciding which bx tool to use.
 
 \paragraph{Example Repositories}
 In today's fast paced and visually enriched world, "what you see is what you believe" and that
 is exactly what these examples are lacking in. None of the examples have a demonstrator
-showing how it works. Hence, it is very difficult for a user to realise the examples just by going
-through the documentation and UML diagrams. Even if source code is present, it takes a lot
+showing how it works. Hence, it is very difficult for a user to realize the examples just by going
+through the documentation and UML diagrams. Even if the source code is present, it takes a lot
 of time and requires technical expertise to set-up the framework and get the example running.
 
 \subsubsection{Comparison}\label{subsubsubsec:comparison}
-Associated problems as discussed in Section \ref{subsubsec:relatedproblems} gave me the foundation for forming the requirements of the Demon-BX tool. I took the shortcomings from each related work and form the requirements i.e., functional and non-functional.
+Associated problems as discussed in Section \ref{subsubsec:relatedproblems} gave me the foundation for forming the requirements of the Demon-BX tool. I took the shortcomings from each related work and designed the requirements i.e., functional and non-functional.
 
-Table~\ref{tab:comparison_relatedwork} illustrates a comparison between all the related work discussed above with Demon-BX tool based on the requirements described in Section \ref{sec:requirements}. \checkmark denotes the fulfillment of the requirement, \ding{55} denotes the non-fulfillment of the requirement, and ? denotes insufficient information related to the requirement. This comparison table clearly describes that Demon-BX tool overcomes all the problems associated with these related work.
+Table~\ref{tab:comparison_relatedwork} illustrates a comparison between all the related work discussed above with Demon-BX tool based on the requirements described in Section \ref{sec:requirements}. "\checkmark" denotes the fulfillment of the requirement, "\ding{55}" denotes the non-fulfillment of the requirement, and "?" denotes insufficient information related to the requirement. This comparison table clearly shows that Demon-BX tool overcomes all the problems associated with these related work.
 
 \begin{sidewaystable}
 	\centering
