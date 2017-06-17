@@ -105,7 +105,7 @@ A metamodel describes a set of models, i.e., defines a modeling language.
 
 \begin{table}
 	\centering	
-	\begin{tabular}{|p{3cm}|p{3cm}|p{9cm}|}
+	\begin{tabular}{|p{3cm}|p{3cm}|p{8cm}|}
 		\hline
 		\rowcolor[gray]{.8}	
 		\textbf{Reality} & \textbf{Model} & \textbf{Aspects Covered} \\
@@ -134,15 +134,21 @@ A metamodel describes a set of models, i.e., defines a modeling language.
 
 \textit{Example:} In my demonstrator, the example that I have two meta-models i.e., \textit{Kitchen} and \textit{Grid}. Both the models represent the reality "Kitchen". A relation between reality and models is shown in Table~\ref{tab:Model_Reality}. 
 
-Figure~\ref{fig:Kitchen_MetaModel} depicts the \textit{Kitchen} meta-model as a class diagram from an object oriented point of view showing the related classes and the relationship between them.
-
-Figure~\ref{fig:Kitchen_AbstractConcrete} illustrates an abstract and concrete view of the \textit{Kitchen} model. The left-side figure shows an abstract syntax i.e., an instance of the kitchen. Whereas, right-side figure describes a concrete syntax of the kitchen as visualized in the user interface.\\
+\begin{figure}
+	\includegraphics[width=0.7\textwidth]{figures/Grid_MetaModel}
+	\caption{Grid MetaModel}
+	\label{fig:Grid_MetaModel}
+\end{figure}
 
 \begin{figure}
 	\includegraphics[width=0.7\textwidth]{figures/Kitchen_MetaModel}
 	\caption{Kitchen Meta-Model}
 	\label{fig:Kitchen_MetaModel}
 \end{figure}
+
+Figure~\ref{fig:Grid_MetaModel} and Figure~\ref{fig:Kitchen_MetaModel} depict the \textit{Grid} and \textit{Kitchen} meta-model respectively as a class diagram from an object oriented point of view showing the related classes and the relationship between them.
+
+Figure~\ref{fig:Kitchen_AbstractConcrete} illustrates an abstract and concrete view of the \textit{Kitchen} model. The left-side figure shows an abstract syntax i.e., an instance of the kitchen. Whereas, right-side figure describes a concrete syntax of the kitchen as visualized in the user interface.\\
 
 \begin{figure}
 	\includegraphics[width=1\textwidth]{figures/Kitchen_AbstractConcrete}
@@ -158,7 +164,7 @@ A delta is a change applied to one or more properties of an artefact. It denotes
 
 \begin{table}
 	\centering	
-	\begin{tabular}{|p{5cm}|p{10cm}|}
+	\begin{tabular}{|p{4cm}|p{8cm}|}
 		\hline
 		\rowcolor[gray]{.8}	
 		\textbf{Model} & \textbf{Delta ($\delta$)} \\
@@ -188,17 +194,17 @@ A Model Space describes all the states of an artefact (models of the same type) 
 
 \textit{Example:} In my demonstrator example, a concrete example of a subset of a model space is shown in Figure~\ref{fig:Model_Space}. GS contains the states i.e., Grid1, Grid2, Grid3 along with deltas i.e., $\delta$1, $\delta$2 of the \textit{Grid} Model. Whereas, KS contains the states i.e., Kitchen1, Kitchen2, Kitchen3 along with deltas i.e., $\delta$3, $\delta$4 of the \textit{Kitchen} Model.
 
-\begin{figure}
-	\includegraphics[width=1\textwidth]{figures/Model_Space}
-	\caption{Model Space}
-	\label{fig:Model_Space}
-\end{figure}
-
 \begin{defn}\label{defCorrespondenceLinks } (Correspondence Links)\\
 Relationships between models from different model spaces are called correspondence links, or just corrs \cite{benchmarx-reload}. Corrs are used to relate two model spaces. A corr is a set of links c(a; b) between models (a in A, b in B), where  a, b are models in model spaces A and B respectively.
 \end{defn}
 
 \textit{Example:} In my demonstrator example, an example of a corr c(Grid2; Kitchen2) is shown in Figure~\ref{fig:Model_Space}. A concrete example of the corr is given in  Figure~\ref{fig:Correspondence_Links}.
+
+\begin{figure}
+	\includegraphics[width=1\textwidth]{figures/Model_Space}
+	\caption{Model Space}
+	\label{fig:Model_Space}
+\end{figure}
 
 \begin{figure}
 	\includegraphics[width=1\textwidth]{figures/Corr}
