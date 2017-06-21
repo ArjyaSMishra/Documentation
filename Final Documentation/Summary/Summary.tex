@@ -1,14 +1,59 @@
-\section{Summary and Future Work}\label{sec:timeplan}
+\section{Summary and Future Work}\label{sec:summary}
+In this chapter, I am going to conclude the entire work done in this thesis. Section \ref{subsec:conclusion} summarizes the work done and explained in the previous chapters and then, Section \ref{subsec:futurework} discusses some future enhancements that can be applied to the current work.
+
 \subsection{Conclusion}\label{subsec:conclusion}
-Finding the limitations of the tool, benchmarx.
+With this thesis, I tried to solve the problem of a missing platform for spreading the bx concepts by designing and implementing an interactive demonstrator built on the top of a bx tool. The principal task was to design an application framework with an interface to communicate with the bx tools, extract its features, and then project them on an interactive user interface.
+
+In the process of solving the problems stated earlier, following were my contributions:
+\begin{enumerate}
+	\item {\textit{Analysis and design of the application framework}: I have designed a working, a fully functional application framework based on MVC pattern and extending the interface designed for accessing bx tools by Anjorin et al. \cite{benchmarx-reload} for implementing a bx tool demonstrator along with an interactive user interface. This framework can be used to implement a demonstrator encapsulating bx tools with concrete examples.}
+    \item {\textit{Concrete implementation of the demonstrator}: After analyzing the existing work on bx and their related problems as described in Section \ref{sec:relatedwork}, I designed the requirements of my demonstrator to overcome these problems. Afterward, I have implemented a fully functional online demonstrator based on the application framework designed earlier and checked its feasibility and validity. My demonstrator i.e., Demon-BX satisfies all the requirements listed in Section \ref{sec:requirements} and hence overcomes all the problems with the existing work on bx. This demonstrator is based on a bx tool i.e., eMoflon and a concrete example leveraging the functionalities of the bx tool and explaining some basic bx concepts.}
+    \item {\textit{Evaluation of the demonstrator}: After the implementation, I have evaluated the demonstrator based on the research method called Pretest-Posttest control group design~\cite{expandquasiexpdesign} to check the effectiveness and its impact on the mass audience. This experiment was driven by 3 hypotheses and a few experimental variables i.e., dependent, independent, and controlled. A well-designed experiment was performed with two different groups of participants, data was collected and analyzed to measure the outcome.}
+	
+\end{enumerate}
+
+With the above contributions, I was able to build a web platform for a bx tool which is easily accessible to a widespread audience. My demonstrator helps to display the features of the bx tool i.e., eMoflon along with a few bx concepts. A user can easily try my demonstrator in no time with a few mouse clicks and avoid the complex and time-consuming process which is in the case of virtual machines, tutorials \& handbooks to get a bx tool running. 
+
+With these findings, I was able to answer the following research questions with respect to the requirements:
+\begin{table}[ht]
+	\centering	
+	\begin{tabular}{|p{5cm}|p{9.5cm}|}
+		\hline
+		\rowcolor[gray]{.8}	
+		\textbf{Research Questions} & \textbf{Solutions}\\
+		\hline
+		\textbf{RQ1 -} What are the core requirements for implementing a successful bx demonstrator? &
+		From the work of my thesis, I could say that four basic requirements for implementing a successful bx demonstrator are (i) functional \& non-functional requirements, (ii) an intuitive but simple example, (iii) a bx tool with an interface to access it, and (iv) an application framework to implement the features of the bx tool and project it on an interactive user interface.\\
+		\hline
+		\textbf{RQ2 -} To what extent is such a bx demonstrator reusable? &
+		From the implementation work of my demonstrator, I can say that the application framework along with the extended interface for accessing the bx tools can be reused for implementing any other supported bx tool. Changes in the \texttt{Model} component is required as per the requirements of the bx tool and changes in the \texttt{View} component is required as per the design of the example.\\
+		\hline
+		\textbf{RQ3 -} Is it possible to teach the concepts of bx through a demonstrator? &
+		It is evident from the outcome of the hypothesis H$_{OP1}$ (which corresponds to the research question \textbf{RQ3.1}) that the students derive their (in general wrong) intuition for bx scenarios. Hence to teach the bx concepts, I have combined them with different parts of the implemented example in the demonstrator and allowed the user to play with the example in order to learn the concepts.\\
+		\hline	
+		\textbf{RQ4 -} Does an interactive GUI helps a user to increase his/her understanding related to bx concepts? &
+		It is evident from the outcome of the hypotheses H$_{OP2}$ and H$_{OP3}$ (which corresponds to the research question \textbf{RQ4.1} and \textbf{RQ4.2} respectively) that there are some positive effect among students in understanding the learning goals (\textbf{LG}s) after using the demonstrator but the output data is not significant enough to conclude that.\\
+		\hline			
+	\end{tabular}
+	\caption{Solutions to the Research Questions}
+	\label{tab:Solutions_ResearchQuestions}
+\end{table}
+
 \subsection{Future Work}\label{subsec:futurework}
-In this thesis, I have designed an application framework for the bx tool demonstrator, implemented the demonstrator based on a concrete example, and further evaluated the demonstrator to check its effectiveness in order to spread the bx concepts to a wide spread audience to the best of my knowledge and belief. However, I could not realize a few other features due to time constraints. In the following paragraphs, I discuss some enhancements that I would like to apply to my work in the future. 
+In this thesis, I have designed an application framework for the bx tool demonstrator, implemented the demonstrator based on a concrete example, and further evaluated the demonstrator to check its effectiveness in order to spread the bx concepts to a widespread audience to the best of my knowledge and belief. However, a few other features that were out-of-scope for this thesis can be added to the current work done. In the following paragraphs, I discuss some enhancements that can be applied to my work in the future. 
 \paragraph{New Rulesets}
-\paragraph{New Examples} I have implemented one example in the demonstrator. However, it would be fascinating to see the implementation of a few more examples on the same or different UI platform but on the top of the same application framework.
-\paragraph{Another BX tool}
-\paragraph{BX Tool as a webservice}
-\paragraph{New experiment}
-only showing a video to the control grp
+My current implementation of the eMoflon tool is based on two meta models and five transformation rules. However, it will be interesting to add a few more transformation rules for the existing meta-models. It will surely enhance the interactivity of the demonstrator and also test the capability of UI on handling new rules.
+
+\paragraph{New Examples} I have implemented one example i.e., \textit{Arranging a Kitchen} in the demonstrator. However, it would be fascinating to see the implementation of a few more examples on the same or different UI platform but on the top of the same application framework. Some new examples will definitely test and verify the robustness of the application framework as well as the features of the eMoflon tool further.
+
+\paragraph{Another BX Tool}
+Demon-BX is implemented encapsulating the features of the bx tool \texttt{eMoflon}. However, to test the application framework and the interface built for communicating with bx tools, implementation of another bx tool can be researched and added to the current work. 
+
+\paragraph{BX Tool as a Webservice}
+In the current implementation of Demon-BX, the \texttt{Model} component in the application framework is built as a Java project. Due to a Java project, it has a very thin binding with the \texttt{Controller} component. Any changes in model component related to class name, method name and their accessibility will affect the implementation of the \texttt{Controller Helper} class. Hence, to remove this dependency, the model component can be designed and implemented as a web service. After that, the model can be seen as a plug-in component communicating through JSON/XML data and which completely removes its dependency on the controller component. 
+
+\paragraph{New Experiment}
+During the evaluation process, the control group was given the demonstrator to play with without any scenarios and then asked to answer the posttest question. This might affect the final output as somehow control group was exposed to the demonstrator environment and can cause the same effect what treated experienced with scenarios. Hence, a new experiment can be done by showing the control group only a video about bx concepts in relation with a concrete example instead of exposing them to the demonstrator environment.
 
 
 
