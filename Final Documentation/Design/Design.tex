@@ -1,55 +1,68 @@
 \section{Design and Implementation}\label{sec:design}
-In this chapter, I am going to describe the design and implementation steps realized for the demonstrator. Section \ref{subsec:exampleforimplementation} describes all the examples that I have conceptualized before choosing the final one for the implementation. This is then followed by the description of the steps taken for selecting the bx-tool in Section \ref{subsec:bxtoolselection}. Afterward, Section \ref{subsec:architecturedesign} deals with the decisions taken for finalizing the application's architecture design. Then, Section \ref{subsec:design_layers} describes the application's framework in detail along with its components. Section \ref{subsec:designchallenges} describes the challenges that I faced during the design and implementation of the entire framework. At last, Section \ref{subsec:design_choicesthreats} describes some of the choices that I made during the design phase and its associated threats. 
+In this chapter, I am going to describe the design and implementation steps realized for the demonstrator. Section \ref{subsec:exampleforimplementation} describes all the examples that I have conceptualized before choosing the final one for the implementation. This is then followed by the description of the steps taken for selecting the bx-tool in Section \ref{subsec:bxtoolselection}. Section \ref{subsec:architecturedesign} deals with the decisions taken for finalizing the application's architecture design. Section \ref{subsec:design_layers} describes the application's framework in detail along with its components. Section \ref{subsec:designchallenges} describes the challenges that I faced during the design and implementation of the entire framework. Finally, Section \ref{subsec:design_choicesthreats} describes some of the choices that I made during the design phase together with associated threats. 
+
+My demonstrator is called \textit{\ac{Demon-BX}}. Demon-BX is designed in such a way that the implementation is extensible for a family of (similar) examples, and for more than one bx tools. Due to time limitations and scope of this thesis, I chose one of each for the implementation process.
 
 \subsection{Choosing an Example}\label{subsec:exampleforimplementation}
-To solve the problems as described in Section \ref{subsec:probstmt}, the main idea is to design and implement an interactive bx tool demonstrator based on an intuitive example.
+To solve the problems described in Section \ref{subsec:probstmt}, the main idea is to design and implement an interactive bx tool demonstrator based on an intuitive example.
 
 \subsubsection{Construction}\label{subsubsec:exampleconstruction}
-I have constructed a few examples for implementation as follows:
+I have constructed a few examples as candidates for the implementation as follows:
 
-\paragraph{Task Management} This prototype can be used for allocating tasks in a team. It contains two views e.g., supervisor's view and employee's view. A supervisor can allocate tasks to their subordinates. An employee can view the tasks assigned to him. Then the task will go through a life cycle as the work progresses, i.e., Assigned, In Progress, Testing, Done. Supervisor's view shows aggregate information from multiple projects and multiple employees, but does not contain detailed information, e.g., tasks have fewer states than for assigned employees. Bx rules control how updates are handled and states are reflected in the different views of the project, e.g., the employee's view will be updated for each state change, whereas the supervisor's view is only updated when a task is completed and not for intermediate changes.
+\paragraph{Task Management} This idea is influenced from the project management tool such as \textit{Trello} (\url{https://trello.com/}), a web-based project management tool for organizing and managing project related work. This prototype can be used for allocating tasks in a team. It contains two views, a supervisor's view and an employee's view. A supervisor can allocate tasks to their subordinates. An employee can view only the tasks assigned to him. Then the task will go through a life cycle as the work progresses, i.e., Assigned, In Progress, Testing, Done. The supervisor's view shows aggregate information from multiple projects and multiple employees, but does not contain detailed information, e.g., tasks have fewer states than for assigned employees. A bx controls how updates are handled and states are reflected in the different views of the project, e.g., the employee's view will be updated for each state change, whereas the supervisor's view is only updated when a task is completed and not for intermediate changes.
 
-\paragraph{Quiz} This prototype can be used for an online quiz game. It contains two views e.g., administrator's view and participant's view.
-There will be a large set of questions related to different areas, e.g, history, geography, politics, sports, etc. The administrator can select the areas from which the questions will be shown to the participant and initiate the game. The participant can override the selection of the areas and start the quiz. Randomly questions will be shown to the participant from the selected areas with 4 options. The administrator's view contains less information than the participant's view, e.g., only the result of each question will be shown to the administrator, whereas participant can see questions along with its options. As soon as the participant chooses the answer to any question, bx rules control how updates are handled and states are reflected in the different views of the project.
+This example is well-known among the developer's community. But, the example contains a set of rules related to project management which is complex to operate on and user interaction does not come naturally with it. In this example, a user can relate to the bx concepts with both forward and backward synchronization, but it involves texts, tables etc. which is not intuitive for a user.
 
-\paragraph{Playing with Shapes} It contains two views e.g., a low-level view (depicts \ac{UI} for low-level language, i.e., UI with less functionality) and a high-level view (depicts UI for high-level language, i.e., UI with more functionality). The user will draw a geometric shape, i.e., triangle/square/rectangle/circle with some notations similar to the shape on the low-level view and if the notations are correct, the high-level view tries to recognize the shape and draws it with default parameters and vice-versa. Basically the transformation will happen between a low-level language and a high-level language and bx rules control how updates are handled and states are reflected in the different views of the project. In high-level view, more functionalities will be present, i.e., moving one shape from one place to another, creating a clone of an existing shape, etc. which is not possible in low-level view.
+\paragraph{Quiz} This prototype can be used for an online quiz game. It contains two views, an administrator's view and a participant's view.
+There will be a large set of questions related to different areas, e.g, history, geography, politics, sports, etc. The administrator can select the areas from which the questions will be shown to the participant and initiate the game. The participant can view the selection of the areas and start the quiz. Randomly questions will be shown to the participant from the selected areas with 4 options. The administrator's view contains less information than the participant's view, e.g., only the result of each question will be shown to the administrator, whereas participants can see questions along with its options. As soon as the participant chooses the answer to any question, a bx controls how updates are handled and states are reflected in the different views of the project.
+
+Most of the students and computer game lovers are familiar with this example. But, the example contains a set of rules which a user first needs to understand before starting the game and user interaction does not come naturally with it. In this example, a user can relate to the bx concepts with both forward and backward synchronization, but it involves texts, menus, tables etc. which is not intuitive for a user.
+
+\paragraph{Playing with Shapes} This prototype contains two views, a low-level view (depicts a \ac{UI} for a low-level language, i.e., a UI with less functionality) and a high-level view (depicts a UI for high-level language, i.e., a UI with more functionality). The user will sketch a geometric shape, i.e., triangle/square/rectangle/circle using the low-level view. The high-level view tries to recognize the geometric shape and draws it precisely. A bx controls how updates are handled and states are reflected in the different views of the project. In the high-level view, more functionality will be available, e.g.,, moving one shape from one place to another, creating a clone of an existing shape, rotations, etc. which is not possible in low-level view.
+
+This example is based on a new concept and hence contains rules which are completely new to the users. But user interaction is an integral part of this example. In this example, a user can relate to the bx concepts with both forward and backward synchronization and involves shapes, mouse movements etc. which are very interesting for a user.
 
 \paragraph{Arranging a Kitchen}
-It contains two views e.g., layout view (depicts a grid structure containing blocks) and symbolic view (empty space which depicts UI for a kitchen). The symbolic view has more functionalities such as creating/deleting/moving a kitchen item, etc. out of which only a few will be available in layout view. The user will create/delete/move a kitchen item, i.e., sink/table on the symbolic view and if changes are according to the rules defined in the bx tool then items will be reflected on the layout view with same colored blocks and vice-versa. Basically, the transformation will happen between a low-level language and a high-level language and bx rules control how updates are handled and states are reflected in the different views of the project.
+This prototype contains two views, layout view (depicts a grid structure containing blocks) and a symbolic view (empty space which depicts the UI for a kitchen). The symbolic view has more functionalities such as creating/deleting/moving a kitchen item, etc. out of which only a few will be available in the layout view. The user will create/delete/move a kitchen item, i.e., sink/table in the symbolic view and if changes are compartible with a bx then the items will be reflected in the layout view with colored blocks and vice-versa.
 
-\paragraph{Person and Family}
-The concept of this example is taken from the example \emph{FamilyToPersons} located in the bx examples repository~\cite{bx-examples}. It contains two views e.g., Family view and Person view. In Family view, it contains many families and each family consist of members. Whereas, Person view contains persons (the members of each family). We assume that the surnames are unique and allow us to differentiate between different families. The addition of a new person to the Person view will be reflected in the family view and vice-versa. Also, due to the uniqueness of the surnames, a person created will be automatically assigned to the related family. Bx rules control how updates are handled and states are reflected in the different views.
+Any user can relate to this example very well as everybody is familiar with a kitchen and its environment. This example involves no technical details and simple rules as the environment is a part of day to day life and hence users will be able to relate to the learning concepts easily. As an integral part of this example, user interactivity involves shapes, colors, drag and drop, etc. which creates interest for a user.
+
+\paragraph{Families to Persons}
+The concept of this example is taken from the example \emph{FamilyToPersons} located in the bx examples repository~\cite{bx-examples}. It contains two views, a Families view and Persons view. The Families view contains many families and each family consist of members. The Persons view contains persons (corresponding to the members of each family). The addition of a new person to the Persons view will be reflected in the Families view and vice-versa. Surnames don't have to be unique. If a new person could be placed in multiple families the synchroniser can simply ask which one is to be chosen (user interaction).
+
+The potential users are not familiar with this example. However, this example is very simple to understand as everybody is familiar with the concept of a family and hence users will be able to relate to the learning concepts easily. But user interactivity does not involve any colors, shapes, mouse movements, etc. to attract a user.
 
 \subsubsection{Selection}\label{subsubsec:exampleselection}
-Selecting an example for the demonstrator was not random, rather I have taken many factors into considerations before choosing the final one. It was a very important decision, as the selection of the example and its implementation will directly affect the research question \textit{RQ 4} specified in Section \ref{subsec:probstmt} and requirements \textit{NR 2}, \textit{NR 3} described in Section \ref{subsec:nonfunctionalreq}.
+Selecting an example for the demonstrator was not random, rather I have taken many factors into considerations before choosing the final one. It was a very important decision, as the selection of the example and its implementation will directly affect the research question \textit{RQ 4} specified in Section \ref{subsec:probstmt} and requirements \textit{NR2} (fun to play), \textit{NR3} (simple) described in Section \ref{subsec:nonfunctionalreq}.
 
-Hence by taking into account all these factors, I have constructed a few evaluation criteria (referred to as \textbf{EC}) for the selection process of the most suitable example as listed below:
+Hence by taking into account all these factors, I and my supervisor constructed a few evaluation criteria (referred to as \textbf{EC}), as due to time constraint, we could not ask potential users or conduct an experiment to find out what people will prefer. Then, we evaluated each example on the basis of the evaluation criteria for the selection of the most suitable example. The evaluation criteria that we have considered are listed below:
 \begin{description}
 	\item [EC 1:] User should be familiar with the example.
-	\item [EC 2:] Example should be simple without the involvement of any technical details.
-	\item [EC 3:] Interactivity should not create an overhead for the user but rather be intuitive.
-	\item [EC 4:] User should be able to relate to the learning concepts through the example.
+	\item [EC 2:] Example should be simple and intuitive with minimum of technical details.
+	\item [EC 3:] Interactivity should be a natural part of the example.
+	\item [EC 4:] Both the forward and backward direction of consistency restoration should make sense for the example.
+	\item [EC 5:] Example should be visual and involve shapes, colors and drag and drop (as opposed to text, menus, or tables).
 \end{description}
 
-Table~\ref{tab:comparison_examples} shows the comparison of the examples based on the evaluation criteria. "\checkmark" denotes the fulfillment of the evaluation criteria whereas, "\ding{55}" denotes the non-fulfillment of the evaluation criteria. This comparison table clearly shows that \textit{Arranging a Kitchen} is the most suitable example. It fulfills all the evaluation criteria because any user can relate to the example very well as everybody is familiar with a kitchen and its environment, example is very simple and no technical details are involved, interactivity and rules won't be an overhead for the user as the environment is a part of day to day life and hence user will be able to relate to the learning concepts through the example. So, I have finally chosen this example for the demonstrator and also as part of my research.
+Table~\ref{tab:comparison_examples} shows the comparison of the examples based on the evaluation criteria. "\checkmark" denotes the fulfillment of the evaluation criteria whereas, "\ding{55}" denotes the non-fulfillment of the evaluation criteria. This comparison table clearly shows that \textit{Arranging a Kitchen} is the most suitable example as it fulfills all the evaluation criteria. So, I have finally chosen this example for the demonstrator and also as part of my research.
 
 \begin{table}
 	\centering
-	\begin{tabular}{|lcccc|}
+	\begin{tabular}{|lccccc|}
 		\hline
-		\textbf{} & \multicolumn{4}{c|}{\textbf{Evaluation Criterias}} \\
-		\textbf{Examples} & \textbf{EC1} & \textbf{EC2} & \textbf{EC3} & \textbf{EC4} \\
+		\textbf{} & \multicolumn{5}{c|}{\textbf{Evaluation Criterias}} \\
+		\textbf{Examples} & \textbf{EC1} & \textbf{EC2} & \textbf{EC3} & \textbf{EC4} & \textbf{EC5} \\
 		\hline
 		\hline
-		Task Management & \ding{55} & \ding{55} & \checkmark & \checkmark \\ 
+		Task Management & \checkmark & \ding{55} & \ding{55} & \checkmark & \ding{55} \\ 
 		\hline
-		Quiz & \checkmark & \ding{55} & \checkmark & \checkmark \\
+		Quiz & \checkmark & \ding{55} & \ding{55} & \checkmark & \ding{55}\\
 		\hline
-		Playing with Shapes & \ding{55} & \ding{55} & \checkmark & \checkmark \\
+		Playing with Shapes & \ding{55} & \ding{55} & \checkmark & \checkmark & \checkmark\\
 		\hline
-		Person and Family & \checkmark & \checkmark & \ding{55} & \checkmark \\
+		Person and Family & \ding{55} & \checkmark & \checkmark & \checkmark & \ding{55}\\
 		\hline
-		Arranging a Kitchen & \checkmark &  \checkmark & \checkmark & \checkmark \\
+		Arranging a Kitchen & \checkmark &  \checkmark & \checkmark & \checkmark & \checkmark \\
 		\hline
 	\end{tabular}
 	\caption{Comparison of examples based on evaluation criteria}
@@ -62,141 +75,162 @@ Next step in the design process was the selection of a bx tool which takes care 
 My gathered information during the case study phase led the foundation for the selection process. I further investigated on the existing bx tools from the point of view of practical application and usage of these tools in terms of building software. Even after a significant amount of work has been done by developers community and bx community, the main problems were revolving around the conceptual, practical challenges associated with using bx, and tool/technology in building software systems and absence of benchmarks for comparison of complete bx solutions~\cite{bx-theoryandappl}.
 To focus particularly on these issues, bx-community had conducted a series of technical workshops at relevant conferences and organized week-long intensive research seminars~\cite{bx-theoryandappl}. Some of the main outcomes of these seminars were (i) focus on the need of benchmarks and further categorizing them into functional and non-functional ones, (ii) software tool support for bx was shown in terms of demos which includes tool like eMoflon, Echo etc.
 
-The outcome of the seminars led me to concentrate and analyze the bx tools like eMoflon, Echo, BIGUL. Also, I came across the benchmark \cite{benchmarx} \cite{benchmarx-reload}, the first non-trivial benchmark where Anjorin et al. has provided a practical framework to compare and evaluate three bx tools. After analyzing these tools, benchmarks and taking into consideration the research questions and requirements, I have finally chosen \textit{eMoflon} as the bx tool to handle the bx part of the demonstrator. Following were the driving factors for the selection of the bx tool:
+The outcome of the seminars led me to concentrate and analyze bx tools like eMoflon, Echo, BIGUL. Also, I came across the benchmark \cite{benchmarx} \cite{benchmarx-reload}, the first non-trivial benchmark where Anjorin et al. provide a practical framework to compare and evaluate three bx tools. After analyzing these tools, benchmarks and taking into consideration the research questions and requirements, I have finally chosen \textit{eMoflon} as the bx tool to handle the bx part of the demonstrator. Following were the driving factors for the selection of the bx tool:
 \begin{itemize}
-	\item {Anjorin et al. \cite{benchmarx-reload} tried to solve the main problem with benchmarking bx tools by creating a common design space, in which different bx tools architecture can be accommodated irrespective of the fact that they can have different input data. Hence, sample implementation with a framework to implement the eMoflon tool was already available.}
-	\item {my supervisor/prof. is a core member of the eMoflon developer team which gave me the added advantage of knowing the tool inside out. This extra knowledge actually helped me in solving the implementation issues/challenges related to the tool.}
-	\item {eMoflon is Java based and was thus easier for me to integrate and work with, compared to BiGUL (Haskell-based).}
+	\item {Anjorin et al. \cite{benchmarx-reload} tried to solve the main problem with benchmarking bx tools by creating a common design space, in which different bx tools architecture can be accommodated irrespective of the fact that they can have different input data. Hence, sample implementation with a fairly generic framework to implement the eMoflon tool was already available.}
+	\item {my supervisor/prof. is a core member of the eMoflon developer team which gave me the added advantage of having good support. This extra knowledge actually helped me in solving the implementation issues/challenges related to the tool.}
+	\item {eMoflon is Java based and was thus easier for me to integrate and work with, compared to e.g., BiGUL (Haskell-based), or NMF synchronization (C\# based).}
+	\item {the technologies that I planned to use (JavaScript, tomcat, servlets) during my implementation is also rather Java based.}
 \end{itemize}
 
 \subsection{Architecture Design}\label{subsec:architecturedesign}
 The last step in the design process was application architecture design which is the most important part of my thesis and also the starting phase of the implementation of the prototype.
 
-\begin{figure}
-	\includegraphics[width=1\textwidth]{figures/MVC}
-	\caption{Simple MVC Architecture}
-	\label{fig:MVC}
-\end{figure}
+I decided to build a web application to address the requirements \textit{NR1} (less instalation time), \textit{NR6} (public access), \textit{NR7} (robust), and \textit{NR8} (no space on user's machine) described in Section \ref{subsec:nonfunctionalreq}.
 
-I decided to build a web application to address the requirements \textit{NR1}, \textit{NR6}, \textit{NR7}, and \textit{NR8} described in Section \ref{subsec:nonfunctionalreq}.
+Web application development has evolved from single page design to very complex layering structures since the beginning of World Wide Web. Many design patterns \cite{designpattern} \cite{designpattern-notes} consisting of different technologies and programming languages were proposed, adopted and implemented to address the demands of customers and users on the web. With the rapid changes occurring on World Wide Web, some technologies are becoming obsolete and losing demand. Nowadays, the main trend appears to be improving user interaction and allowing developers to build powerful web applications rapidly.
 
-Web application development has evolved drastically from single page design to very complex layering structures since the beginning of World Wide Web. Many design patterns \cite{designpattern} \cite{designpattern-notes} consisting of different technologies and programming languages were proposed, adopted and implemented in different time to address the demands of customers and users on the web. With the rapid changes occurring on World Wide Web, technologies are becoming obsolete and losing its demand day by day. Nowadays, the main focus is on improving the user interaction and allow the developers to build powerful web applications rapidly.
-
-I have analyzed a few design patterns and commonly used architecture designs in today's world by working on a few Proof of Concepts (PoC). The main goal of my thesis is to design and implement a demonstrator based on a bx-tool as described in Section \ref{subsec:contribution} and prior to this stage, I have already selected \textit{eMoflon} as my bx-tool in Section \ref{subsec:bxtoolselection}. So, The main idea was to check the feasibility of the architecture and the data flow within its components on the top of the interface provided by the \textit{Benchmarx} (proposed by Anjorin et al. \cite{benchmarx-reload}) to access the bx-tool. While working on the PoCs, I came across a few problems such as maintainability and reusability of code, dependencies of components etc. To avoid these problems and to address the requirement \textit{NREQ3} described in Section \ref{subsec:functionalreq}, I finally chose Model-View-Controller (referred as \textbf{MVC} from now on) architecture for my application framework. Figure~\ref{fig:MVC} shows a simple MVC architecture with its layers. Following were the driving factors for the selection of the MVC architecture \cite{designpattern-notes} \cite{designpattern-headfirst}:
+I analyzed some design patterns and commonly used architecture designs by working on a few Proof of Concepts (PoC). The main goal of my thesis is to design and implement a demonstrator based on a bx-tool as described in Section \ref{subsec:contribution} and prior to this stage, I have already selected \textit{eMoflon} as my bx-tool in Section \ref{subsec:bxtoolselection}. The main idea was thus to check the feasibility of the architecture and the data flow within its components on top of the interface provided by the \textit{Benchmarx} framework (proposed by Anjorin et al. \cite{benchmarx-reload}) to access the bx-tool. While working on the PoCs, I encountered a few problems such as maintainability and reusability of code, dependencies of components etc. To avoid these problems and to address the requirement \textit{NREQ3} described in Section \ref{subsec:functionalreq}, I finally chose the Model-View-Controller (referred as \textbf{MVC} from now on) architecture for my application framework. Following were the driving factors for the selection of the MVC architecture \cite{designpattern-notes} \cite{designpattern-headfirst}:
 \begin{itemize}
-	\item {it differentiates the layers of a project in Model, View, and Controller for the re-usability and easy maintenance of code.}
-	\item {it splits responsibilities into three main roles which allow the developers to work independently without interfering in each other's work and for more efficient collaboration.}
-	\item {due to the separation of concern, the same Model can have any no.of Views. Enhancements in Views and other support of new technologies for building the View can be implemented easily.}
-	\item {a person who is working on View does not need to know about the underlying Model code base and its architecture.}
+	\item {it differentiates the layers of a model, view, and controller for the re-usability and easy maintenance of code.}
+	\item {it splits responsibilities into three main roles which allow developers to work independently without interfering in each other's work and for more efficient collaboration.}
+	\item {due to the separation of concern, the same model can have any number of views. Enhancements in views and support of new technologies for building the view can be implemented easily.}
+	\item {a person working on the view does not need to know about the underlying model code base and its architecture.}
 \end{itemize}
-
-\begin{sidewaysfigure}
-	\includegraphics[width=1\textwidth]{figures/Component_Diagram-HighLevel}
-	\caption{Component Diagram of Demon-BX Tool}
-	\label{fig:Component_Diagram}
-\end{sidewaysfigure}
 
 \subsection{Architecture Layers}\label{subsec:design_layers}
 This section provides an overview of the entire architecture followed by the description of each component e.g., Model, View, and Controller in detail.
 
 \subsubsection{Overview}\label{subsubsec:design_overview}
-The architecture has three components e.g., Model, View and Controller to signify the MVC pattern. Figure~\ref{fig:Component_Diagram} describes the high-level architecture of the Demon-BX tool in the form of a component diagram.   \texttt{Model} component is present at the below which contains the bx tool and all transformation logic.
+The architecture has three components, Model, View and Controller to signify the MVC pattern. Figure~\ref{fig:Component_Diagram} describes the high-level architecture of the Demon-BX tool in the form of a component diagram.
 
-\texttt{View} component is present on the top left, which contains a graphical user interface along with web technologies inside a web browser and a few java classes. As a component, it is shown on a web browser as a part of a web application, provides an interface for a user to interact, and responsible for capturing all the user-related actions.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\textwidth]{figures/Component_Diagram-HighLevel}
+	\caption{Component Diagram of Demon-BX Tool}
+	\label{fig:Component_Diagram}
+\end{figure}
 
-The \texttt{controller} component is present on the top right, which acts a bridge between view and model and handles all user requests. It consists of a \texttt{servlet} and a Java class. Servlet receives all the user requests sent from the web browser and calls the appropriate methods of the Java class where the actual data conversion happens, i.e., conversion of user data to bx tool model specific data before sending the them to the bx tool for further processing and conversion of bx tool model specific data to user data after receiving the processed data from the bx tool.
+The \texttt{model} component consists of a bx tool i.e., \texttt{eMoflon}, and a few Java classes encapsulating the implementation of the bx tool and transformation logic. It keeps all models and transformation rules, processes the data sent by the controller, and manages all tasks related to business logic, business rules, data, meta-models, state of meta-models, etc.
 
-The \texttt{model} component consists of a bx tool i.e., \texttt{eMoflon}, and a few Java classes encapsulating the implementation of the bx tool. It keeps all the models and transformation rules, processes the data sent by the controller, and manages all the tasks related to business logic, business rules, data, meta-models, state of meta-models etc.
+The \texttt{view} component contains a graphical user interface along with web technologies inside a web browser and a few Java classes. As a component, it is shown on a web browser as a part of a web application, provides an interface for a user to interact, and is responsible for capturing all user-related actions.
+
+The \texttt{controller} component acts as a bridge between view and model and handles all user requests. It consists of a few Java classes. The controller receives all the user requests sent from the web browser and calls the appropriate methods where the actual data conversion happens, i.e., conversion of user data to example specific data before sending them to the bx tool for further processing, and conversion of example specific data to user data after receiving the processed data from the bx tool.
 
 \begin{figure}
-	\includegraphics[width=0.8\textwidth]{figures/MVC_ReqRes}
-	\caption{Request - Response cycle between Components}
-	\label{fig:MVC_ReqRes}
+	\centering
+	\includegraphics[width=1\textwidth]{figures/Sequence_Diagram-HighLevel(init)}
+	\caption{Sequence Diagram of Demon-BX Tool: initialization}
+	\label{fig:Sequence_Diagram-HighLevel(init)}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\textwidth]{figures/Sequence_Diagram-HighLevel(cont-false)}
+	\caption{Sequence Diagram of Demon-BX Tool: delta propagation without continuation}
+	\label{fig:Sequence_Diagram-HighLevel(cont-false)}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\textwidth]{figures/Sequence_Diagram-HighLevel(cont-true)}
+	\caption{Sequence Diagram of Demon-BX Tool: delta propagation with continuation}
+	\label{fig:Sequence_Diagram-HighLevel(cont-true)}
 \end{figure}
 
 \paragraph{Request-Response Cycle} 
-Figure~\ref{fig:MVC_ReqRes} and sequence diagram shown in Figure~\ref{fig:Sequence_Diagram-HighLevel} illustrates how the components interact with each other. Both the diagrams shows a high-level overview of the communication process between the components.
+The sequence diagrams shown in Figure~\ref{fig:Sequence_Diagram-HighLevel(init)}, Figure~\ref{fig:Sequence_Diagram-HighLevel(cont-false)}, Figure~\ref{fig:Sequence_Diagram-HighLevel(cont-true)} illustrate a high-level overview of the communication process between all three components in different stages.
 \begin{enumerate}
-	\item {User interacts with the application on a browser and user actions are sent to the controller along with a unique user id (GUID) as a request in the form of JSON data.}
-	\item {After accepting the request, controller checks the existence of the GUID. Then, it decides on how to handle the request and send it to the controller helper for further processing. Controller helper converts the user data to bx tool model specific data.}
-	\item {Then, controller helper sends the data to the Model for further processing.}
-	\item {The model analyzes and processes the request.}
-	\item {The model generates the response, which is sent back to the controller helper.}
-	\item {After receiving the response, controller helper converts the bx tool model specific data to user data and sends it to the controller.}
-	\item {The controller sends the response to the view in the form of JSON data.}
-	\item {View processes the data and finally, the final response is generated and loaded into the browser.}
+	\item {\textbf{Load}: The user loads the application on a browser. The view generates a unique user id (GUID) and sends it to the controller as a request in the form of JSON data. After accepting the request, controller handles the GUID and sends the initialize signal to the model for initializing the bx-tool. After tool gets initialized, controller requests for the newly generated example specific models, converts it to the user data, and sends the response back to the view in the form of JSON data. The view processes the data and the final response is loaded into the browser. This entire process is shown in Figure~\ref{fig:Sequence_Diagram-HighLevel(init)}.}
+	
+	\item {\textbf{Delta Propagation (without continuation)}: After the application is loaded on the browser, the user creates a delta in one of the views and sends it to the controller along with the GUID generated earlier for the user as a request in the form of JSON data. After accepting the request, controller checks the existence of the GUID, converts the user data to the example specific data and sends it to the model for processing. During processing, controller checks if satisfiability of more than one transformation rule exists for the processed data i.e., continuation. If continuation does not exist, controller requests for the updated example specific models, converts it to the user data, and sends the response back to the view in the form of JSON data. The view processes the data and the final response is loaded into the browser. This entire process is shown in Figure~\ref{fig:Sequence_Diagram-HighLevel(cont-false)}.}
+	
+    \item {\textbf{Delta Propagation (with continuation)}: While the bx tool processes the delta, controller checks if satisfiability of more than one transformation rule exists for the processed data i.e., continuation. If continuation exists, controller gets the matching rules from the model, converts it to the user data, and sends it back to the view. The view asks the user for a choice. After the input is given by the user, the view sends it to the controller in the form of \texttt{JSON} data. The controller forwards the user's choice to the model and bx tool resumes processing of the data after getting it. After data is processed, 
+    controller requests for the updated example specific models, converts it to the user data, and sends the response back to the view in the form of JSON data. The view processes the data and the final response is loaded into the browser. This entire process is shown in Figure~\ref{fig:Sequence_Diagram-HighLevel(cont-true)}.}
 \end{enumerate}
 
-\begin{figure}
-	\includegraphics[width=1\textwidth]{figures/Sequence_Diagram-HighLevel}
-	\caption{High-Level Sequence Diagram of Demon-BX Tool}
-	\label{fig:Sequence_Diagram-HighLevel}
-\end{figure}
+For better understanding and to avoid complexity, here I have described the delta propagation process for only a single delta. However, the user can generate multiple deltas as well. In that case, view collects all the deltas and sends them to the controller. After receiving the deltas, controller handles them atomically (one by one).
 
 \subsubsection{Model}\label{subsubsec:design_model}
-Model is mainly responsible for encapsulating the access of data and handling the business logic of the application \cite{designpattern-headfirst} \cite{mvc-arch}. It ensures the data abstraction and provides methods to access it, due to which the complexity of writing the code on developers' part is highly reduced \cite{mdd-webwithmvc}.
+The model is mainly responsible for encapsulating the access of data and handling the business logic of the application \cite{designpattern-headfirst} \cite{mvc-arch}. It ensures the data abstraction and provides methods to access it, due to which the complexity of writing the code on developers' part is highly reduced \cite{mdd-webwithmvc}.
 
 \begin{figure}
-	\includegraphics[width=1\textwidth]{figures/Component_Diagram-Model}
+	\centering
+	\includegraphics[width=0.8\textwidth]{figures/Component_Diagram-Model}
 	\caption{Component Diagram of Model}
 	\label{fig:Component_Diagram-Model}
 \end{figure}
 
 \paragraph{Sub-Components}
-Figure~\ref{fig:Component_Diagram-Model} describes the architecture of the model in the form of a component diagram. In my case, the model contains two sub-components i.e., \texttt{wrapper classes} and \texttt{eMoflon} tool. The wrapper classes consist of interfaces and its concrete implementation designed to access the eMoflon tool on the top of the framework provided by the \texttt{Benchmarx}. The eMoflon tool contains all the meta-models, state of the meta-models and the associated transformation rules.
+Figure~\ref{fig:Component_Diagram-Model} describes the architecture of the model in the form of a component diagram. In my case, the model contains two sub-components, \texttt{BX Tool Wrapper} and bx tool i.e., \texttt{eMoflon}. 
 
-For implementing the example \textit{Arranging a Kitchen} through the \textit{eMoflon} tool, the first task was to create related models inside the tool. The bx tool will keep these models, create and manage instances of these models by applying associated transformation rules as per the requirement. As the example has two different views, it requires two different model in the tool as well i.e., \texttt{KitchenLanguage} to represent high-level view and \texttt{GridLanguage} to represent low-level.
+The bx tool wrapper consists of interfaces and its concrete implementation designed to access the bx tool on the top of the framework provided by the \texttt{Benchmarx}~\cite{benchmarx-reload}, a common design space to access different bx tools. With the help of this interface, the controller communicates with the bx tool i.e., eMoflon. However, the interface presented to the controller is not eMoflon specific. The bx tool wrapper for eMoflon translates this generic bx tool interface to eMoflon's interface. The eMoflon tool contains all the meta-models, state of the meta-models and the associated transformation rules.
 
-Figure~\ref{fig:Kitchen_MetaModel} describes the structure of the \texttt{KitchenLanguage} model in a class diagram from an object-oriented point of view. It contains three classes i.e., \texttt{Kitchen}, \texttt{ItemSocket}, and \texttt{Item}. \texttt{Kitchen} class has the attributes \textit{xSize} and \textit{ySize} to describe its size and contains zero or more itemsockets. \texttt{ItemSocket} class has the attribute \textit{id} and contains exactly one item. \texttt{Item} class has the attributes \textit{xIndex} and \textit{yIndex} to describe its position. \texttt{Sink}, \texttt{Table}, and \texttt{Fridge} are different types of items.
+For implementing the example \textit{Arranging a Kitchen} through the \textit{eMoflon} tool, the first task was to create related models inside the tool. The bx tool will keep these models, create and manage instances of these models by applying associated transformation rules. As the example has two different views, it requires two different models in the tool as well i.e., \texttt{KitchenLanguage} to represent the symbolic view and \texttt{GridLanguage} to represent the layout view.
 
-Figure~\ref{fig:Grid_MetaModel} describes the structure of the \texttt{GridLanguage} model in a class diagram from an object-oriented point of view. It contains three classes i.e., \texttt{Grid}, \texttt{Group}, and \texttt{Block}. \texttt{Grid} class has the attribute \textit{blockSize} to describe the size of each block contained inside it, contains zero or more itemsockets, and zero or more blocks. Each \texttt{Group} class occupies one or more blocks. \texttt{Block} class has the attributes \textit{xIndex} and \textit{yIndex} to describe its position and is being occupied by one group.
+Figure~\ref{fig:Kitchen_MetaModel} describes the structure of the \texttt{KitchenLanguage} as a class diagram from an object-oriented point of view. It contains three classes i.e., \texttt{Kitchen}, \texttt{ItemSocket}, and \texttt{Item}. \texttt{Kitchen} class has the attributes \textit{xSize} and \textit{ySize} to describe its size and contains zero or more itemsockets. \texttt{ItemSocket} class has the attribute \textit{id} and contains exactly one item. \texttt{Item} class has the attributes \textit{xIndex} and \textit{yIndex} to describe its position. \texttt{Sink}, \texttt{Table}, and \texttt{Fridge} are different types of items.
 
-\paragraph{Workflow}
-Figure~\ref{fig:Sequence_Diagram-Model(init)} and  Figure~\ref{fig:Sequence_Diagram-Model(delta)} illustrate the workflow of the model in the form of a sequence diagram.
-
-\begin{enumerate}
-	\item {\textbf{Load}: During first time load of the application, the controller forwards the request to the controller helper after receiving the initialization command for the bx tool from the view. After receiving the request, controller helper instantiates all the wrapper classes. Afterward, the wrapper class sends the initialize signal to the eMoflon tool and the tool gets initialized by creating the instances of the \texttt{Source} and \texttt{Target} models. Then, controller helper requests for the newly generated models through the wrapper class. Wrapper class receives the tool specific models and send it back to the controller helper. The entire process is shown in Figure~\ref{fig:Sequence_Diagram-Model(init)}.}
-	
-	\item {\textbf{Create Deltas}: After converting the deltas send from the view into eMoflon specific model data, controller helper calls the appropriate method of the wrapper class e.g., either to propagate deltas into source model or target model. Accordingly, wrapper class initiate forward synchronization or backward synchronization and send the deltas to the tool. The tool processes the deltas taking into account all the associated transformation rules. During processing of the data, the tool checks whether any of the deltas cause more than one transformation rule to invoke. If not, processing is completed and controller helper requests for the updated models through the wrapper class. Wrapper class receives the updated models and send it back to the controller helper. The entire process is shown in the upper part of the conditional case in Figure~\ref{fig:Sequence_Diagram-Model(delta)}.}
-	
-	\item {\textbf{User Choice}: During processing of the data, if the tool gets to know that one of the deltas cause more than one transformation rule to invoke, it pauses the data processing and sends the matching rules back to the view asking for user's decision through controller helper. On receiving the user's decision, controller helper sends resume data processing signal along with the user's decision to the tool through wrapper class. Afterward, tool completes the data processing with the user's decision. Then, controller helper requests for the updated models through the wrapper class. Wrapper class receives the updated models and send it back to the controller helper. The entire process is shown in the lower part of the conditional case in Figure~\ref{fig:Sequence_Diagram-Model(delta)}.}
-\end{enumerate}
+Figure~\ref{fig:Grid_MetaModel} describes the structure of the \texttt{GridLanguage} as a class diagram from an object-oriented point of view. It contains three classes i.e., \texttt{Grid}, \texttt{Group}, and \texttt{Block}. \texttt{Grid} class has the attribute \textit{blockSize} to describe the size of each block contained inside it, contains zero or more itemsockets, and zero or more blocks. Each \texttt{Group} class occupies one or more blocks. \texttt{Block} class has the attributes \textit{xIndex} and \textit{yIndex} to describe its position and is being occupied by one group.
 
 \begin{figure}
+	\centering
 	\includegraphics[width=1\textwidth]{figures/Sequence_Diagram-Model(init)}
-	\caption{Detail Sequence Diagram of Model: initialization}
+	\caption{Sequence Diagram of Model: initialization}
 	\label{fig:Sequence_Diagram-Model(init)}
 \end{figure}
 
 \begin{figure}
-	\includegraphics[width=1\textwidth]{figures/Sequence_Diagram-Model(delta)}
-	\caption{Detail Sequence Diagram of Model: delta propagation}
-	\label{fig:Sequence_Diagram-Model(delta)}
+	\centering
+	\includegraphics[width=1\textwidth]{figures/Sequence_Diagram-Model(cont-false)}
+	\caption{Sequence Diagram of Model: delta propagation without continuation}
+	\label{fig:Sequence_Diagram-Model(cont-false)}
 \end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\textwidth]{figures/Sequence_Diagram-Model(cont-true)}
+	\caption{Sequence Diagram of Model: delta propagation with continuation}
+	\label{fig:Sequence_Diagram-Model(cont-true)}
+\end{figure}
+
+\paragraph{Workflow}
+The sequence diagrams shown in Figure~\ref{fig:Sequence_Diagram-Model(init)}, Figure~\ref{fig:Sequence_Diagram-Model(cont-false)}, and Figure~\ref{fig:Sequence_Diagram-Model(cont-true)} illustrate the workflow of the Demon-BX tool from the point of view of the model component in different stages. As the model component only communicates with the controller, these sequence diagrams show the communication process between the controller and the sub-components of the model, \texttt{BX Tool Wrapper} and the bx tool i.e., \texttt{eMoflon}.
+\begin{enumerate}
+	\item {\textbf{Load}: During first time load of the application, the controller instantiates all the wrapper classes and calls the appropiate method (\texttt{initiateSynchronisationDialogue()}) to initialize the bx tool after receiving the initialization command from the view. After receiving the request, bx tool wrapper class sends the initialize signal (\texttt{setSrc(), integrateForward()}) to the bx tool i.e., eMoflon and the tool gets initialized by creating the instances of the \texttt{Source} and \texttt{Target} models. Then, controller requests (\texttt{getSourceModel(), getTargetModel()}) for the newly generated models through the bx tool wrapper class. Wrapper class requests (\texttt{getSrc(), getTrg()}), receives the tool specific models from the bx tool, and send it back to the controller. This entire process is shown in Figure~\ref{fig:Sequence_Diagram-Model(init)}.}
+	
+	\item {\textbf{Delta Propagation (without continuation)}: After converting the delta sent from the view into example specific data, controller calls the appropriate method (\texttt{performAndPropagateTargetEdit(SrcData)}) of the wrapper class e.g., propagate delta into source model. Accordingly, wrapper class initiate forward synchronization (\texttt{setChangeSrc(SrcData), integrateForward()}) and sends the delta to the bx tool i.e., eMoflon. Here I have described only the forward synchronization. However, the process for the backward synchronization goes analogously. The bx tool processes the delta taking into account all the associated transformation rules. During processing of the data, controller checks if satisfiability of more than one transformation rule exists (\texttt{hasContinuation()}) for the processed data i.e., continuation. If continuation does not exist, processing is completed and controller requests (\texttt{getSourceModel(), getTargetModel()}) for the newly generated models through the bx tool wrapper class. The wrapper class requests (\texttt{getSrc(), getTrg()}), receives the tool specific models from the bx tool, and send it back to the controller. This entire process is shown in the upper part of the conditional case in Figure~\ref{fig:Sequence_Diagram-Model(cont-false)}.}
+	
+	\item {\textbf{Delta Propagation (with continuation)}: While the bx tool i.e., eMoflon processes the delta, controller checks if satisfiability of more than one transformation rule exists (\texttt{hasContinuation()}) for the processed data i.e., continuation. If continuation exists, controller requests (\texttt{getChoices()}) for the matching rules from the bx tool i.e., eMoflon through the bx tool wrapper class. The wrapper class requests, receives the matching rules from the bx tool, and send it back to the controller. On receiving the user's decision, controller sends resume data processing signal (\texttt{continueSynchronisation(userChoice)}) along with the user's decision to the bx tool through the wrapper class. Afterward, bx tool completes the data processing with the user's decision. Then, controller requests (\texttt{getSourceModel(), getTargetModel()}) for the newly generated models through the bx tool wrapper class. The wrapper class requests (\texttt{getSrc(), getTrg()}), receives the tool specific models from the bx tool, and send it back to the controller. This entire process is shown in the lower part of the conditional case in Figure~\ref{fig:Sequence_Diagram-Model(cont-true)}.}
+\end{enumerate}
+
+For better understanding and to avoid complexity, here I have described the delta propagation process for only a single delta. However, the user can generate multiple deltas as well. In that case, after receiving all the deltas from the view, controller converts them to example specific data. Then, controller handles them atomically (one by one). Hence, the above described delta propagation process (with or without continuation) is executed for each delta untill the data processing is complete by the bx tool. 
 
 \subsubsection{View}\label{subsubsec:design_view}
 The view handles the graphical user interface part of the application. Hence, it contains all the graphic elements and all other HTML elements of the application. The view separates the design of the application from the logic of the application due to which the front end designer and the back end developer can work separately without thinking about the errors which could have shown up in case of an overlapping \cite{designpattern-headfirst} \cite{mvc-arch}. The view controls how the data is being displayed, how the user interacts with it and provides ways for gathering the data from the users.
 
-\begin{figure}
+\begin{figure}[h]
 	\includegraphics[width=1\textwidth]{figures/Component_Diagram-View}
 	\caption{Component Diagram of View}
 	\label{fig:Component_Diagram-View}
 \end{figure}
 
 \paragraph{Sub-Components}
-Figure~\ref{fig:Component_Diagram-View} describes the architecture of the view in the form of a component diagram. View basically contains two sub-components i.e., \texttt{GUI} and \texttt{UIModels}. \texttt{GUI} consist of the technologies like HTML, CSS, JavaScript, Jquery, and FabricJs, which combinedly create a user interface for the user to interact. Whereas, \texttt{UIModels} consists of Java classes created for the user interface to handle the user actions, visualize the bx tool specific models, and act a connecting bridge between them. 
+Figure~\ref{fig:Component_Diagram-View} describes the architecture of the view in the form of a component diagram. View basically contains two sub-components, \texttt{Structure \& Logic} and \texttt{Presentation Data}. 
 
-Figure~\ref{fig:ClassDia_UI-Models} shows the structure of the \texttt{JSON} data that is being exchanged between view and controller in the form of a class diagram.
+\texttt{Structure \& Logic} makes use of technologies like HTML, CSS, JavaScript, Jquery, and FabricJs, which combinedly create a user interface for the user to interact and the logic to handle the user actions. 
+
+\texttt{Presentation Data} consists of Java classes created for the user interface to handle the user actions, visualize the bx tool specific models, and act a connecting bridge between them.
+The view always receives the presentation data as a response from the controller in the form of JSON data and visualize them.
 
 \begin{sidewaysfigure}
 	\includegraphics[width=1\textwidth]{figures/ClassDia_UI-Models}
-	\caption{Structure and Relationship between UI Models}
+	\caption{Class Diagram of Presentation Data}
 	\label{fig:ClassDia_UI-Models}
 \end{sidewaysfigure}
 
-View always receives the response from the controller in the form of a \texttt{UIModels} and visualize them. UIModels consist of classes like \texttt{Canvas}, \texttt{Layout}, \texttt{Workspace}, \texttt{UIModels}, \texttt{UIGroup}, \texttt{Element}, \texttt{Rectangle}, and \texttt{Change}. \texttt{Canvas} is the parent class for \texttt{Layout} and \texttt{Workspace}. It has attributes \textit{height} and \textit{width} to describe its size representing both the views. The \texttt{Workspace} represents the symbolic view in the user interface and contains zero or more objects (elements) and an objectTypeList. It represents the eMoflon specific model \texttt{KitchenLanguage} on the UI side. The \texttt{Layout} represents the layout view in the user interface and contains zero or more blocks and groups. It represents the eMoflon specific model \texttt{gridLanguage} on the UI side.  \texttt{UIGroup} has attribute \textit{fillColor} to uniquely identified as a new group on UI and contains zero or more blocks. It represents the eMoflon specific model \texttt{Group} on the UI side. \texttt{Rectangle} has attributes \textit{id}, \textit{xIndex}, \textit{yIndex}, and \textit{fillColor} to deal with the UI related actions. It represents the eMoflon specific model \texttt{Block} on the UI side. The \texttt{Element} has attributes \textit{id}, \textit{type}, \textit{xPos}, \textit{yPos}, and \textit{fillColor}. It represents the eMoflon specific model \texttt{Item} on the UI side. \texttt{UIModels} is the class which carries all the information related to UI. After receiving the response from the bx tool, it is converted into \texttt{UIModels} and send it to view for visualization. It has an attribute userChoices to deal with the user options and contains a layout, a workspace, and a set of failedDeltas wrapped inside a \texttt{Change} class.
+Figure~\ref{fig:ClassDia_UI-Models} shows the structure of the presentation data in the form of a class diagram. It consists of classes like \texttt{Canvas}, \texttt{Layout}, \texttt{Workspace}, \texttt{PresentationData}, \texttt{UIGroup}, \texttt{Element}, \texttt{Rectangle}, and \texttt{ChangeData}. \texttt{Canvas} is the parent class for \texttt{Layout} and \texttt{Workspace}. It has attributes \textit{height} and \textit{width} to describe its size representing the views. The \texttt{Workspace} represents the symbolic view in the user interface and contains zero or more objects (elements). The \texttt{Layout} represents the layout view in the user interface and contains zero or more blocks and groups. \texttt{UIGroup} has attribute \textit{fillColor} to uniquely identified as a new group on UI and contains zero or more blocks. \texttt{Rectangle} has attributes \textit{id}, \textit{xIndex}, \textit{yIndex}, and \textit{fillColor} to deal with the UI related actions. The \texttt{Element} has attributes \textit{id}, \textit{type}, \textit{xPos}, \textit{yPos}, and \textit{fillColor}. \texttt{PresentationData} is the class which carries all the information related to UI. After receiving the response from the bx tool, controller converts the bx tool specific models into \texttt{PresentationData} and send it to view for visualization. It has an attribute userChoices and contains a layout, a workspace, and a set of deltas wrapped inside a \texttt{ChangeData} class.
 
-While user interacts with the demonstrator, actions i.e., changes performed by the user in the UI are captured in the form of \texttt{delta}s and packaged in a \texttt{Change} object. The kitchen allows three actions i.e., creation of a new item, deletion of an item and movement of an item. Whereas, the layout allows two actions i.e., creation of a new group and deletion of a group. Hence, \texttt{Change} class track all of these five actions separately. \texttt{Change} class shown in Figure~\ref{fig:ClassDia_UI-Models} contains itemCreated, itemDeleted and ItemMoved as a list of \texttt{Element}s to capture creation, deletion, and movement of an item respectively in the kitchen. It also contains groupCreated and groupDeleted as a list of \texttt{UIGroup}s to capture creation and deletion of a group respectively in the layout.
+While user interacts with the demonstrator, actions i.e., changes performed by the user in the UI are captured in the form of \texttt{delta}s and packaged in a \texttt{ChangeData} object. The symbolic view allows three actions i.e., creation of a new item, deletion of an item and movement of an item. Whereas, the layout view allows two actions i.e., creation of a new group and deletion of a group. Hence, \texttt{ChangeData} class tracks all of these five actions separately. \texttt{ChangeData} class shown in Figure~\ref{fig:ClassDia_UI-Models} contains itemCreated, itemDeleted and ItemMoved as a list of \texttt{Element}s to capture creation, deletion, and movement of an item respectively in the symbolic view. It also contains groupCreated and groupDeleted as a list of \texttt{UIGroup}s to capture creation and deletion of a group respectively in the layout view. Also, these \texttt{delta}s are captured atomically so that they can be executed independently by the bx tool.
 
 \paragraph{Workflow}
 Figure~\ref{fig:Sequence_Diagram-View} illustrates the workflow of the view in the form of a sequence diagram.
@@ -340,10 +374,11 @@ To solve this problem, I decided to implement \textit{atomic delta} method. In t
 
 \textit{Example:} A user creates three deltas in the kitchen i.e., creating a new sink close to the wall with water outlet(valid delta), moving an already existing fridge away from the wall with electrical fittings (invalid delta), deleting an existing table (valid delta) and presses the synchronization button. All three deltas are sent to the eMoflon tool but fed one by one in the order deletion of the table then the movement of the fridge and creation of a new sink at the end. Processing of deletion of the table will be accepted by the tool and meta-models will be updated as it is a valid delta. Then, processing of movement of the fridge will be rejected by the tool and meta-models will be restored to the previous consistent state as it is a valid delta. At last, Processing of creation of a new sink will be accepted by the tool and meta-models will be updated as it is a valid delta.
 
-\paragraph{Handling UI interaction during synchronization}
-
-
 \paragraph{Handling multiple users accessing the application}
+Another challenge that I faced during the implementation of the servlet was to handle multiple users
+
+\paragraph{Handling UI interaction during synchronization}
+One of the challenges during the implementation of the eMoflon tool was to handle the
 
 
 \subsection{Choices and Threats}\label{subsec:design_choicesthreats}
