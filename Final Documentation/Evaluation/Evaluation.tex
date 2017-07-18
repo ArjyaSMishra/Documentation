@@ -1,6 +1,6 @@
 \section{Evaluation}\label{sec:evaluation} 
 In this chapter, I am going to evaluate the outcome of my thesis i.e. research and implementation work. 
-Figure~\ref{fig:Evaluation_Phases} shows the phases of the entire evaluation process. Section \ref{subsec:goals} describes the research and case study phase. Section \ref{subsec:designmethod} illustrates the evaluation design method that I have used for conducting the experiment. This is then followed by a brief description of the planning phase in Section \ref{subsec:planning}. Afterward, Section \ref{subsec:execution} describes the preparation and test execution phase in detail. Section \ref{subsec:threats&mitigation} explains the associated threats with the evaluation process and their mitigation criteria. Finally, Section \ref{subsec:results} discusses the result generated from the gathered data. 
+Figure~\ref{fig:Evaluation_Phases} shows the phases of the entire evaluation process. Section \ref{subsec:goals} describes the research and case study phase. Section \ref{subsec:designmethod} illustrates the evaluation design method that I have used for conducting the experiment. This is then followed by a brief description of the planning phase in Section \ref{subsec:planning}. Afterward, Section \ref{subsec:execution} describes the preparation and test execution phase in detail. Section \ref{subsec:threats&mitigation} explains the associated threats with the evaluation process and their mitigation criteria. Finally, Section \ref{subsec:results} discusses the results generated from the gathered data. 
 
 The aim of this chapter is as follows: 
 
@@ -42,13 +42,7 @@ The perspective is from the point of view of the researcher, i.e. the researcher
 This experiment is on a bx tool demonstrator which falls under an educational environment and specifically under computer science branch. Hence, this experiment is mainly designed for the group of students/teachers/researchers from computer science area with or without prior knowledge of model driven software development field.
 
 \subsection{Design Method}\label{subsec:designmethod} 
-To investigate my research questions, I have used the Pretest-Posttest design method~\cite{analysisprepostdesigns}, a paired data analysis method in which the same experimental object is measured on some variables on two different occasions under different testing conditions. Here, I am using an extension of the Pretest-Posttest design method, called Pretest-Posttest control group design~\cite{expandquasiexpdesign}. It is a popular research design. The design principle is relatively simple and involves two groups, a test group and a control group. First, the groups are pre-tested and then the test group is given the treatment. Afterward, both the groups are post-tested and data is collected from both occasions. Then, the analysis is done by comparing pretest and posttest results collected from both the groups as explained in Figure~\ref{fig:PrePost_Test}.
-
-\begin{figure}
-	\includegraphics[width=1\textwidth]{figures/PrePost_Test}
-	\caption{Pretest-Posttest Control Group Design }
-	\label{fig:PrePost_Test}
-\end{figure}
+To investigate my research questions, I have used the Pretest-Posttest design method~\cite{analysisprepostdesigns}, a paired data analysis method in which the same experimental object is measured on some variables on two different occasions under different testing conditions. Here, I am using an extension of the Pretest-Posttest design method, called Pretest-Posttest control group design~\cite{expandquasiexpdesign}. It is a popular research design. The design principle is relatively simple and involves two groups, a test group and a control group. First, the groups are pre-tested and then the test group is given the treatment. Afterward, both the groups are post-tested and data is collected from both occasions. Then, the analysis is done by comparing pretest and posttest results collected from both the groups.
 
 Selection of the Pretest-Posttest control group design method for the experiment is driven by the following reasons~\cite{anovapreposttest}:
 \begin{itemize}
@@ -170,7 +164,7 @@ To investigate the research questions \textbf{RQ 3} and its sub-question \textbf
 	\item[LG 5:] Bx frameworks are not always state based but also can be delta based. The actual change performed can have an effect on synchronization results, even if the final result might appear to be exactly the same in both cases. 
 \end{description}
 
-To teach these learning goals, I carefully prepared five scenarios based on the example \textit{Planning a Kitchen} and added to the demonstrator. Each scenario referred to a learning goal. These scenarios involve various actions performed on the user interface and the end result after the synchronization imparts the corresponding learning goal.
+To teach these learning goals, I carefully prepared five scenarios based on the example \textit{Planning a Kitchen} and added to the demonstrator. Each scenario referred to a learning goal. These scenarios involve guidance steps for the user e.g., various actions performed on the user interface in a sequential manner. At the end of the steps, the user learns the corresponding learning goal.
 
 To evaluate these learning goals, I prepared five questions. Each question referred to a concept of bx which also corresponds to a learning goal. The questions are designed to have two sections for answers. One section contains multiple choice answers and the other contains certainty scale ranging from "I just guessed" to "I am certain". Correctness will be decided from the selection of answer in multiple choice section and certainty will be decided from the certainty parameters. Hence, combining the answer and the certainty parameter I can differentiate between \emph{correct answer}, \emph{absolute correct answer}, \emph{wrong answer}, and \emph{absolute wrong answer}. Please refer Appendix for the evaluation test questions.
 
@@ -271,7 +265,7 @@ It is important to understand the following points from the above formulas:
 \end{itemize} 
 
 \subsubsection{Analyzing Hypothesis 1}\label{subsubsec:hypothesis1}
-Hypothesis 1 i.e., \textbf{H$_{OP1}$} and \textbf{H$_{NU1}$} is designed to investigate research question \textbf{RQ 3.1}. This hypothesis deals with the fact whether students have a wrong intuition for synchronization scenarios. Data for \textbf{RQ 3.1} can be collected from all pretest results, i.e., combining the pretest results from both control and treated group. Because at the end of the pre-test, both control and treated group have gone through the same two-minute video tutorial to establish basic concepts, answered the same set of questions, and hence are equally weighted in terms of bx knowledge acquired.
+Hypothesis 1 i.e., \textbf{H$_{OP1}$} and \textbf{H$_{NU1}$} is designed to investigate research question \textbf{RQ 3.1}. This hypothesis deals with the fact whether students have a wrong intuition for synchronization scenarios. Data for \textbf{RQ 3.1} can be collected from all pretest results, i.e., combining the pretest results from both control and treated group (\textit{RES$_{pre(com_i)}$}). Because at the end of the pre-test, both control and treated group have gone through the same two-minute video tutorial to establish basic concepts, answered the same set of questions, and hence are equally weighted in terms of bx knowledge acquired.
 
 As five questions were asked, the result can be calculated for each question from the pretest data. 
 
@@ -327,7 +321,7 @@ Hence, I have included the options (\textit{alternative="less", mu=0.25}) during
 \paragraph{Discussion}
 From the t-test results as shown in Table~\ref{tab:t-test_PreTest}, it can be clearly seen that the mean value of \textit{RES$_{pre(com_i)}$} for question Q1 is just slightly higher than 0.25 and for questions Q2, Q3, Q4, and Q5 is much less than 0.25. Also, the p-values in these cases are very low so the results are highly significant. Most students were just guessing in the pretest.  A few questions were answered correctly but considering the very low certainty values, this does not mean much or imply any deep understanding. However, the increase in the mean value for the question Q1 (refer evaluation test questions in Appendix) is most likely due to the fact that this is the easiest question among all and relatively more participants were able to answer it correctly.
 
-This result rejects the null hypothesis {H$_{NU1}$}. This indicates that the students derive their (in general wrong) intuition for and expectations of synchronization scenarios from the special case of bijections. Hence, there is indeed a need to teach correct expectations for synchronization scenarios and a demonstrator can be potentially very useful in spreading bx concepts.
+These results reject the null hypothesis {H$_{NU1}$}. This indicates that the students derive their (in general wrong) intuition for and expectations of synchronization scenarios from the special case of bijections. Hence, there is indeed a need to teach correct expectations for synchronization scenarios and a demonstrator can be potentially very useful in spreading bx concepts.
 
 \begin{table}[ht]
 	\centering	
@@ -352,23 +346,23 @@ This result rejects the null hypothesis {H$_{NU1}$}. This indicates that the stu
 \end{table}
 
 \subsubsection{Analyzing Hypothesis 2}\label{subsubsec:hypothesis2}
-Hypothesis 2 i.e., \textbf{H$_{OP2}$} and \textbf{H$_{NU2}$} is designed to investigate research question \textbf{RQ 4.1}. This hypothesis deals with the fact whether demon-bx has a positive effect on the achievement of corresponding bx-related learning goals. Data for \textbf{RQ 4.1} can be collected from all pretest and posttest results i.e., combining the pretest results from both control and treated group and combining the posttest results from both control and treated group. 
+Hypothesis 2 i.e., \textbf{H$_{OP2}$} and \textbf{H$_{NU2}$} is designed to investigate research question \textbf{RQ 4.1}. This hypothesis deals with the fact whether demon-bx tool has a positive effect on the achievement of corresponding bx-related learning goals. Data for \textbf{RQ 4.1} can be collected from the improvement calculated for control group (\textit{IMP$_{(c_i)}$}) and treated group (\textit{IMP$_{(t_i)}$}) separately. Because both control and treated group have used demon-bx tool (with different environments) before posttest and improvement indicates how much a certain group has improved/learned from pretest to posttest. 
 
-As five questions were asked, the result can be calculated for each question from the pretest and posttest data. 
+As five questions were asked, the improvement can be calculated for each question from the pretest and posttest data separately for control and treated group. 
 
 \begin{figure}
 	\centering
 	\begin{minipage}{.5\textwidth}
 		\centering
-		\includegraphics[width=1\linewidth]{figures/Prepost_q1}
-		\caption{Improvement for Q1}
-		\label{fig:Prepost_q1}
+		\includegraphics[width=1\linewidth]{figures/Imp_Control-q1}
+		\caption{IMP$_{(c_1)}$}
+		\label{fig:Imp_Control-q1}
 	\end{minipage}%
 	\begin{minipage}{.5\textwidth}
 		\centering
-		\includegraphics[width=1\linewidth]{figures/Prepost_q2}
-		\caption{Improvement for Q2}
-		\label{fig:Prepost_q2}
+		\includegraphics[width=1\linewidth]{figures/Imp_Treated-q1}
+		\caption{IMP$_{(t_1)}$}
+		\label{fig:Imp_Treated-q1}
 	\end{minipage}
 \end{figure}
 
@@ -376,41 +370,85 @@ As five questions were asked, the result can be calculated for each question fro
 	\centering
 	\begin{minipage}{.5\textwidth}
 		\centering
-		\includegraphics[width=1\linewidth]{figures/Prepost_q3}
-		\caption{Improvement for Q3}
-		\label{fig:Prepost_q3}
+		\includegraphics[width=1\linewidth]{figures/Imp_Control-q2}
+		\caption{IMP$_{(c_2)}$}
+		\label{fig:Imp_Control-q2}
 	\end{minipage}%
 	\begin{minipage}{.5\textwidth}
 		\centering
-		\includegraphics[width=1\linewidth]{figures/Prepost_q4}
-		\caption{Improvement for Q4}
-		\label{fig:Prepost_q4}
+		\includegraphics[width=1\linewidth]{figures/Imp_Treated-q2}
+		\caption{IMP$_{(t_2)}$}
+		\label{fig:Imp_Treated-q2}
 	\end{minipage}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.5\textwidth]{figures/Prepost_q5}
-	\caption{Improvement for Q5}
-	\label{fig:Prepost_q5}
+	\begin{minipage}{.5\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{figures/Imp_Control-q3}
+		\caption{IMP$_{(c_3)}$}
+		\label{fig:Imp_Control-q3}
+	\end{minipage}%
+	\begin{minipage}{.5\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{figures/Imp_Treated-q3}
+		\caption{IMP$_{(t_3)}$}
+		\label{fig:Imp_Treated-q3}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{minipage}{.5\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{figures/Imp_Control-q4}
+		\caption{IMP$_{(c_4)}$}
+		\label{fig:Imp_Control-q4}
+	\end{minipage}%
+	\begin{minipage}{.5\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{figures/Imp_Treated-q4}
+		\caption{IMP$_{(t_4)}$}
+		\label{fig:Imp_Treated-q4}
+	\end{minipage}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\begin{minipage}{.5\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{figures/Imp_Control-q5}
+		\caption{IMP$_{(c_5)}$}
+		\label{fig:Imp_Control-q5}
+	\end{minipage}%
+	\begin{minipage}{.5\textwidth}
+		\centering
+		\includegraphics[width=1\linewidth]{figures/Imp_Treated-q5}
+		\caption{IMP$_{(t_5)}$}
+		\label{fig:Imp_Treated-q5}
+	\end{minipage}
 \end{figure}
 
 \paragraph{Data Analysis}
-After calculating the improvements i.e., \textit{IMP$_{(i)}$} for each question, I used density plots to show their distribution. Figures~\ref{fig:Prepost_q1}, \ref{fig:Prepost_q2}, \ref{fig:Prepost_q3}, \ref{fig:Prepost_q4}, and \ref{fig:Prepost_q5} show the density plots of the improvements for each question. In the plots, the x-axis represents the improvement calculated as described in Section \ref{subsubsec:evaluation_formula} and ranges between -1 ("absolute negative learning") to 1 ("absolute positive learning"). The y-axis represents the density of 39 students lying over the interval. 
+After calculating the improvements i.e., \textit{IMP$_{(c_i)}$} and \textit{IMP$_{(t_i)}$} for each question, I used density plots to show their distribution. Figures~\ref{fig:Imp_Control-q1}, \ref{fig:Imp_Treated-q1}, \ref{fig:Imp_Control-q2}, \ref{fig:Imp_Treated-q2}, \ref{fig:Imp_Control-q3}, \ref{fig:Imp_Treated-q3}, \ref{fig:Imp_Control-q4}, \ref{fig:Imp_Treated-q4}, \ref{fig:Imp_Control-q5}, and \ref{fig:Imp_Treated-q5} show the density plots of the improvements for control group and treated group separately for each question. In the plots, the x-axis represents the improvement as described in Section \ref{subsubsec:evaluation_formula} ranging between -1 ("absolute negative learning") to 1 ("absolute positive learning"). The y-axis represents the density of 21 students in case of the control group and 18 students in case of the treated group lying over the interval.
 These density plots show that the improvement values are scattered over the entire interval quite uniformly on both sides of the value 0. But, it is very difficult to say whether the values are more on the positive side or more on the negative side. So it's very hard to accept or reject the null hypothesis just by looking at these plots.
 
-To gain an even better understanding of the data, I have further analyzed it with a t-test. As this hypothesis is related to only one set of improvement data, I have used the one-sample t-test.   
+To gain an even better understanding of the data, I have further analyzed it with a t-test. As this hypothesis is related to one set of improvement data at a time i.e., either the improvement for control group or the improvement of treated group, I have used the one-sample t-test.   
 
-In the experiment, posttest was conducted following the pretest. Hence, improvement is always calculated for posttest compared to the pretest by subtracting pretest (\textit{RES$_{pre(i)}$}) results from posttest (\textit{RES$_{post(i)}$}) results and then dividing it by two for normalizing it between -1 to 1. Hence the value less than 0 signifies "negative" improvement and the value greater than 0 signifies "positive" improvement. So this hypothesis can be expressed as:   
+The improvement is always calculated for posttest compared to the pretest. Here also improvement for control group is calculated subtracting control group pretest (\textit{RES$_{pre(c_i)}$}) results from control group posttest (\textit{RES$_{post(c_i)}$}) results and then dividing it by two for normalizing it between -1 to 1. Similarly, improvement for treated group is calculated subtracting treated group pretest (\textit{RES$_{pre(t_i)}$}) results from treated group posttest (\textit{RES$_{post(t_i)}$}) results and then dividing it by two for normalizing it between -1 to 1. Hence the value less than 0 signifies "negative" improvement and the value greater than 0 signifies "positive" improvement. As two independent groups are involved, this hypothesis can be expressed as:   
 
-Null Hypothesis, {H$_{NU2}$}: Mean ($\overrightarrow{\textit{IMP}}$\textit{$_{(i)}$}) < 0
+Null Hypothesis, {H$_{NU2}$}: 
+Mean (\textit{IMP$_{(c_i)}$}) < 0 and Mean (\textit{IMP$_{(t_i)}$}) < 0
 
-Hence, I have included the option (\textit{alternative="greater"}) during the calculation which signifies that according to the operational hypothesis the mean value has to be greater than the default value 0. The results from the t-test are shown in Table~\ref{tab:t-test_PrePostTest}. The 95\% confidence interval has been included for this t-test and this confidence interval spans the x-axis of the density plots.
+Hence, I have included the option (\textit{alternative="greater"}) during the calculation which signifies that according to the operational hypothesis the mean values has to be greater than the default value 0. The results from the t-test are shown in Table~\ref{tab:t-test_Imp-control} and \ref{tab:t-test_Imp-treated} for control and treated group respectively. The 95\% confidence interval has been included for this t-test.
 
 \paragraph{Discussion}
-From the t-test results as shown in Table~\ref{tab:t-test_PrePostTest}, it can be seen that the mean value of $\overrightarrow{\textit{IMP}}$\textit{$_{(i)}$} for question Q4 is almost equivalent to 0 and for questions Q1, Q2, Q3, and Q5 is less than 0. But, the p-values are on higher side.
+From the t-test results as shown in Table~\ref{tab:t-test_Imp-control}, it can be seen that the mean value of \textit{IMP$_{(c_i)}$} for all the questions are either less than 0 or close to 0.
+Similarly, from the t-test results as shown in Table~\ref{tab:t-test_Imp-treated}, it can be seen that the mean value of \textit{IMP$_{(t_i)}$} for all the questions are either less than 0 or close to 0. But, the p-values in these cases are on higher side. 
 
-Hence, the results of the analysis are not significant. Although some positive effect can be seen for the posttest results compared to the pretest results in terms of mean value, it is not evident to show that there is a significant difference to reject the null hypothesis {H$_{NU2}$}. This shows that for the fact whether demon-bx has a positive effect on the achievement of corresponding learning goals, no conclusive or significant results were obtained.
+This result indicates that participants learned negatively after using demon-bx tool. 
+Some improvement can be seen for the treated group compared to the control group in terms of mean values, which indicates that the demon-bx tool is more harmful without carefully designed scenarios (guidance steps for the user). With these results and higher p-values, the data were not significant enough to reject the null hypothesis {H$_{NU2}$}. This shows that for the fact whether demon-bx has a positive effect on the achievement of corresponding learning goals, no conclusive or significant results were obtained.
 
 \begin{table}[ht]
 	\centering	
@@ -419,63 +457,50 @@ Hence, the results of the analysis are not significant. Although some positive e
 		\rowcolor[gray]{.8}	
 		\textbf{} & \textbf{Students} & \textbf{Factor} & \textbf{t-value} & \textbf{p-value} & \textbf{mean}\\
 		\hline
-		Q1 & 39 & improvement (pre to post) &  -2.3269 & 0.9873 & -0.1602\\
+		Q1 & 21 & improvement (control grp) &  -1.7589 & 0.9531 & -0.1904\\
 		\hline
-		Q2 & 39 & improvement (pre to post) & -0.8623 & 0.803 & -0.0512\\
+		Q2 & 21 & improvement (control grp) & 0.3841 & 0.3524 & 0.0357\\
 		\hline
-		Q3 & 39 & improvement (pre to post) & -0.8572 & 0.8017 & -0.0512\\
+		Q3 & 21 & improvement (control grp) & -0.9604 & 0.8259 & -0.8928\\
 		\hline	
-		Q4 & 39 & improvement (pre to post) & 0.5337 & 0.2983 & 0.0352\\
+		Q4 & 21 & improvement (control grp) & 0.2071 & 0.419 & 0.0238\\
 		\hline
-		Q5 & 39 & improvement (pre to post) & -1.0283 & 0.8448 & -0.0737\\
+		Q5 & 21 & improvement (control grp) & -0.7853 & 0.7793 & -0.8333\\
 		\hline			
 	\end{tabular}
-	\caption{t-test result for improvement (All Participants)}
-	\label{tab:t-test_PrePostTest}
+	\caption{t-test result showing Improvement (Control Group)}
+	\label{tab:t-test_Imp-control}
+\end{table}
+
+\begin{table}[ht]
+	\centering	
+	\begin{tabular}{|p{1cm}|p{1.5cm}|p{4.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|}
+		\hline
+		\rowcolor[gray]{.8}	
+		\textbf{} & \textbf{Students} & \textbf{Factor} & \textbf{t-value} & \textbf{p-value} & \textbf{mean}\\
+		\hline
+		Q1 & 18 & improvement (treated grp) &  -1.5226 & 0.9269 & -0.125\\
+		\hline
+		Q2 & 18 & improvement (treated grp) & -2.3739 & 0.9852 & -0.1527\\
+		\hline
+		Q3 & 18 & improvement (treated grp) & -0.9578 & 0.5376 & -0.0069\\
+		\hline	
+		Q4 & 18 & improvement (treated grp) & 0.8911 & 0.1927 & 0.0486\\
+		\hline
+		Q5 & 18 & improvement (treated grp) & -0.6439 & 0.7359 & -0.0625\\
+		\hline			
+	\end{tabular}
+	\caption{t-test result showing Improvement (Treated Group)}
+	\label{tab:t-test_Imp-treated}
 \end{table}
 
 \subsubsection{Analyzing Hypothesis 3}\label{subsubsec:hypothesis3}
 Hypothesis 3 i.e., \textbf{H$_{OP3}$} and \textbf{H$_{NU3}$} is designed to investigate research question \textbf{RQ 4.2}. This hypothesis deals with the fact whether using demon-bx together with suitable scenarios is more effective than without scenarios. Data for \textbf{RQ 4.2} can be collected by comparing the improvement of the treated group than the control group. Because before appearing in the post-test, the treated group had used demon-bx with scenarios and the control group had used demon-bx without scenarios.
 
-As five questions were asked, the result can be calculated for each question from the pretest and posttest data separately for control and treated group. 
-
-\begin{figure}
-	\centering
-	\includegraphics[width=1\textwidth]{figures/Control-Treated_q1}
-	\caption{Comparison of improvement for Q1 (Control to Treated Group)}
-	\label{fig:Control-Treated_q1}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\includegraphics[width=1\textwidth]{figures/Control-Treated_q2}
-	\caption{Comparison of improvement for Q2 (Control to Treated Group)}
-	\label{fig:Control-Treated_q2}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\includegraphics[width=1\textwidth]{figures/Control-Treated_q3}
-	\caption{Comparison of improvement for Q3 (Control to Treated Group)}
-	\label{fig:Control-Treated_q3}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\includegraphics[width=1\textwidth]{figures/Control-Treated_q4}
-	\caption{Comparison of improvement for Q4 (Control to Treated Group)}
-	\label{fig:Control-Treated_q4}
-\end{figure}
-
-\begin{figure}
-	\centering
-	\includegraphics[width=1\textwidth]{figures/Control-Treated_q5}
-	\caption{Comparison of improvement for Q5 (Control to Treated Group)}
-	\label{fig:Control-Treated_q5}
-\end{figure}
+As five questions were asked, the improvement can be calculated for each question from the pretest and posttest data separately for control and treated group.  
 
 \paragraph{Data Analysis}
-After calculating the improvements for control and treated group separately i.e., \textit{IMP$_{(c_i)}$} and \textit{IMP$_{(t_i)}$} for each question, I used density plots to show their distribution. Figures~\ref{fig:Control-Treated_q1}, \ref{fig:Control-Treated_q2}, \ref{fig:Control-Treated_q3}, \ref{fig:Control-Treated_q4}, and \ref{fig:Control-Treated_q5} show the question wise density plots of the improvements for control and treated group. In the plots, the x-axis represents the improvement as described in Section \ref{subsubsec:evaluation_formula} ranging between -1 ("absolute negative learning") to 1 ("absolute positive learning"). The y-axis represents the density of 21 students in case of the control group and 18 students in case of the treated group lying over the interval. These figures show a comparison between the scattering of the improvement values for control and treated group. From these figures, both uniform and non-uniform distribution of the values can be seen on both sides of the value 0. But, for the naked eye, it is impossible to say whether the improvement in the case of treated group is more or the improvement in the case of the control group is more. So it's very hard to accept or reject the null hypothesis just by comparing these plots.
+After calculating the improvements for control and treated group separately i.e., \textit{IMP$_{(c_i)}$} and \textit{IMP$_{(t_i)}$} for each question, I used density plots to show their distribution. Figures~\ref{fig:Imp_Control-q1}, \ref{fig:Imp_Treated-q1}, \ref{fig:Imp_Control-q2}, \ref{fig:Imp_Treated-q2}, \ref{fig:Imp_Control-q3}, \ref{fig:Imp_Treated-q3}, \ref{fig:Imp_Control-q4}, \ref{fig:Imp_Treated-q4}, \ref{fig:Imp_Control-q5}, and \ref{fig:Imp_Treated-q5} show the question wise density plots of the improvements for control and treated group. In the plots, the x-axis represents the improvement as described in Section \ref{subsubsec:evaluation_formula} ranging between -1 ("absolute negative learning") to 1 ("absolute positive learning"). The y-axis represents the density of 21 students in case of the control group and 18 students in case of the treated group lying over the interval. These figures show a comparison between the scattering of the improvement values for control and treated group. From these figures, both uniform and non-uniform distribution of the values can be seen on both sides of the value 0. But, for the naked eye, it is impossible to say whether the improvement in the case of treated group is more or the improvement in the case of the control group is more. So it's very hard to accept or reject the null hypothesis just by comparing these plots.
 
 To gain a better understanding of the data, I have further analyzed it with a t-test. As this hypothesis is related to two sets of improvement data i.e., control and treated group, I have used the unpaired two-sample t-test.   
 
@@ -483,21 +508,21 @@ As mentioned earlier, improvement is always calculated for posttest compared to 
 
 Null Hypothesis, {H$_{NU3}$}: Mean (\textit{IMP$_{(c_i)}$}) - Mean (\textit{IMP$_{(t_i)}$}) > 0
 
-Hence, I have included the option (\textit{alternative="less", var.equal=TRUE}) during the calculation which signifies that according to the operational hypothesis, the mean value of the control group's improvement has to be less than the treated group's improvement assuming that both groups have equal standard deviation. Here I have assumed both groups to be equal as all the students were Master students from computer science branch with no or very less prior experience in synchronization, bidirectional transformation. The results from the t-test are shown in Table~\ref{tab:t-test_controltreated}. The 95\% confidence interval has been included for this t-test.
+Hence, I have included the option (\textit{alternative="less", var.equal=TRUE}) during the calculation which signifies that according to the operational hypothesis, the mean value of the control group's improvement has to be less than the treated group's improvement assuming that both groups have equal standard deviation. Here I have assumed both groups to be equal as all the students were Master students from computer science branch with no or very less prior experience in synchronization, bidirectional transformation. The 95\% confidence interval has been included for this t-test. The results from the t-test for all the participants are shown in Table~\ref{tab:t-test_controltreated}. For this hypothesis, I have additionally calculated the results with the same t-test only for the good students, i.e., students with some bx background knowledge and more than 90\% marks in exams. The results from the t-test for the good students are shown in Table~\ref{tab:t-test_controltreated_good}.
 
 \paragraph{Discussion}
-From the t-test results as shown in Table~\ref{tab:t-test_controltreated}, it can be seen that the mean difference of \textit{IMP$_{(c_i)}$} from \textit{IMP$_{(t_i)}$} for question Q2 is higher than 0 but for questions Q1, Q3, Q4, and Q5 is less than 0. But, the p-values in these cases are on higher side. Hence, the results of the analysis are not significant. Although some positive effect can be seen for the treated group compared to the control group in terms of mean value, it is not evident to show that there is a significant difference to reject the null hypothesis {H$_{NU3}$}. This might be because of the fact that the scenarios are not designed for all types of audience. For example, good students or the students with prior knowledge about bx might comprehend the scenarios better than the average students or the students with no prior knowledge about bx.
+From the t-test results (all participants) as shown in Table~\ref{tab:t-test_controltreated}, it can be seen that the mean difference of \textit{IMP$_{(c_i)}$} from \textit{IMP$_{(t_i)}$} for question Q2 is higher than 0 but for questions Q1, Q3, Q4, and Q5 are less than 0 with higher p-values. From the t-test results (good students) as shown in Table~\ref{tab:t-test_controltreated_good}, it can be seen that the mean difference of \textit{IMP$_{(c_i)}$} from \textit{IMP$_{(t_i)}$} for all questions are either less than 0 or very close to 0 with varying range of p-values.
 
-This result indicates that with suitable scenarios some positive learning can be achieved, but this is not evident in all cases and I was not able to conclude this with statistical significance.
+These results indicate that some positive effect can be seen for the treated group compared to the control group and this improvement in case of the good students are even better. But, with varying or higher p-values, the data were not significant enough to reject the null hypothesis {H$_{NU3}$}. This might be because of the fact that the scenarios are not designed for all types of audience. For example, good students or the students with prior knowledge about bx might comprehend the scenarios better than the average students or the students with no prior knowledge about bx. This shows that with suitable scenarios some positive learning can be achieved, but this is not evident in all cases and I was not able to conclude this with statistical significance.
 
 \begin{table}[ht]
 	\centering	
-	\begin{tabular}{|p{1cm}|p{1.5cm}|p{4.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|}
+	\begin{tabular}{|p{1cm}|p{2cm}|p{3.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|}
 		\hline
 		\rowcolor[gray]{.8}	
 		\textbf{} & \textbf{Students} & \textbf{Factor} & \textbf{t-value} & \textbf{p-value} & \textbf{mean diff.}\\
 		\hline
-		Q1 & 39 & Control vs. Treated & -0.8672 & 0.1957 & -0.1279\\
+		Q1 & 39 & Control vs. Treated & -0.8672 & 0.1957 & -0.0654\\
 		\hline
 		Q2 & 39 & Control vs. Treated & 1.6131 & 0.9424 & 0.1884\\
 		\hline
@@ -508,6 +533,28 @@ This result indicates that with suitable scenarios some positive learning can be
 		Q5 & 39 & Control vs. Treated & -0.143 & 0.4435 & -0.0208\\
 		\hline			
 	\end{tabular}
-	\caption{t-test (unpaired) result for improvement (Control vs. Treated Group)}
+	\caption{t-test result showing Improvement (Control vs. Treated Group: All Participants)}
 	\label{tab:t-test_controltreated}
+\end{table}
+
+\begin{table}[ht]
+	\centering	
+	\begin{tabular}{|p{1cm}|p{2cm}|p{3.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|}
+		\hline
+		\rowcolor[gray]{.8}	
+		\textbf{} & \textbf{Good Students} & \textbf{Factor} & \textbf{t-value} & \textbf{p-value} & \textbf{mean diff.}\\
+		\hline
+		Q1 & 12 & Control vs. Treated & -2.4058 & 0.0184 & -0.4791\\
+		\hline
+		Q2 & 12 & Control vs. Treated & -1.7341 & 0.0567 & -0.2708\\
+		\hline
+		Q3 & 12 & Control vs. Treated & -1.2738 & 0.1158 & -0.2916\\
+		\hline	
+		Q4 & 12 & Control vs. Treated & -0.584 & 0.2861 & -0.1666\\
+		\hline
+		Q5 & 12 & Control vs. Treated & 0.3274 & 0.625 & 0.0833\\
+		\hline			
+	\end{tabular}
+	\caption{t-test result showing Improvement (Control vs. Treated Group: Good Students)}
+	\label{tab:t-test_controltreated_good}
 \end{table}
