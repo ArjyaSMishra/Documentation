@@ -13,13 +13,13 @@ Figure~\ref{fig:Server_Servlet} describes the complete lifecycle of a servlet w.
 \begin{enumerate}
 	\item {The web server receives the \texttt{HTTP request} from the client interacting through a browser. After accepting the request, web server forwards the request to the web container i.e., Tomcat.}
 	\item {Web container sends the request to the \texttt{Servlet class}. If an instance of the servlet does not exist, the web container loads the servlet class then creates an instance of the servlet class and initializes the servlet instance by calling the \texttt{init} method.}
-	\item {After that, web container invokes the \texttt{service} methods (normally HTTP methods i.e., \texttt{get} , \texttt{post} , \texttt{put} , \texttt{delete}) of the servlet class by passing the request and response objects and the actual processing of the request is done and the response is generated.}
+	\item {After that, web container invokes the \texttt{service} methods (normally HTTP methods i.e., \texttt{get}, \texttt{post}, \texttt{put}, \texttt{delete}) of the servlet class by passing the request and response objects and the actual processing of the request is done and the response is generated.}
 	\item {Web container sends the response to the web server. Afterward, web server creates the HTTP response and send it back to the client.}
 \end{enumerate}
 
 \includepdf[pages={1-5}]{figures/Evaluation_TestQuestions}
 
-\paragraph{Transformation Rules} In this paragraph, I have described all the transformation rules implemented with eMoflon tool for the source and target models. Source models consist of a single \texttt{Grid}, with \texttt{Groups} that can occupy multiple \texttt{Blocks}. \texttt{Blocks} are additionally connected with all their neighbouring blocks. Target models consist of a single \texttt{Kitchen} with \texttt{ItemSockets} as placeholders for exactly one \texttt{Item}, i.e., sink, fridge, table etc.
+\paragraph{Transformation Rules} In this paragraph, I have described all the transformation rules implemented with eMoflon tool for the source and target models. Source models consist of a single \texttt{Grid}, with \texttt{Groups} that can occupy multiple \texttt{Blocks}. \texttt{Blocks} are additionally connected with all their neighboring blocks. Target models consist of a single \texttt{Kitchen} with \texttt{ItemSockets} as placeholders for exactly one \texttt{Item}, i.e., sink, fridge, table etc.
 
 1. \textit{Kitchen\_to\_Grid: }  Figure~\ref{fig:TR_Kitchen_to_Grid} describes that if you create a \texttt{Grid} in the source, then you should create a corresponding \texttt{Kitchen} in the target.
 
