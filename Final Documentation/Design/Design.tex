@@ -44,9 +44,7 @@ Hence, by taking into account all these factors, I and my supervisor constructed
 	\item [EC 5:] Example should be visual and involve shapes, colors and drag and drop (as opposed to text, menus, or tables).
 \end{description}
 
-Table~\ref{tab:comparison_examples} shows the comparison of the examples based on the evaluation criteria. "\checkmark" denotes the fulfillment of the evaluation criteria whereas, "\ding{55}" denotes the non-fulfillment of the evaluation criteria. This comparison table clearly shows that \textit{Planning a Kitchen} is the most suitable example as it fulfills all the evaluation criteria. So, I have finally chosen this example for the demonstrator and also as part of my research.
-
-\begin{table}
+\begin{table}[h]
 	\centering
 	\begin{tabular}{|lccccc|}
 		\hline
@@ -68,6 +66,8 @@ Table~\ref{tab:comparison_examples} shows the comparison of the examples based o
 	\caption{Comparison of examples based on evaluation criteria}
 	\label{tab:comparison_examples}
 \end{table}
+
+Table~\ref{tab:comparison_examples} shows the comparison of the examples based on the evaluation criteria. "\checkmark" denotes the fulfillment of the evaluation criteria whereas, "\ding{55}" denotes the non-fulfillment of the evaluation criteria. This comparison table clearly shows that \textit{Planning a Kitchen} is the most suitable example as it fulfills all the evaluation criteria. So, I have finally chosen this example for the demonstrator and also as part of my research.
 
 \subsection{BX Tool Selection}\label{subsec:bxtoolselection}
 Next step in the design process was the selection of a bx tool which takes care of the bx part of the demonstrator and upon which the entire framework of the demonstrator will be constructed. Again, it was a very important decision, as the selection of the bx tool and the implementation on the top of it will directly affect the research questions \textit{RQ 1}, \textit{RQ 2}  specified in Section \ref{subsec:probstmt}.
@@ -272,7 +272,8 @@ For the visualization of the chosen example \textit{Planning a Kitchen} as expla
 
 Both the views represent a workspace area and its certain behavior. The symbolic view has more functionalities and flexibility in usage than the layout view. As both the views are independent of each other and resonates a confined area in which certain task related to animation/graphics has to be performed, I chose \textit{Canvas} \cite{canvas} HTML element as a container for my views. \textit{Canvas} was the best fit for my views as it provides great support and application for creating animation and drawing graphics on the web.
 
-\begin{figure}
+\begin{figure}[h]
+	\centering
 	\includegraphics[width=1\textwidth]{figures/Layout_Kitchen}
 	\caption{Layout and Kitchen}
 	\label{fig:Layout_Kitchen}
@@ -368,7 +369,7 @@ As mentioned earlier, the symbolic view has more functionalities than the layout
 \textit{Example:} Figure~\ref{fig:Layout} shows a sample of the layout with a different set of groups filled with different colors. The layout contains three groups separated by three unique colors i.e., two horizontally adjacent blocks on the western wall with {\color{blue} blue} color, two vertically adjacent blocks on the northern wall with {\color{darkgreen} dark green} color, and two horizontal adjacent blocks in the middle of the layout with {\color{darkgray} dark gray} color.
 
 \paragraph{Compressing related deltas}
-Along with creating deltas, another challenge was to compressing different deltas (in some cases) into one in the process of capturing. Capturing every change that occurs on the views and sending them to the bx tool for processing is error-prone, complex, and sometimes even not required for the tool to handle. For example, creating an item in the kitchen, then deleting it and sending both of the changes to the bx tool do not make sense as the item does not exist anymore. Hence, rather capturing every change that occurs on the views, I have implemented a few rules while capturing them. The handling of a single delta is clear. But, the interesting part is rules for how to compress two deltas into one in some cases. All possible combinations are described in Figure~\ref{fig:seriesofdeltas}.
+Along with creating deltas, another challenge was to compressing different deltas (in some cases) into one in the process of capturing. 
 
 \begin{figure}[h]
 	\centering
@@ -376,6 +377,8 @@ Along with creating deltas, another challenge was to compressing different delta
 	\caption{Rules for compressing deltas}
 	\label{fig:seriesofdeltas}
 \end{figure}
+
+Capturing every change that occurs on the views and sending them to the bx tool for processing is error-prone, complex, and sometimes even not required for the tool to handle. For example, creating an item in the kitchen, then deleting it and sending both of the changes to the bx tool do not make sense as the item does not exist anymore. Hence, rather capturing every change that occurs on the views, I have implemented a few rules while capturing them. The handling of a single delta is clear. But, the interesting part is rules for how to compress two deltas into one in some cases. All possible combinations are described in Figure~\ref{fig:seriesofdeltas}.
 
 \textit{Example:} A user creates a table in the kitchen and then move it to a new location. In this situation, instead of creating two different deltas, I capture only one i.e., item created at a new location. Because creating a new item and then moving it to a new location is equivalent to creating a new item at the new location.
 
@@ -407,7 +410,7 @@ Another challenge that I faced during the implementation of the servlet was hand
 	\label{fig:Keyvalue_map}
 \end{figure}
 
-I solved this problem by generating a unique user id (GUID) for a user on the first time load of the application and associating all the further requests from that user with the specific GUID generated earlier till the browser is closed. On the first time load of the application, view generates a random sixteen digit unique user id (GUID) for the current user and sends it with the initialization request in the form of \texttt{JSON} data to the servlet wrapped inside an \texttt{Ajax} call. As the GUID contains sixteen digits generated randomly from system's time stamp, it is almost impossible that two users will have the same GUID. After receiving the request, the servlet creates a new instance of the adapter class and stores the GUID pointing to the newly created instance of the adapter inside a \texttt{key-value map} as shown in Figure. Then, the servlet forwards the initialization request to the newly created instance of the adapter class. As explained earlier in Section~\ref{subsubsec:design_controller}, the adapter initializes and communicates with the model and hence each instance of the adapter class is associated with a unique instance of the bx tool i.e., eMoflon. Hence, storing a GUID pointing to an instance of the adapter class actually maintains a link between a user and a specific instance of the bx tool i.e., instances of the bx tool specific models. Afterward, view always sends any request to the servlet along with the GUID generated earlier for the user. After receiving the request from the view, the servlet extracts the GUID and checks its existence inside the  key-value map. If the GUID exists, the servlet forwards the request to the corresponding adapter's instance. Finally, when the user closes the browser, the servlet deletes the entry of the GUID from the key-value map.
+I solved this problem by generating a unique user id (GUID) for a user on the first time load of the application and associating all the further requests from that user with the specific GUID generated earlier till the browser is closed. On the first time load of the application, view generates a random sixteen digit unique user id (GUID) for the current user and sends it with the initialization request in the form of \texttt{JSON} data to the servlet wrapped inside an \texttt{Ajax} call. As the GUID contains sixteen digits generated randomly from system's time stamp, it is almost impossible that two users will have the same GUID. After receiving the request, the servlet creates a new instance of the adapter class and stores the GUID pointing to the newly created instance of the adapter inside a \texttt{key-value map} as shown in Figure~\ref{fig:Keyvalue_map}. Then, the servlet forwards the initialization request to the newly created instance of the adapter class. As explained earlier in Section~\ref{subsubsec:design_controller}, the adapter initializes and communicates with the model and hence each instance of the adapter class is associated with a unique instance of the bx tool i.e., eMoflon. Hence, storing a GUID pointing to an instance of the adapter class actually maintains a link between a user and a specific instance of the bx tool i.e., instances of the bx tool specific models. Afterward, view always sends any request to the servlet along with the GUID generated earlier for the user. After receiving the request from the view, the servlet extracts the GUID and checks its existence inside the  key-value map. If the GUID exists, the servlet forwards the request to the corresponding adapter's instance. Finally, when the user closes the browser, the servlet deletes the entry of the GUID from the key-value map.
 
 \textit{Example:} The sequence diagram shown in Figure~\ref{fig:Sequence_Diagram-GUID} describes the communication process between the view and the controller involving a GUID for a specific user. On the first time load of the application, view generates unique user id i.e., GUID1 for the current user and sends it with the initialization request to the servlet. After receiving the request, the servlet creates a new instance of the adapter class i.e., a1 and stores GUID1 pointing to a1 inside a \texttt{key-value map}. Then, the servlet forwards the initialization request to a1. While sending deltas, view sends GUID1 along with the request to the servlet. After receiving the request from the view, the servlet checks the existence of GUID1 inside the key-value map. If the GUID1 exists, the servlet forwards the request to a1. Finally, when the user closes the browser, the servlet deletes the entry of the GUID1 from the key-value map.
 
