@@ -1,7 +1,7 @@
 \documentclass[%	draftcls,	% Remove when document becomes final!
 				12pt,
 				a4paper,
-				twoside,
+				oneside,
 				titlepage,
 				headsepline,
 				numbers=noenddot,
@@ -146,30 +146,45 @@
 			{\Large Master of Science}\\
 			\vspace{30pt}
 			\text{by} \\[4pt]
-			{\large ARJYA SHANKAR MISHRA}\\
-			Alois Fuchs Weg 7\\
-			33098 Paderborn\\ 	
+			{\scshape\large Arjya Shankar Mishra}\\	
 			\vspace{50pt}
 			Supervisors:\\[2pt]
-			{\large Jun. Prof. Dr. Anthony Anjorin}\\[5pt]
+			{\large Jun. Prof. Dr. Anthony Anjorin}\\
+			and\\
 			{\large Prof. Dr. Gregor Engels}\\
-			\vspace{50pt}
+			\vspace{60pt}
 			{Paderborn, \today}
 					
 	\end{center}
 	\end{titlepage}
 	\clearpage
 	
+	\thispagestyle{empty}          
+	\begin{center}
+		
+	\end{center}
+	\clearpage
+	
 	{
 		
         {\LARGE \textbf{Declaration}}
-        \vspace{20pt}
+        \newline(Translation from German)
+        \vspace{10pt}
 		
 		\noindent I hereby declare that I prepared this thesis entirely on my own and have not used outside sources
 		without declaration in the text. Any concepts or quotations applicable to these sources are
 		clearly attributed to them. This thesis has not been submitted in the same or substantially similar
-		version, not even in part, to any other authority for grading and has not been published elsewhere.\\[27pt]
+		version, not even in part, to any other authority for grading and has not been published elsewhere.\\
 		
+		{\LARGE \textbf{Original Declaration Text in German:}}\\[20pt]
+		{\LARGE \textbf{Erkl\"arung}}
+		\vspace{10pt}
+		
+		Ich versichere, dass ich die Arbeit ohne fremde Hilfe und ohne Benutzung anderer als der
+		angegebenen Quellen angefertigt habe und dass die Arbeit in gleicher oder \"ahnlicher Form
+		noch keiner anderen Pr\"ufungsbeh\"orde vorgelegen hat und von dieser als Teil einer
+		Pr\"ufungsleistung angenommen worden ist. Alle Ausf\"uhrungen, die w\"ortlich oder sinngem\"a\ss~
+		\"ubernommen worden sind, sind als solche ge\-kenn\-zeich\-net.\\[27pt]
 		
 		\begin{center}
 			\begin{tabular}{l p{0.1\textwidth} r}
@@ -190,8 +205,25 @@
 		\end{center}
 	}
 	\clearpage
+	
+	\thispagestyle{empty}          
+	\begin{center}
+		
+	\end{center}
+	\clearpage
 
   	\tableofcontents
+  	\clearpage
+  	
+  	\listoffigures
+  	\clearpage
+  	\listoftables
+  	\clearpage
+  	
+  	\thispagestyle{empty}          
+  	\begin{center}
+  		
+  	\end{center}
   	\clearpage
   	
   	\pagenumbering{arabic}
@@ -204,13 +236,31 @@
   	\input{Introduction/Introduction}
     \clearpage
     
+    \thispagestyle{empty}          
+    \begin{center}
+    	
+    \end{center}
+    \clearpage
+    
   	\input{Requirements/Requirements}
+    \clearpage
+    
+    \thispagestyle{empty}          
+    \begin{center}
+    	
+    \end{center}
     \clearpage
     
   	\input{RelatedWork/RelatedWork}
     \clearpage
     
   	\input{Design/Design}
+  	\clearpage
+  	
+  	\thispagestyle{empty}          
+  	\begin{center}
+  		
+  	\end{center}
   	\clearpage
  
   	\input{Evaluation/Evaluation}
@@ -221,14 +271,14 @@
     
     \input{Appendix/Appendix}
     \clearpage
-  	\listoffigures
-  	\clearpage
-  	\listoftables
-  	\clearpage
-  	
+    
+    \thispagestyle{empty}          
+    \begin{center}
+    	
+    \end{center}
+    \clearpage
+
   	\input{Appendix/References}
-  	
-  	
 	\clearpage
 
 \end{document}
